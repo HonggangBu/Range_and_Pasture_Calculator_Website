@@ -16,13 +16,14 @@ body {
 
 footer {
     padding: 15px;
-    background-color: darkslateblue;
+    background-color: rgb(116, 57, 152);
     color: white;
     text-align: center;
+    font-size: smaller;
 }
 
 .bg-darkblue {
-    background-color: darkslateblue;
+    background-color: rgb(116, 57, 152);
 }
 
 .nodisplay {
@@ -32,4 +33,33 @@ footer {
 .center-div {
     display: flex;
     justify-content: center;
+}
+
+.bg-lightgreen {
+    background-color: rgb(219, 243, 229);
+}
+
+.nav-tabs .nav-link {
+    color: #495057;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.nav-tabs .nav-link:hover {
+    color: #007bff;
+}
+
+.nav-tabs .nav-link.active {
+    color: #ffffff;
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.tab-content {
+    margin-top: 20px;
+}
+
+td {
+    text-align: left;
+    padding-left: 5px;
 }
