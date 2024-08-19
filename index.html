@@ -50,7 +50,584 @@
     </nav>
     <div id="root" class="container center-div">
         <div id="forageProductionDiv">
-            <p>This is the forage production page.</p>
+            <br>
+            <div>
+                <h2 class="text-center">Range and Forage Production Calculator</h2>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-md-2">
+                </div>
+                <div class="col-sm-8">
+                    <form id="forageProductionForm">
+                        <fieldset>
+                            <legend>Pasture Type</legend>
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" id="rangelandRadio" name="pastureTypeRadio"
+                                    value="rangelandRadio" checked>Rangeland
+                                <label class="form-check-label" for="rangelandRadio"></label>
+                            </div>
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" id="pastureRadio" name="pastureTypeRadio"
+                                    value="pastureRadio">Pasture, Tame Grass, Small Grains,
+                                Solid-seeded (Broadcast)
+                                Crops and Cover Crop Mixtures
+                                <label class="form-check-label" for="pastureRadio"></label>
+                            </div>
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" id="rowcropsRadio" name="pastureTypeRadio"
+                                    value="rowcropsRadio">Row Crops
+                                <label class="form-check-label" for="rowcropsRadio"></label>
+                            </div>
+                        </fieldset>
+                        <br>
+                        <fieldset>
+                            <legend>Sample Weight Type</legend>
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" id="dryRadio" name="drywetRadio"
+                                    value="dryRadio" checked>Air-Dried
+                                <label class="form-check-label" for="dryRadio"></label>
+                            </div>
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" id="wetRadio" name="drywetRadio"
+                                    value="wetRadio">Wet
+                                <label class="form-check-label" for="wetRadio"></label>
+                            </div>
+                        </fieldset>
+                        <br>
+                        <div id="PlantAndStageSelectDiv" class="nodisplay">
+                            <fieldset>
+                                <legend>Plant Type</legend>
+                                <select id="PlantTypeSelect" name="PlantTypSelect">
+                                    <optgroup label="Cool-season Grasses">
+                                        <option>Wheatgrasses, needlegrasses, perennial bromes, bluegrasses, fescues,
+                                            annuals such as oats, barley
+                                        </option>
+                                    </optgroup>
+                                    <optgroup label="Warm-season Grasses">
+                                        <option>Tall: bluestems, switchgrass, corn, sorghum, millet</option>
+                                        <option>Mid: side-oats grama, teff</option>
+                                        <option>Short: blue grama, buffalograss</option>
+                                    </optgroup>
+                                    <optgroup label="Other Range or Pasture Plants">
+                                        <option>Forbs</option>
+                                        <option>Shrubs</option>
+                                    </optgroup>
+                                </select>
+                            </fieldset>
+                            <br>
+                            <fieldset>
+                                <legend>Growth Stage</legend>
+                                <select id="GrowthStageSelect" name="GrowthStageSelect">
+                                    <option>Before Heading</option>
+                                    <option>Headed</option>
+                                    <option>Seed Ripe</option>
+                                    <option>Leaves Dry</option>
+                                    <option>Dormancy</option>
+                                </select>
+                            </fieldset>
+                        </div>
+                        <br>
+                        <div id="nonRangelandWeightDiv" class="nodisplay">
+                            <fieldset>
+                                <legend>Sample Quantity and Weight</legend>
+                                <select class="form-select" id="nonRangelandSampleQuantity">
+                                    <option value="">Select Your Sample Quantity</option>
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                    <option>6</option>
+                                    <option>7</option>
+                                    <option>8</option>
+                                    <option>9</option>
+                                    <option>10</option>
+                                    <option>11</option>
+                                    <option>12</option>
+                                    <option>13</option>
+                                    <option>14</option>
+                                    <option>15</option>
+                                    <option>16</option>
+                                    <option>17</option>
+                                    <option>18</option>
+                                    <option>19</option>
+                                    <option>20</option>
+                                    <option>21</option>
+                                    <option>22</option>
+                                    <option>23</option>
+                                    <option>24</option>
+                                    <option>25</option>
+                                    <option>26</option>
+                                    <option>27</option>
+                                    <option>28</option>
+                                    <option>29</option>
+                                    <option>30</option>
+                                </select>
+                                <br>
+
+                                <div id="nonRangelandInputLabelContainer"></div>
+                                <div id="nonRangelandInputContainer" class="input-container"></div>
+                            </fieldset>
+                        </div>
+                        <div id="rangelandWeightDiv">
+                            <fieldset>
+                                <legend>Sample Quantity and Weight</legend>
+                                <p><i>Note: </i>click the name of a land type to toggle expand or collapse</p>
+                                <div id="accordion">
+                                    <div class="card">
+                                        <div class="card-header d-grid">
+                                            <a class="btn" data-bs-toggle="collapse" href="#uplandLoamySample">
+                                                Upland Loamy
+                                            </a>
+                                        </div>
+                                        <div id="uplandLoamySample" class="collapse show" data-bs-parent="#accordion">
+                                            <div class="card-body">
+                                                <select class="form-select" id="uplandLoamySampleQuantity">
+                                                    <option value="">Select Your Sample Quantity</option>
+                                                    <option>1</option>
+                                                    <option>2</option>
+                                                    <option>3</option>
+                                                    <option>4</option>
+                                                    <option>5</option>
+                                                    <option>6</option>
+                                                    <option>7</option>
+                                                    <option>8</option>
+                                                    <option>9</option>
+                                                    <option>10</option>
+                                                    <option>11</option>
+                                                    <option>12</option>
+                                                    <option>13</option>
+                                                    <option>14</option>
+                                                    <option>15</option>
+                                                    <option>16</option>
+                                                    <option>17</option>
+                                                    <option>18</option>
+                                                    <option>19</option>
+                                                    <option>20</option>
+                                                    <option>21</option>
+                                                    <option>22</option>
+                                                    <option>23</option>
+                                                    <option>24</option>
+                                                    <option>25</option>
+                                                    <option>26</option>
+                                                    <option>27</option>
+                                                    <option>28</option>
+                                                    <option>29</option>
+                                                    <option>30</option>
+                                                </select>
+                                                <br>
+                                                <div id="uplandLoamyInputLabelContainer"></div>
+                                                <div id="uplandLoamyInputContainer" class="input-container"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        <div class="card-header d-grid">
+                                            <a class="btn" data-bs-toggle="collapse" href="#uplandSandySample">
+                                                Upland Sandy
+                                            </a>
+                                        </div>
+                                        <div id="uplandSandySample" class="collapse" data-bs-parent="#accordion">
+                                            <div class="card-body">
+                                                <select class="form-select" id="uplandSandySampleQuantity">
+                                                    <option value="">Select Your Sample Quantity</option>
+                                                    <option>1</option>
+                                                    <option>2</option>
+                                                    <option>3</option>
+                                                    <option>4</option>
+                                                    <option>5</option>
+                                                    <option>6</option>
+                                                    <option>7</option>
+                                                    <option>8</option>
+                                                    <option>9</option>
+                                                    <option>10</option>
+                                                    <option>11</option>
+                                                    <option>12</option>
+                                                    <option>13</option>
+                                                    <option>14</option>
+                                                    <option>15</option>
+                                                    <option>16</option>
+                                                    <option>17</option>
+                                                    <option>18</option>
+                                                    <option>19</option>
+                                                    <option>20</option>
+                                                    <option>21</option>
+                                                    <option>22</option>
+                                                    <option>23</option>
+                                                    <option>24</option>
+                                                    <option>25</option>
+                                                    <option>26</option>
+                                                    <option>27</option>
+                                                    <option>28</option>
+                                                    <option>29</option>
+                                                    <option>30</option>
+                                                </select>
+                                                <br>
+                                                <div id="uplandSandyInputLabelContainer"></div>
+                                                <div id="uplandSandyInputContainer" class="input-container"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        <div class="card-header d-grid">
+                                            <a class="btn" data-bs-toggle="collapse" href="#uplandClayeySample">
+                                                Upland Clayey
+                                            </a>
+                                        </div>
+                                        <div id="uplandClayeySample" class="collapse" data-bs-parent="#accordion">
+                                            <div class="card-body">
+                                                <select class="form-select" id="uplandClayeySampleQuantity">
+                                                    <option value="">Select Your Sample Quantity</option>
+                                                    <option>1</option>
+                                                    <option>2</option>
+                                                    <option>3</option>
+                                                    <option>4</option>
+                                                    <option>5</option>
+                                                    <option>6</option>
+                                                    <option>7</option>
+                                                    <option>8</option>
+                                                    <option>9</option>
+                                                    <option>10</option>
+                                                    <option>11</option>
+                                                    <option>12</option>
+                                                    <option>13</option>
+                                                    <option>14</option>
+                                                    <option>15</option>
+                                                    <option>16</option>
+                                                    <option>17</option>
+                                                    <option>18</option>
+                                                    <option>19</option>
+                                                    <option>20</option>
+                                                    <option>21</option>
+                                                    <option>22</option>
+                                                    <option>23</option>
+                                                    <option>24</option>
+                                                    <option>25</option>
+                                                    <option>26</option>
+                                                    <option>27</option>
+                                                    <option>28</option>
+                                                    <option>29</option>
+                                                    <option>30</option>
+                                                </select>
+                                                <br>
+                                                <div id="uplandClayeyInputLabelContainer"></div>
+                                                <div id="uplandClayeyInputContainer" class="input-container"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        <div class="card-header d-grid">
+                                            <a class="btn" data-bs-toggle="collapse" href="#uplandShallowSample">
+                                                Upland Shallow
+                                            </a>
+                                        </div>
+                                        <div id="uplandShallowSample" class="collapse" data-bs-parent="#accordion">
+                                            <div class="card-body">
+                                                <select class="form-select" id="uplandShallowSampleQuantity">
+                                                    <option value="">Select Your Sample Quantity</option>
+                                                    <option>1</option>
+                                                    <option>2</option>
+                                                    <option>3</option>
+                                                    <option>4</option>
+                                                    <option>5</option>
+                                                    <option>6</option>
+                                                    <option>7</option>
+                                                    <option>8</option>
+                                                    <option>9</option>
+                                                    <option>10</option>
+                                                    <option>11</option>
+                                                    <option>12</option>
+                                                    <option>13</option>
+                                                    <option>14</option>
+                                                    <option>15</option>
+                                                    <option>16</option>
+                                                    <option>17</option>
+                                                    <option>18</option>
+                                                    <option>19</option>
+                                                    <option>20</option>
+                                                    <option>21</option>
+                                                    <option>22</option>
+                                                    <option>23</option>
+                                                    <option>24</option>
+                                                    <option>25</option>
+                                                    <option>26</option>
+                                                    <option>27</option>
+                                                    <option>28</option>
+                                                    <option>29</option>
+                                                    <option>30</option>
+                                                </select>
+                                                <br>
+                                                <div id="uplandShallowInputLabelContainer"></div>
+                                                <div id="uplandShallowInputContainer" class="input-container"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        <div class="card-header d-grid">
+                                            <a class="btn" data-bs-toggle="collapse" href="#uplandVeryShallowSample">
+                                                Upland Very Shallow / Thin ClayPan
+                                            </a>
+                                        </div>
+                                        <div id="uplandVeryShallowSample" class="collapse" data-bs-parent="#accordion">
+                                            <div class="card-body">
+                                                <select class="form-select" id="uplandVeryShallowSampleQuantity">
+                                                    <option value="">Select Your Sample Quantity</option>
+                                                    <option>1</option>
+                                                    <option>2</option>
+                                                    <option>3</option>
+                                                    <option>4</option>
+                                                    <option>5</option>
+                                                    <option>6</option>
+                                                    <option>7</option>
+                                                    <option>8</option>
+                                                    <option>9</option>
+                                                    <option>10</option>
+                                                    <option>11</option>
+                                                    <option>12</option>
+                                                    <option>13</option>
+                                                    <option>14</option>
+                                                    <option>15</option>
+                                                    <option>16</option>
+                                                    <option>17</option>
+                                                    <option>18</option>
+                                                    <option>19</option>
+                                                    <option>20</option>
+                                                    <option>21</option>
+                                                    <option>22</option>
+                                                    <option>23</option>
+                                                    <option>24</option>
+                                                    <option>25</option>
+                                                    <option>26</option>
+                                                    <option>27</option>
+                                                    <option>28</option>
+                                                    <option>29</option>
+                                                    <option>30</option>
+                                                </select>
+                                                <br>
+                                                <div id="uplandVeryShallowInputLabelContainer"></div>
+                                                <div id="uplandVeryShallowInputContainer" class="input-container"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        <div class="card-header d-grid">
+                                            <a class="btn" data-bs-toggle="collapse" href="#lowlandOverflowSample">
+                                                Lowland Overflow
+                                            </a>
+                                        </div>
+                                        <div id="lowlandOverflowSample" class="collapse" data-bs-parent="#accordion">
+                                            <div class="card-body">
+                                                <select class="form-select" id="lowlandOverflowSampleQuantity">
+                                                    <option value="">Select Your Sample Quantity</option>
+                                                    <option>1</option>
+                                                    <option>2</option>
+                                                    <option>3</option>
+                                                    <option>4</option>
+                                                    <option>5</option>
+                                                    <option>6</option>
+                                                    <option>7</option>
+                                                    <option>8</option>
+                                                    <option>9</option>
+                                                    <option>10</option>
+                                                    <option>11</option>
+                                                    <option>12</option>
+                                                    <option>13</option>
+                                                    <option>14</option>
+                                                    <option>15</option>
+                                                    <option>16</option>
+                                                    <option>17</option>
+                                                    <option>18</option>
+                                                    <option>19</option>
+                                                    <option>20</option>
+                                                    <option>21</option>
+                                                    <option>22</option>
+                                                    <option>23</option>
+                                                    <option>24</option>
+                                                    <option>25</option>
+                                                    <option>26</option>
+                                                    <option>27</option>
+                                                    <option>28</option>
+                                                    <option>29</option>
+                                                    <option>30</option>
+                                                </select>
+                                                <br>
+                                                <div id="lowlandOverflowInputLabelContainer"></div>
+                                                <div id="lowlandOverflowInputContainer" class="input-container"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        <div class="card-header d-grid">
+                                            <a class="btn" data-bs-toggle="collapse" href="#lowlandWetMeadowSample">
+                                                Lowland Wet Meadow
+                                            </a>
+                                        </div>
+                                        <div id="lowlandWetMeadowSample" class="collapse" data-bs-parent="#accordion">
+                                            <div class="card-body">
+                                                <select class="form-select" id="lowlandWetMeadowSampleQuantity">
+                                                    <option value="">Select Your Sample Quantity</option>
+                                                    <option>1</option>
+                                                    <option>2</option>
+                                                    <option>3</option>
+                                                    <option>4</option>
+                                                    <option>5</option>
+                                                    <option>6</option>
+                                                    <option>7</option>
+                                                    <option>8</option>
+                                                    <option>9</option>
+                                                    <option>10</option>
+                                                    <option>11</option>
+                                                    <option>12</option>
+                                                    <option>13</option>
+                                                    <option>14</option>
+                                                    <option>15</option>
+                                                    <option>16</option>
+                                                    <option>17</option>
+                                                    <option>18</option>
+                                                    <option>19</option>
+                                                    <option>20</option>
+                                                    <option>21</option>
+                                                    <option>22</option>
+                                                    <option>23</option>
+                                                    <option>24</option>
+                                                    <option>25</option>
+                                                    <option>26</option>
+                                                    <option>27</option>
+                                                    <option>28</option>
+                                                    <option>29</option>
+                                                    <option>30</option>
+                                                </select>
+                                                <br>
+                                                <div id="lowlandWetMeadowInputLabelContainer"></div>
+                                                <div id="lowlandWetMeadowInputContainer" class="input-container"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+                        <br>
+                        <div class="mb-3" id="calculateBtnDiv">
+                            <div class="d-grid">
+                                <button id="calculateBtn" type="submit" class="btn btn-primary btn-block">
+                                    <h4>CALCULATE</h4>
+                                </button>
+                            </div>
+                        </div>
+
+                        <br>
+
+                        <div id="rangelandResultDiv" class="nodisplay">
+                            <div class="generalResultTitle">
+                                <h5>Calculated Results</h5>
+                            </div>
+
+                            <div class="card">
+                                <div class="card-header d-grid">
+                                    <a class="btn" data-bs-toggle="collapse" href="#uplandLoamyResultDiv">
+                                        Upland Loamy
+                                    </a>
+                                </div>
+                                <div id="uplandLoamyResultDiv" class="collapse show"
+                                    data-bs-parent="#rangelandResultDiv">
+                                    <div class="card-body resultTextbox" id="uplandLoamyResultDisplay">
+                                    </div>
+                                </div>
+                                <br>
+                            </div>
+                            <div class="card">
+                                <div class="card-header d-grid">
+                                    <a class="btn" data-bs-toggle="collapse" href="#uplandSandyResultDiv">
+                                        Upland Sandy
+                                    </a>
+                                </div>
+                                <div id="uplandSandyResultDiv" class="collapse" data-bs-parent="#rangelandResultDiv">
+                                    <div class="card-body resultTextbox" id="uplandSandyResultDisplay">
+                                    </div>
+                                </div>
+                                <br>
+                            </div>
+                            <div class="card">
+                                <div class="card-header d-grid">
+                                    <a class="btn" data-bs-toggle="collapse" href="#uplandClayeyResultDiv">
+                                        Upland Clayey
+                                    </a>
+                                </div>
+                                <div id="uplandClayeyResultDiv" class="collapse" data-bs-parent="#rangelandResultDiv">
+                                    <div class="card-body resultTextbox" id="uplandClayeyResultDisplay">
+                                    </div>
+                                </div>
+                                <br>
+                            </div>
+                            <div class="card">
+                                <div class="card-header d-grid">
+                                    <a class="btn" data-bs-toggle="collapse" href="#uplandShallowResultDiv">
+                                        Upland Shallow
+                                    </a>
+                                </div>
+                                <div id="uplandShallowResultDiv" class="collapse" data-bs-parent="#rangelandResultDiv">
+                                    <div class="card-body resultTextbox" id="uplandShallowResultDisplay">
+                                    </div>
+                                </div>
+                                <br>
+                            </div>
+                            <div class="card">
+                                <div class="card-header d-grid">
+                                    <a class="btn" data-bs-toggle="collapse" href="#uplandVeryShallowResultDiv">
+                                        Upland Very Shallow / Thin ClayPan
+                                    </a>
+                                </div>
+                                <div id="uplandVeryShallowResultDiv" class="collapse"
+                                    data-bs-parent="#rangelandResultDiv">
+                                    <div class="card-body resultTextbox" id="uplandVeryShallowResultDisplay">
+                                    </div>
+                                </div>
+                                <br>
+                            </div>
+                            <div class="card">
+                                <div class="card-header d-grid">
+                                    <a class="btn" data-bs-toggle="collapse" href="#lowlandOverflowResultDiv">
+                                        Lowland Overflow
+                                    </a>
+                                </div>
+                                <div id="lowlandOverflowResultDiv" class="collapse"
+                                    data-bs-parent="#rangelandResultDiv">
+                                    <div class="card-body resultTextbox" id="lowlandOverflowResultDisplay">
+                                    </div>
+                                </div>
+                                <br>
+                            </div>
+                            <div class="card">
+                                <div class="card-header d-grid">
+                                    <a class="btn" data-bs-toggle="collapse" href="#lowlandWetMeadowResultDiv">
+                                        Lowland Wet Meadow
+                                    </a>
+                                </div>
+                                <div id="lowlandWetMeadowResultDiv" class="collapse"
+                                    data-bs-parent="#rangelandResultDiv">
+                                    <div class="card-body resultTextbox" id="lowlandWetMeadowResultDisplay">
+                                    </div>
+                                </div>
+                                <br>
+                            </div>
+
+                        </div>
+                        <div id="nonRangelandResultDiv" class="nodisplay">
+                            <div class="generalResultTitle">
+                                <h5>Calculated Results</h5>
+                            </div>
+                            <div class="center-div">
+                                <input type="text" id="nonRangelandResultDisplay" class="resultDisplay" readonly>
+                            </div>
+                        </div>
+                        <br>
+                    </form>
+                </div>
+                <div class="col-md-2">
+                </div>
+            </div>
+
         </div>
         <div id="stockingRateDiv" class="nodisplay">
             <p>This is the stocking rate page.</p>
