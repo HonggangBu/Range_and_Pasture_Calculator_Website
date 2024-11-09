@@ -27,8 +27,12 @@
         <div class="collapse navbar-collapse" id="collapsibleNavbar">
             &nbsp;
             <ul class="navbar-nav" id="navBtns">
+                <li class="nav-item" role="presentation">
+                    <a id="navAbout" class="nav-link active largeBoldFont" href="#">&nbsp;&nbsp;Home</a>
+                </li>
+                &nbsp;
                 <li class="nav-item">
-                    <a id="navForageProduction" class="nav-link active largeBoldFont" href="#">&nbsp;&nbsp;Forage
+                    <a id="navForageProduction" class="nav-link largeBoldFont" href="#">&nbsp;&nbsp;Forage
                         Production</a>
                 </li>
                 &nbsp;
@@ -41,18 +45,124 @@
                         Capacity</a>
                 </li>
                 &nbsp;
-                <li class="nav-item" role="presentation">
-                    <a id="navAbout" class="nav-link largeBoldFont" href="#">&nbsp;&nbsp;About</a>
-                </li>
-                &nbsp;
             </ul>
         </div>
     </nav>
     <div id="root" class="container center-div">
-        <div id="forageProductionDiv">
+        <div id="aboutDiv">
+            <div class="bg-lightgreen">
+                <ul class="nav nav-tabs center-div" id="myTab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="intro-tab" data-bs-toggle="tab" data-bs-target="#intro"
+                            type="button" role="tab" aria-controls="intro" aria-selected="true">About</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="docs-tab" data-bs-toggle="tab" data-bs-target="#docs" type="button"
+                            role="tab" aria-controls="docs" aria-selected="false">Documents</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact"
+                            type="button" role="tab" aria-controls="contact" aria-selected="false">Contact</button>
+                    </li>
+                </ul>
+            </div>
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="intro" role="tabpanel" aria-labelledby="intro-tab">
+                    <p>Welcome to the NDSU Grazing Calculator!
+                        <br><br>
+                        Establishing the correct stocking rate is critical in optimizing forage production and
+                        maintaining animal performance while ensuring the sustained health of the grazing resources.
+                        Accurately calculating range and forage production of grazing resources is important when
+                        estimating carrying capacity and stocking rate. The most accurate method to calculate forage
+                        production is the clip-and-weigh method. The NDSU Grazing Calculator helps land
+                        manager/owner
+                        estimate carrying capacity and set initial stocking rate for their grazing resources.
+                        <br><br>
+                        Carrying capacity is a measurement of how much forage a unit or piece of ground is able to
+                        produce on an average year. The carrying capacity is the maximum stocking rate possible that
+                        is
+                        consistent with maintaining or improving the forage and plant community, and other related
+                        resources. Stocking rate is the number of animals grazing a unit of land for a specific time
+                        period. Stocking rate is one of the most important grazing management decisions a rancher or
+                        land manager makes.
+                        <br><br>
+                        For detailed information, please check the documents or reach out to the contact
+                        presented in this application.
+                    </p>
+                </div>
+                <div class="tab-pane fade" id="docs" role="tabpanel" aria-labelledby="docs-tab">
+                    <dl>
+                        <br>
+                        <dt><b>- Range and Forage Production Sample Kits</b></dt>
+                        <dd>&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;
+                            <a href="https://www.ndsu.edu/agriculture/extension/publications/ndsu-extension-range-and-forage-production-sample-kits"
+                                target="_blank">web version</a>
+                            <br> &nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;
+                            <a href="https://www.ndsu.edu/agriculture/sites/default/files/2022-05/r1838.pdf"
+                                target="_blank">online pdf version</a>
+                            <br> &nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;
+                            <a href="documents/RangeForageProduction2022.pdf" target="_blank">offline pdf
+                                version</a>
+                        </dd>
+                        <br>
+                        <dt><b>- Determining Carrying Capacity and Stocking Rates for Range and Pasture in North
+                                Dakota</b></dt>
+                        <dd>&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;
+                            <a href="https://www.ndsu.edu/agriculture/ag-hub/publications/determining-carrying-capacity-and-stocking-rates-range-and-pasture-north-dakota"
+                                target="_blank">web version</a>
+                            <br> &nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;
+                            <a href="https://www.ndsu.edu/agriculture/sites/default/files/2024-04/r1810.pdf"
+                                target="_blank">online pdf version</a>
+                            <br> &nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;
+                            <a href="documents/carryCapacityStockingRate2024.pdf" target="_blank">offline pdf
+                                version</a>
+                        </dd>
+                    </dl>
+                </div>
+                <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+                    <div class="text-center">
+                        <a href="https://www.ndsu.edu/agriculture/ag-home/directory/miranda-meehan" target="_blank"><img
+                                src="images/Meehan.jpg" alt="Dr. Miranda Meehan" width="200"></a>
+                        <br />
+                        <a href="https://www.ndsu.edu/agriculture/ag-home/directory/miranda-meehan" target="_blank">
+                            <h5>Dr. Miranda Meehan</h5>
+                        </a>
+                        <h6><b>Assoc Prof/Livestock Environmental Stewardship Spec & Ext Disaster Edu Coord</b></h6>
+                        <h7><b>Department of Animal Sciences, School of Natural Resource Sciences, NDSU</b></h7>
+                        <br>
+                        <div class="center-div">
+                            <table>
+                                <tr>
+                                    <td><u>Office:</u></td>
+                                    <td>Hultz Hall 191, NDSU
+                                        Fargo, ND 58102</td>
+                                </tr>
+                                <tr>
+                                    <td><u>Mailing Address:</u></td>
+                                    <td>
+                                        NDSU Dept 7630, PO Box 6050
+                                        Fargo, ND 58108-6050
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><u>Phone:</u></td>
+                                    <td>701-231-7683</td>
+                                </tr>
+                                <tr>
+                                    <td><u>Email:</u></td>
+                                    <td>miranda.meehan@ndsu.edu</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div id="forageProductionDiv" class="nodisplay">
             <br>
             <div>
-                <h2 class="text-center">Range and Forage Production Calculator</h2>
+                <h2 class="text-center">Forage Production Calculator</h2>
             </div>
             <br>
             <div class="row">
@@ -61,18 +171,18 @@
                 <div class="col-sm-8">
                     <form id="forageProductionForm">
                         <fieldset>
-                            <legend>Pasture Type</legend>
+                            <legend>Pasture or Field Type</legend>
                             <div class="form-check">
                                 <input type="radio" class="form-check-input" id="rangelandRadio" name="pastureTypeRadio"
-                                    value="rangelandRadio" checked>Rangeland
+                                    value="rangelandRadio" checked>Rangeland and Tame Grass Pastures
                                 <label class="form-check-label" for="rangelandRadio"></label>
                             </div>
                             <div class="form-check">
-                                <input type="radio" class="form-check-input" id="pastureRadio" name="pastureTypeRadio"
-                                    value="pastureRadio">Pasture, Tame Grass, Small Grains,
-                                Solid-seeded (Broadcast)
-                                Crops and Cover Crop Mixtures
-                                <label class="form-check-label" for="pastureRadio"></label>
+                                <input type="radio" class="form-check-input" id="smallgrainsRadio"
+                                    name="pastureTypeRadio" value="smallgrainsRadio">Small Grains, Solid-seeded
+                                (Broadcast) Crops and Cover Crop
+                                Mixtures
+                                <label class="form-check-label" for="smallgrainsRadio"></label>
                             </div>
                             <div class="form-check">
                                 <input type="radio" class="form-check-input" id="rowcropsRadio" name="pastureTypeRadio"
@@ -508,9 +618,10 @@
                             </fieldset>
                         </div>
                         <br>
-                        <div class="mb-3" id="calculateBtnDiv">
+                        <div class="mb-3" id="forageProductionCalculateBtnDiv">
                             <div class="d-grid">
-                                <button id="calculateBtn" type="submit" class="btn btn-primary btn-block">
+                                <button id="forageProductionCalculateBtn" type="submit"
+                                    class="btn btn-primary btn-block">
                                     <h4>CALCULATE</h4>
                                 </button>
                             </div>
@@ -522,96 +633,58 @@
                             <div class="generalResultTitle">
                                 <h5>Calculated Results</h5>
                             </div>
-
-                            <div class="card">
-                                <div class="card-header d-grid">
-                                    <a class="btn" data-bs-toggle="collapse" href="#uplandLoamyResultDiv">
-                                        Upland Loamy
-                                    </a>
-                                </div>
-                                <div id="uplandLoamyResultDiv" class="collapse show"
-                                    data-bs-parent="#rangelandResultDiv">
-                                    <div class="card-body resultTextbox" id="uplandLoamyResultDisplay">
-                                    </div>
-                                </div>
-                                <br>
+                            <br>
+                            <div id="rangelandResultDisplayTable">
+                                <table class="table table-striped">
+                                    <tr>
+                                        <th>Land Type</th>
+                                        <th>Forage Production (pounds/acre)</th>
+                                    </tr>
+                                    <tr>
+                                        <td>Upland Loamy</td>
+                                        <td>
+                                            <div id="uplandLoamyResultDisplayFP"></div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Upland Sandy</td>
+                                        <td>
+                                            <div id="uplandSandyResultDisplayFP"></div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Upland Clayey</td>
+                                        <td>
+                                            <div id="uplandClayeyResultDisplayFP"></div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Upland Shallow</td>
+                                        <td>
+                                            <div id="uplandShallowResultDisplayFP"></div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Upland Very Shallow / Thin ClayPan</td>
+                                        <td>
+                                            <div id="uplandVeryShallowResultDisplayFP"></div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Lowland Overflow</td>
+                                        <td>
+                                            <div id="lowlandOverflowResultDisplayFP"></div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Lowland Wet Meadow</td>
+                                        <td>
+                                            <div id="lowlandWetMeadowResultDisplayFP"></div>
+                                        </td>
+                                    </tr>
+                                </table>
                             </div>
-                            <div class="card">
-                                <div class="card-header d-grid">
-                                    <a class="btn" data-bs-toggle="collapse" href="#uplandSandyResultDiv">
-                                        Upland Sandy
-                                    </a>
-                                </div>
-                                <div id="uplandSandyResultDiv" class="collapse" data-bs-parent="#rangelandResultDiv">
-                                    <div class="card-body resultTextbox" id="uplandSandyResultDisplay">
-                                    </div>
-                                </div>
-                                <br>
-                            </div>
-                            <div class="card">
-                                <div class="card-header d-grid">
-                                    <a class="btn" data-bs-toggle="collapse" href="#uplandClayeyResultDiv">
-                                        Upland Clayey
-                                    </a>
-                                </div>
-                                <div id="uplandClayeyResultDiv" class="collapse" data-bs-parent="#rangelandResultDiv">
-                                    <div class="card-body resultTextbox" id="uplandClayeyResultDisplay">
-                                    </div>
-                                </div>
-                                <br>
-                            </div>
-                            <div class="card">
-                                <div class="card-header d-grid">
-                                    <a class="btn" data-bs-toggle="collapse" href="#uplandShallowResultDiv">
-                                        Upland Shallow
-                                    </a>
-                                </div>
-                                <div id="uplandShallowResultDiv" class="collapse" data-bs-parent="#rangelandResultDiv">
-                                    <div class="card-body resultTextbox" id="uplandShallowResultDisplay">
-                                    </div>
-                                </div>
-                                <br>
-                            </div>
-                            <div class="card">
-                                <div class="card-header d-grid">
-                                    <a class="btn" data-bs-toggle="collapse" href="#uplandVeryShallowResultDiv">
-                                        Upland Very Shallow / Thin ClayPan
-                                    </a>
-                                </div>
-                                <div id="uplandVeryShallowResultDiv" class="collapse"
-                                    data-bs-parent="#rangelandResultDiv">
-                                    <div class="card-body resultTextbox" id="uplandVeryShallowResultDisplay">
-                                    </div>
-                                </div>
-                                <br>
-                            </div>
-                            <div class="card">
-                                <div class="card-header d-grid">
-                                    <a class="btn" data-bs-toggle="collapse" href="#lowlandOverflowResultDiv">
-                                        Lowland Overflow
-                                    </a>
-                                </div>
-                                <div id="lowlandOverflowResultDiv" class="collapse"
-                                    data-bs-parent="#rangelandResultDiv">
-                                    <div class="card-body resultTextbox" id="lowlandOverflowResultDisplay">
-                                    </div>
-                                </div>
-                                <br>
-                            </div>
-                            <div class="card">
-                                <div class="card-header d-grid">
-                                    <a class="btn" data-bs-toggle="collapse" href="#lowlandWetMeadowResultDiv">
-                                        Lowland Wet Meadow
-                                    </a>
-                                </div>
-                                <div id="lowlandWetMeadowResultDiv" class="collapse"
-                                    data-bs-parent="#rangelandResultDiv">
-                                    <div class="card-body resultTextbox" id="lowlandWetMeadowResultDisplay">
-                                    </div>
-                                </div>
-                                <br>
-                            </div>
-
+                            <br>
                         </div>
                         <div id="nonRangelandResultDiv" class="nodisplay">
                             <div class="generalResultTitle">
@@ -630,108 +703,548 @@
 
         </div>
         <div id="stockingRateDiv" class="nodisplay">
-            <p>This is the stocking rate page.</p>
-
-        </div>
-        <div id="carryingCapacityDiv" class="nodisplay">
-            <p>This is the carrying capacity page.</p>
-        </div>
-        <div id="aboutDiv" class="nodisplay">
-            <div class="bg-lightgreen">
-                <ul class="nav nav-tabs center-div" id="myTab" role="tablist">
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link active" id="intro-tab" data-bs-toggle="tab" data-bs-target="#intro"
-                            type="button" role="tab" aria-controls="intro" aria-selected="true">About</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="docs-tab" data-bs-toggle="tab" data-bs-target="#docs" type="button"
-                            role="tab" aria-controls="docs" aria-selected="false">Documents</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact"
-                            type="button" role="tab" aria-controls="contact" aria-selected="false">Contact</button>
-                    </li>
-                </ul>
+            <br>
+            <div>
+                <h2 class="text-center">Stocking Rate Calculator</h2>
             </div>
-            <div class="tab-content" id="myTabContent">
-                <div class="tab-pane fade show active" id="intro" role="tabpanel" aria-labelledby="intro-tab">
-                    <p>Welcome to the NDSU Grazing Calculator.
-                        <br><br>
-                        Establishing the correct stocking rate is critical in optimizing forage production and
-                        maintaining animal performance while ensuring the sustained health of the grazing resources.
-                        Accurately calculating range and forage production of grazing resources is important when
-                        estimating carrying capacity and stocking rate. The most accurate method to calculate forage
-                        production is the clip-and-weigh method. The NDSU Grazing Calculator helps land manager/owner
-                        estimate carrying capacity and set initial stocking rate for their grazing resources.
-                        <br><br>
-                        Carrying capacity is a measurement of how much forage a unit or piece of ground is able to
-                        produce on an average year. The carrying capacity is the maximum stocking rate possible that is
-                        consistent with maintaining or improving the forage and plant community, and other related
-                        resources. Stocking rate is the number of animals grazing a unit of land for a specific time
-                        period. Stocking rate is one of the most important grazing management decisions a rancher or
-                        land manager makes.
-                        <br><br>
-                        For detailed information, please visit the documentations or reach out to the contact
-                        information in this application.
-                    </p>
+            <div class="row">
+                <div class="col-md-2">
                 </div>
-                <div class="tab-pane fade" id="docs" role="tabpanel" aria-labelledby="docs-tab">
-                    <dl>
+                <div class="col-md-8">
+                    <div>
                         <br>
-                        <dt><b>- Range and Forage Production Sample Kits</b></dt>
-                        <dd>&nbsp;&nbsp;&nbsp;&nbsp;<a
-                                href="https://www.ndsu.edu/agriculture/extension/publications/ndsu-extension-range-and-forage-production-sample-kits"
-                                target="_blank">web</a> &nbsp;&nbsp; <a
-                                href="https://www.ndsu.edu/agriculture/sites/default/files/2022-05/r1838.pdf"
-                                target="_blank">pdf</a></dd>
-                        <br>
-                        <dt><b>- Determining Carrying Capacity and Stocking Rates for Range and Pasture in North
-                                Dakota</b></dt>
-                        <dd>&nbsp;&nbsp;&nbsp;&nbsp;<a
-                                href="https://www.ndsu.edu/agriculture/ag-hub/publications/determining-carrying-capacity-and-stocking-rates-range-and-pasture-north-dakota"
-                                target="_blank">web</a> &nbsp;&nbsp; <a
-                                href="https://www.ndsu.edu/agriculture/sites/default/files/2024-04/r1810.pdf"
-                                target="_blank">pdf</a></dd>
-                    </dl>
-                </div>
-                <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-                    <div class="text-center">
-                        <a href="https://www.ndsu.edu/agriculture/ag-home/directory/miranda-meehan" target="_blank"><img
-                                src="images/Meehan.jpg" alt="Dr. Miranda Meehan" width="200"></a>
-                        <br />
-                        <a href="https://www.ndsu.edu/agriculture/ag-home/directory/miranda-meehan" target="_blank">
-                            <h5>Dr. Miranda Meehan</h5>
-                        </a>
-                        <h6><b>Assoc Prof/Livestock Environmental Stewardship Spec & Ext Disaster Edu Coord</b></h6>
-                        <h7><b>Department of Animal Sciences, School of Natural Resource Sciences, NDSU</b></h7>
-                        <br>
-                        <div class="center-div">
-                            <table>
-                                <tr>
-                                    <td><u>Office:</u></td>
-                                    <td>Hultz Hall 191, NDSU
-                                        Fargo, ND 58102</td>
-                                </tr>
-                                <tr>
-                                    <td><u>Mailing Address:</u></td>
-                                    <td>
-                                        NDSU Dept 7630, PO Box 6050
-                                        Fargo, ND 58108-6050
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><u>Phone:</u></td>
-                                    <td>701-231-7683</td>
-                                </tr>
-                                <tr>
-                                    <td><u>Email:</u></td>
-                                    <td>miranda.meehan@ndsu.edu</td>
-                                </tr>
-                            </table>
+                        <fieldset>
+                            <legend>Select Your Quantity of Animal Classes</legend>
+                            <select name="animalClassNumberSelect" id="animalClassNumberSelect">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                                <option value="13">13</option>
+                                <option value="14">14</option>
+                                <option value="15">15</option>
+                                <option value="16">16</option>
+                                <option value="17">17</option>
+                                <option value="18">18</option>
+                                <option value="19">19</option>
+                                <option value="20">20</option>
+                                <option value="21">21</option>
+                                <option value="22">22</option>
+                                <option value="23">23</option>
+                                <option value="24">24</option>
+                                <option value="25">25</option>
+                            </select>
+                        </fieldset>
+                    </div>
+                    <hr>
+                    <hr>
+                    <div id="dynamicAnimalClassesContainer">
+                        <fieldset>
+                            <legend>Select or Enter Animal (Class #1) Info</legend>
+                            <label>Animal Class #1</label>
+                            <select name="animalClassSelect_1" id="animalClassSelect_1">
+                                <option value="1">1,000-lb. cow, dry</option>
+                                <option value="2">1,000-lb. cow, with calf</option>
+                                <option value="3">1,100-lb. cow, with calf</option>
+                                <option value="4">1,200-lb. cow, with calf</option>
+                                <option value="5">1,300-lb. cow, with calf</option>
+                                <option value="6">1,400-lb. cow, with calf</option>
+                                <option value="7">1,500-lb. cow, with calf</option>
+                                <option value="8">Cattle bull, mature</option>
+                                <option value="9">Weaned calves to yearling</option>
+                                <option value="10">Yearling cattle (600-800 lb.)</option>
+                                <option value="11">Two-year-old cattle (800-1,000 lb.)</option>
+                                <option value="12">Bison cow, mature</option>
+                                <option value="13">Bison bull, mature</option>
+                                <option value="14">Horse, mature</option>
+                                <option value="15">Sheep, dry ewe</option>
+                                <option value="16">Sheep, mature with lamb</option>
+                                <option value="17">Sheep ram</option>
+                                <option value="18">Goat, mature</option>
+                                <option value="19">Deer, white-tailed, mature</option>
+                                <option value="20">Deer, mule, mature</option>
+                                <option value="21">Elk, mature</option>
+                                <option value="22">Antelope, mature</option>
+                                <option value="23">Sheep, bighorn, mature</option>
+                                <option value="24">Jackrabbit, white-tailed</option>
+                                <option value="25">Prairie dog</option>
+                            </select>
+                            <br><br>
+                            <label>Number of Head</label>
+                            <input required type="number" name="headNumber1" id="headNumber1" value="1" min="1"
+                                placeholder="enter a positive integer value" />
+                            <br><br>
+                            <label>Number of Month</label>
+                            <input required type="number" name="monthNumber1" id="monthNumber1" value="1" min="1"
+                                placeholder="enter a positive integer value" />
+                        </fieldset>
+
+                    </div>
+                    <br>
+                    <div class="mb-3" id="stockingRateCalculateBtnDiv">
+                        <div class="d-grid">
+                            <button id="stockingRateCalculateBtn" type="button" class="btn btn-primary btn-block">
+                                <h4>CALCULATE</h4>
+                            </button>
                         </div>
                     </div>
 
+                    <br>
+
+                    <div id="stockingRateResultDiv" class="nodisplay">
+                        <div class="generalResultTitle">
+                            <h5>Calculated Results</h5>
+                        </div>
+                        <fieldset>
+                            <legend>Total AUMs</legend>
+                            <input type="text" id="totalAumInput" class="resultDisplay" readonly>
+                        </fieldset>
+                        <br>
+                        <fieldset>
+                            <legend>Average AUE</legend>
+                            <input type="text" id="averageAueInput" class="resultDisplay" readonly>
+                        </fieldset>
+                    </div>
+                    <br>
                 </div>
+
+                <div class="col-md-2">
+                </div>
+
+            </div>
+        </div>
+        <div id="carryingCapacityDiv" class="nodisplay">
+            <br>
+            <div>
+                <h2 class="text-center">Carrying Capacity Calculator</h2>
+            </div>
+            <div class="row">
+                <div class="col-md-2">
+                </div>
+                <div class="col-md-8">
+                    <br>
+                    <fieldset>
+                        <legend>Pasture or Field Type</legend>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" name="pastureTypeRadioCC" id="rangeRadioCC"
+                                value="rangeRadioCC" checked="checked">
+                            <label class="form-check-label" for="rangeRadioCC">Rangeland</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" name="pastureTypeRadioCC" id="tamegrassRadioCC"
+                                value="tamegrassRadioCC">
+                            <label class="form-check-label" for="tamegrassRadioCC">Tame Grass</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" name="pastureTypeRadioCC" id="othersRadioCC"
+                                value="othersRadioCC">
+                            <label class="form-check-label" for="othersRadioCC">Others (Row Crops, Small Grains,
+                                Solid-seeded
+                                (Broadcast) Crops and
+                                Cover
+                                Crop Mixtures)</label>
+                        </div>
+                    </fieldset>
+                    <br>
+                    <div id="carryingCapacityCalculateMethodDiv">
+                        <fieldset>
+                            <legend>Carrying Capacity Calculate Method</legend>
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" name="carryingCapacityCalculateMethodRadio"
+                                    id="estimatedStockingRatesRadio" value="estimatedStockingRatesRadio"
+                                    checked="checked">
+                                <label class="form-check-label" for="estimatedStockingRatesRadio">Using Estimated
+                                    AUMs/ac Stocking Rates</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" name="carryingCapacityCalculateMethodRadio"
+                                    id="relativeProductionValuesRadio" value="relativeProductionValuesRadio">
+                                <label class="form-check-label" for="relativeProductionValuesRadio">Using Relative
+                                    Production Values</label>
+                            </div>
+                        </fieldset>
+                        <br>
+                    </div>
+                    <div id="relativeProductionValueTypeDiv" class="nodisplay">
+                        <fieldset>
+                            <legend>Relative Forage Production Value Type</legend>
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" name="relativeProductionValueTypeRadio"
+                                    id="defaultValueRadio" value="defaultValueRadio" checked="checked">
+                                <label class="form-check-label" for="defaultValueRadio">Estimated or Default
+                                    Values</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" name="relativeProductionValueTypeRadio"
+                                    id="actualValueRadio" value="actualValueRadio">
+                                <label class="form-check-label" for="actualValueRadio">Actual or Custom Values</label>
+                            </div>
+                        </fieldset>
+                        <br>
+                    </div>
+
+                    <div id="actualRelativeProductionValuesDiv" class="nodisplay">
+                        <fieldset>
+                            <legend>Actual or Custom Relative Forage Production</legend>
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Land Type</th>
+                                        <th scope="col">Forage Production(pounds/acre)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Upland Loamy</td>
+                                        <td>
+                                            <input type="number" id="uplandLoamyForageProductionInputCC" min="0"
+                                                required>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Upland Sandy</td>
+                                        <td>
+                                            <input type="number" id="uplandSandyForageProductionInputCC" min="0"
+                                                required>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Upland Clayey</td>
+                                        <td>
+                                            <input type="number" id="uplandClayeyForageProductionInputCC" min="0"
+                                                required>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Upland Shallow</td>
+                                        <td>
+                                            <input type="number" id="uplandShallowForageProductionInputCC" min="0"
+                                                required>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Upland Very Shallow / Thin ClayPan</td>
+                                        <td>
+                                            <input type="number" id="uplandVeryShallowForageProductionInputCC" min="0"
+                                                required>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Lowland Overflow</td>
+                                        <td>
+                                            <input type="number" id="lowlandOverflowForageProductionInputCC" min="0"
+                                                required>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Lowland Wet Meadow</td>
+                                        <td>
+                                            <input type="number" id="lowlandWetMeadowForageProductionInputCC" min="0"
+                                                required>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </fieldset>
+                        <br>
+                    </div>
+                    <div id="singleForageProductionDiv" class="nodisplay">
+                        <fieldset>
+                            <legend>Forage Production (pounds/acre)</legend>
+                            <div class="center-div">
+                                <input type="number" id="singleForageProductionInput" min="0" value="0" required>
+                            </div>
+                        </fieldset>
+                        <br>
+                    </div>
+
+                    <div id="multiHarvestEfficiencyDiv">
+                        <fieldset>
+                            <legend>Harvest Efficiency (%)</legend>
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Land Type</th>
+                                        <th scope="col">Harvest Efficiency (%)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Upland Loamy</td>
+                                        <td>
+                                            <input type="number" id="uplandLoamyHarvestEfficiencyInput" min="10"
+                                                max="75" value="25" required>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Upland Sandy</td>
+                                        <td>
+                                            <input type="number" id="uplandSandyHarvestEfficiencyInput" min="10"
+                                                max="75" value="25" required>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Upland Clayey</td>
+                                        <td>
+                                            <input type="number" id="uplandClayeyHarvestEfficiencyInput" min="10"
+                                                max="75" value="25" required>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Upland Shallow</td>
+                                        <td>
+                                            <input type="number" id="uplandShallowHarvestEfficiencyInput" min="10"
+                                                max="75" value="25" required>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Upland Very Shallow / Thin ClayPan</td>
+                                        <td>
+                                            <input type="number" id="uplandVeryShallowHarvestEfficiencyInput" min="10"
+                                                max="75" value="25" required>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Lowland Overflow</td>
+                                        <td>
+                                            <input type="number" id="lowlandOverflowHarvestEfficiencyInput" min="10"
+                                                max="75" value="25" required>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Lowland Wet Meadow</td>
+                                        <td>
+                                            <input type="number" id="lowlandWetMeadowHarvestEfficiencyInput" min="10"
+                                                max="75" value="25" required>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </fieldset>
+                        <br>
+                    </div>
+
+                    <div id="singleHarvestEfficiencyDiv" class="nodisplay">
+                        <fieldset>
+                            <legend>Harvest Efficiency (%)</legend>
+                            <div class="center-div">
+                                <input type="number" id="singleHarvestEfficiencyInput" min="10" max="75" value="25"
+                                    required>
+                            </div>
+                        </fieldset>
+                        <br>
+                    </div>
+
+                    <div id="multiAcresDiv">
+                        <fieldset>
+                            <legend>Gross Acres</legend>
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Land Type</th>
+                                        <th scope="col">Gross Acres</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Upland Loamy</td>
+                                        <td>
+                                            <input type="number" id="uplandLoamyGrossAcresInput" min="0" value="0"
+                                                required>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Upland Sandy</td>
+                                        <td>
+                                            <input type="number" id="uplandSandyGrossAcresInput" min="0" value="0"
+                                                required>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Upland Clayey</td>
+                                        <td>
+                                            <input type="number" id="uplandClayeyGrossAcresInput" min="0" value="0"
+                                                required>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Upland Shallow</td>
+                                        <td>
+                                            <input type="number" id="uplandShallowGrossAcresInput" min="0" value="0"
+                                                required>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Upland Very Shallow / Thin ClayPan</td>
+                                        <td>
+                                            <input type="number" id="uplandVeryShallowGrossAcresInput" min="0" value="0"
+                                                required>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Lowland Overflow</td>
+                                        <td>
+                                            <input type="number" id="lowlandOverflowGrossAcresInput" min="0" value="0"
+                                                required>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Lowland Wet Meadow</td>
+                                        <td>
+                                            <input type="number" id="lowlandWetMeadowGrossAcresInput" min="0" value="0"
+                                                required>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </fieldset>
+                        <br>
+                    </div>
+
+                    <div id="grossAcresDiv" class="nodisplay">
+                        <fieldset>
+                            <legend>Gross Acres</legend>
+                            <div class="center-div">
+                                <input type="number" id="singleGrossAcresInput" min="0" value="0" required>
+                            </div>
+                        </fieldset>
+                        <br>
+                    </div>
+
+                    <div id="averageAUEDiv">
+                        <fieldset>
+                            <legend>Average AUE (optional)</legend>
+                            <div class="center-div">
+                                <input type="number" id="averateAUEInput" min="0" max="1" value="0.5">
+                            </div>
+                        </fieldset>
+                        <br>
+                    </div>
+
+                    <div id="landResourceAreaSelectDiv">
+                        <fieldset>
+                            <legend>Major Land Resource Areas of North Dakota</legend>
+                            <div class="center-div">
+                                <select id="landResourceAreaSelect">
+                                    <option value="53AB" selected>53A & 53B</option>
+                                    <option value="54">54</option>
+                                    <option value="55AB">55A & 55B</option>
+                                    <option value="56">56</option>
+                                    <option value="58CD">58C & 58D</option>
+                                </select>
+                            </div>
+                            <br>
+                            <p><b>Note</b>: Select your major land resource area based on the following map. You can
+                                click the
+                                map below to go to the full-screen, zoomable, and pannable map mode.</p>
+                            <div>
+                                <img id="landResourceAreasImg" src="images/map.jpeg" alt=" Land Resource Areas Map"
+                                    width="100%">
+                            </div>
+                            <!-- Full-screen overlay for the map -->
+                            <div id="fullScreenMap">
+                                <button id="closeMapButton">✖</button>
+                                <img id="fullScreenMapImg" src="images/map.jpeg" alt="Full-Screen Map">
+                            </div>
+                        </fieldset>
+                        <br>
+                    </div>
+
+                    <div class="mb-3" id="carryingCapacityCalculateBtnDiv">
+                        <div class="d-grid">
+                            <button id="carryingCapacityCalculateBtn" type="button" class="btn btn-primary btn-block">
+                                <h4>CALCULATE</h4>
+                            </button>
+                        </div>
+                    </div>
+                    <br>
+                    <div id="carryingCapacityResultDiv" class="nodisplay">
+                        <div class="generalResultTitle">
+                            <h5>Calculated Results</h5>
+                        </div>
+                        <div>
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">ITEM</th>
+                                        <th scope="col">RESULT</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Total Production (pounds)</td>
+                                        <td>
+                                            <input type="text" id="totalProductionDisplay" class="resultDisplay"
+                                                readonly>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Total Available Forage (pounds)</td>
+                                        <td>
+                                            <input type="text" id="totalAvailableForageDisplay" class="resultDisplay"
+                                                readonly>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Total AUMs</td>
+                                        <td>
+                                            <input type="text" id="totalAumsDisplay" class="resultDisplay" readonly>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Total Available AUMs</td>
+                                        <td>
+                                            <input type="text" id="totalAvailableAumsDisplay" class="resultDisplay"
+                                                readonly>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>AUM/ac</td>
+                                        <td>
+                                            <input type="text" id="aumacDisplay" class="resultDisplay" readonly>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>ac/AUM</td>
+                                        <td>
+                                            <input type="text" id="acaumDisplay" class="resultDisplay" readonly>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>AUEM/ac</td>
+                                        <td>
+                                            <input type="text" id="auemacDisplay" class="resultDisplay" readonly>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>ac/AUEM</td>
+                                        <td>
+                                            <input type="text" id="acauemDisplay" class="resultDisplay" readonly>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Total AUMs (from Stocking Rate Calculator)</td>
+                                        <td>
+                                            <input type="text" id="totalAumsFromStockingRateDisplay"
+                                                class="resultDisplay" readonly>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                </div>
+
             </div>
         </div>
     </div>
