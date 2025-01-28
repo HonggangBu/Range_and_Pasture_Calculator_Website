@@ -663,8 +663,8 @@
                                 <thead>
                                     <tr>
                                         <th scope="col">Land Type</th>
-                                        <th scope="col">Gross Acres
-                                        </th>
+                                        <th scope="col">Gross Acres</th>
+                                        <th scope="col">Harvest Efficiency (%)</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -679,6 +679,16 @@
                                             </div>
                                             <div id="uplandLoamyGrossAcresInputError" class="validation-message"></div>
                                         </td>
+                                        <td>
+                                            <div class="clearable">
+                                                <input type="number" id="uplandLoamyHarvestEfficiencyInput" value="25"
+                                                    step="0.1">
+                                                <button type="button" class="clear-button"
+                                                    id="clearUplandLoamyHarvestEfficiencyButton">x</button>
+                                            </div>
+                                            <div id="uplandLoamyHarvestEfficiencyInputError" class="validation-message">
+                                            </div>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td>Upland Sandy</td>
@@ -690,6 +700,15 @@
                                                     id="clearUplandSandyGrossAcresButton">x</button>
                                             </div>
                                             <div id="uplandSandyGrossAcresInputError" class="validation-message"></div>
+                                        </td>
+                                        <td>
+                                            <div class="clearable"> <input type="number"
+                                                    id="uplandSandyHarvestEfficiencyInput" value="25" step="0.1">
+                                                <button type="button" class="clear-button"
+                                                    id="clearUplandSandyHarvestEfficiencyButton">x</button>
+                                            </div>
+                                            <div id="uplandSandyHarvestEfficiencyInputError" class="validation-message">
+                                            </div>
                                         </td>
                                     </tr>
                                     <tr>
@@ -703,6 +722,17 @@
                                             </div>
                                             <div id="uplandClayeyGrossAcresInputError" class="validation-message"></div>
                                         </td>
+                                        <td>
+                                            <div class="clearable">
+                                                <input type="number" id="uplandClayeyHarvestEfficiencyInput" value="25"
+                                                    step="0.1">
+                                                <button type="button" class="clear-button"
+                                                    id="clearUplandClayeyHarvestEfficiencyButton">x</button>
+                                            </div>
+                                            <div id="uplandClayeyHarvestEfficiencyInputError"
+                                                class="validation-message">
+                                            </div>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td>Upland Shallow</td>
@@ -714,6 +744,17 @@
                                                     id="clearUplandShallowGrossAcresButton">x</button>
                                             </div>
                                             <div id="uplandShallowGrossAcresInputError" class="validation-message">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="clearable">
+                                                <input type="number" id="uplandShallowHarvestEfficiencyInput" value="25"
+                                                    step="0.1">
+                                                <button type="button" class="clear-button"
+                                                    id="clearUplandShallowHarvestEfficiencyButton">x</button>
+                                            </div>
+                                            <div id="uplandShallowHarvestEfficiencyInputError"
+                                                class="validation-message">
                                             </div>
                                         </td>
                                     </tr>
@@ -729,6 +770,17 @@
                                             <div id="uplandVeryShallowGrossAcresInputError" class="validation-message">
                                             </div>
                                         </td>
+                                        <td>
+                                            <div class="clearable">
+                                                <input type="number" id="uplandVeryShallowHarvestEfficiencyInput"
+                                                    value="25" step="0.1">
+                                                <button type="button" class="clear-button"
+                                                    id="clearUplandVeryShallowHarvestEfficiencyButton">x</button>
+                                            </div>
+                                            <div id="uplandVeryShallowHarvestEfficiencyInputError"
+                                                class="validation-message">
+                                            </div>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td>Lowland Overflow</td>
@@ -740,6 +792,17 @@
                                                     id="clearLowlandOverflowGrossAcresButton">x</button>
                                             </div>
                                             <div id="lowlandOverflowGrossAcresInputError" class="validation-message">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="clearable">
+                                                <input type="number" id="lowlandOverflowHarvestEfficiencyInput"
+                                                    value="25" step="0.1">
+                                                <button type="button" class="clear-button"
+                                                    id="clearLowlandOverflowHarvestEfficiencyButton">x</button>
+                                            </div>
+                                            <div id="lowlandOverflowHarvestEfficiencyInputError"
+                                                class="validation-message">
                                             </div>
                                         </td>
                                     </tr>
@@ -754,6 +817,16 @@
                                             </div>
                                             <div id="lowlandWetMeadowGrossAcresInputError" class="validation-message">
                                             </div>
+                                        </td>
+                                        <td class="clearable">
+                                            <div>
+                                                <input type="number" id="lowlandWetMeadowHarvestEfficiencyInput"
+                                                    value="12.5" step="0.1">
+                                                <button type="button" class="clear-button"
+                                                    id="clearLowlandWetMeadowHarvestEfficiencyButton">x</button>
+                                            </div>
+                                            <div id="lowlandWetMeadowHarvestEfficiencyInputError"
+                                                class="validation-message"> </div>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -864,7 +937,7 @@
                         </fieldset>
                         <br>
                     </div>
-                    <div id="multiHarvestEfficiencyDiv">
+                    <!--                     <div id="multiHarvestEfficiencyDiv">
                         <fieldset>
                             <legend>Harvest Efficiency (%)</legend>
                             <table class="table table-striped">
@@ -974,7 +1047,7 @@
                         </fieldset>
                         <br>
                     </div>
-
+ -->
                     <div id="singleHarvestEfficiencyDiv" class="nodisplay">
                         <fieldset>
                             <legend>Harvest Efficiency (%)

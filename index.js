@@ -736,7 +736,7 @@ function OnAnySelectionChange() {
     const carryingCapacityCalculateMethodDiv = document.getElementById('carryingCapacityCalculateMethodDiv');
     const relativeProductionValueTypeDiv = document.getElementById('relativeProductionValueTypeDiv');
     const actualRelativeProductionValuesDiv = document.getElementById('actualRelativeProductionValuesDiv');
-    const multiHarvestEfficiencyDiv = document.getElementById('multiHarvestEfficiencyDiv');
+    //const multiHarvestEfficiencyDiv = document.getElementById('multiHarvestEfficiencyDiv');
     const multiAcresDiv = document.getElementById('multiAcresDiv');
     const landResourceAreaSelectDiv = document.getElementById('landResourceAreaSelectDiv');
 
@@ -786,7 +786,7 @@ function OnAnySelectionChange() {
                 singleForageProductionDiv.style.display = 'none';
                 landResourceAreaSelectDiv.style.display = 'block';
                 singleHarvestEfficiencyDiv.style.display = 'none';
-                multiHarvestEfficiencyDiv.style.display = 'block';
+                //multiHarvestEfficiencyDiv.style.display = 'block';
 
                 if (document.querySelector("input[name='carryingCapacityCalculateMethodRadio']:checked").value === 'estimatedStockingRatesRadio') {
                     relativeProductionValueTypeDiv.style.display = 'none';
@@ -809,7 +809,7 @@ function OnAnySelectionChange() {
             else if (document.querySelector("input[name='pastureTypeRadioCC']:checked").value === 'tamegrassRadioCC') {
                 carryingCapacityCalculateMethodDiv.style.display = 'none';
                 relativeProductionValueTypeDiv.style.display = 'block';
-                multiHarvestEfficiencyDiv.style.display = 'block';
+                //multiHarvestEfficiencyDiv.style.display = 'block';
                 multiAcresDiv.style.display = 'block';
                 singleForageProductionDiv.style.display = 'none';
                 singleHarvestEfficiencyDiv.style.display = 'none';
@@ -831,7 +831,7 @@ function OnAnySelectionChange() {
                 carryingCapacityCalculateMethodDiv.style.display = 'None';
                 relativeProductionValueTypeDiv.style.display = 'None';
                 actualRelativeProductionValuesDiv.style.display = 'None';
-                multiHarvestEfficiencyDiv.style.display = 'None';
+                //multiHarvestEfficiencyDiv.style.display = 'None';
                 multiAcresDiv.style.display = 'None';
                 landResourceAreaSelectDiv.style.display = 'None';
             }
