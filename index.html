@@ -86,8 +86,10 @@
                         period. Stocking rate is one of the most important grazing management decisions a rancher or
                         land manager makes.
                         <br><br>
-                        For detailed information, please check the documents or reach out to the contact
-                        presented in this application.
+                        For any questions or detailed information, please check the documents or reach out to Dr.<a
+                            href="https://www.ndsu.edu/agriculture/ag-home/directory/miranda-meehan" target="_blank">
+                            Miranda Meehan
+                        </a>.
                     </p>
                 </div>
                 <div class="tab-pane fade" id="docs" role="tabpanel" aria-labelledby="docs-tab">
@@ -165,542 +167,251 @@
                 <h2 class="text-center">Forage Production Calculator</h2>
             </div>
             <br>
-            <div class="row">
-                <div class="col-md-2">
+            <div id="forageProductionForm">
+                <fieldset>
+                    <legend>Pasture or Field Type</legend>
+                    <div class="form-check">
+                        <input type="radio" class="form-check-input" id="rangelandRadio" name="pastureTypeRadio"
+                            value="rangelandRadio" checked>Rangeland and Tame Grass Pastures
+                        <label class="form-check-label" for="rangelandRadio"></label>
+                    </div>
+                    <div class="form-check">
+                        <input type="radio" class="form-check-input" id="smallgrainsRadio" name="pastureTypeRadio"
+                            value="smallgrainsRadio">Small Grains, Solid-seeded
+                        (Broadcast) Crops and Cover Crop
+                        Mixtures
+                        <label class="form-check-label" for="smallgrainsRadio"></label>
+                    </div>
+                    <div class="form-check">
+                        <input type="radio" class="form-check-input" id="rowcropsRadio" name="pastureTypeRadio"
+                            value="rowcropsRadio">Row Crops
+                        <label class="form-check-label" for="rowcropsRadio"></label>
+                    </div>
+                </fieldset>
+                <br>
+                <fieldset>
+                    <legend>Sample Weight Type</legend>
+                    <div class="form-check">
+                        <input type="radio" class="form-check-input" id="dryRadio" name="drywetRadio" value="dryRadio"
+                            checked>Air-Dried
+                        <label class="form-check-label" for="dryRadio"></label>
+                    </div>
+                    <div class="form-check">
+                        <input type="radio" class="form-check-input" id="wetRadio" name="drywetRadio"
+                            value="wetRadio">Wet
+                        <label class="form-check-label" for="wetRadio"></label>
+                    </div>
+                </fieldset>
+                <br>
+                <div id="PlantAndStageSelectDiv" class="nodisplay">
+                    <fieldset>
+                        <legend>Plant Type</legend>
+                        <select id="PlantTypeSelect" name="PlantTypSelect">
+                            <optgroup label="Cool-season Grasses">
+                                <option>Wheatgrasses, needlegrasses, perennial bromes, bluegrasses, fescues,
+                                    annuals such as oats, barley
+                                </option>
+                            </optgroup>
+                            <optgroup label="Warm-season Grasses">
+                                <option>Tall: bluestems, switchgrass, corn, sorghum, millet</option>
+                                <option>Mid: side-oats grama, teff</option>
+                                <option>Short: blue grama, buffalograss</option>
+                            </optgroup>
+                            <optgroup label="Other Range or Pasture Plants">
+                                <option>Forbs</option>
+                                <option>Shrubs</option>
+                            </optgroup>
+                        </select>
+                    </fieldset>
+                    <br>
+                    <fieldset>
+                        <legend>Growth Stage</legend>
+                        <select id="GrowthStageSelect" name="GrowthStageSelect">
+                            <option>Before Heading</option>
+                            <option>Headed</option>
+                            <option>Seed Ripe</option>
+                            <option>Leaves Dry</option>
+                            <option>Dormancy</option>
+                        </select>
+                    </fieldset>
                 </div>
-                <div class="col-sm-8">
-                    <form id="forageProductionForm">
-                        <fieldset>
-                            <legend>Pasture or Field Type</legend>
-                            <div class="form-check">
-                                <input type="radio" class="form-check-input" id="rangelandRadio" name="pastureTypeRadio"
-                                    value="rangelandRadio" checked>Rangeland and Tame Grass Pastures
-                                <label class="form-check-label" for="rangelandRadio"></label>
-                            </div>
-                            <div class="form-check">
-                                <input type="radio" class="form-check-input" id="smallgrainsRadio"
-                                    name="pastureTypeRadio" value="smallgrainsRadio">Small Grains, Solid-seeded
-                                (Broadcast) Crops and Cover Crop
-                                Mixtures
-                                <label class="form-check-label" for="smallgrainsRadio"></label>
-                            </div>
-                            <div class="form-check">
-                                <input type="radio" class="form-check-input" id="rowcropsRadio" name="pastureTypeRadio"
-                                    value="rowcropsRadio">Row Crops
-                                <label class="form-check-label" for="rowcropsRadio"></label>
-                            </div>
-                        </fieldset>
-                        <br>
-                        <fieldset>
-                            <legend>Sample Weight Type</legend>
-                            <div class="form-check">
-                                <input type="radio" class="form-check-input" id="dryRadio" name="drywetRadio"
-                                    value="dryRadio" checked>Air-Dried
-                                <label class="form-check-label" for="dryRadio"></label>
-                            </div>
-                            <div class="form-check">
-                                <input type="radio" class="form-check-input" id="wetRadio" name="drywetRadio"
-                                    value="wetRadio">Wet
-                                <label class="form-check-label" for="wetRadio"></label>
-                            </div>
-                        </fieldset>
-                        <br>
-                        <div id="PlantAndStageSelectDiv" class="nodisplay">
-                            <fieldset>
-                                <legend>Plant Type</legend>
-                                <select id="PlantTypeSelect" name="PlantTypSelect">
-                                    <optgroup label="Cool-season Grasses">
-                                        <option>Wheatgrasses, needlegrasses, perennial bromes, bluegrasses, fescues,
-                                            annuals such as oats, barley
-                                        </option>
-                                    </optgroup>
-                                    <optgroup label="Warm-season Grasses">
-                                        <option>Tall: bluestems, switchgrass, corn, sorghum, millet</option>
-                                        <option>Mid: side-oats grama, teff</option>
-                                        <option>Short: blue grama, buffalograss</option>
-                                    </optgroup>
-                                    <optgroup label="Other Range or Pasture Plants">
-                                        <option>Forbs</option>
-                                        <option>Shrubs</option>
-                                    </optgroup>
-                                </select>
-                            </fieldset>
-                            <br>
-                            <fieldset>
-                                <legend>Growth Stage</legend>
-                                <select id="GrowthStageSelect" name="GrowthStageSelect">
-                                    <option>Before Heading</option>
-                                    <option>Headed</option>
-                                    <option>Seed Ripe</option>
-                                    <option>Leaves Dry</option>
-                                    <option>Dormancy</option>
-                                </select>
-                            </fieldset>
+                <br>
+                <div id="nonRangelandWeightDiv" class="nodisplay">
+                    <fieldset>
+                        <legend>Enter your sample net weights (unit: gram) separated by commas</legend>
+                        <div class="center-div clearable">
+                            <input type="text" id="nonRangelandSampleWeightInput"
+                                placeholder="Enter positive numbers separated by commas" required>
+                            <button type="button" class="clear-button" id="clearNRSampleWeightInputButton">x</button>
                         </div>
-                        <br>
-                        <div id="nonRangelandWeightDiv" class="nodisplay">
-                            <fieldset>
-                                <legend>Sample Quantity and Weight</legend>
-                                <select class="form-select" id="nonRangelandSampleQuantity">
-                                    <option value="">Select Your Sample Quantity</option>
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
-                                    <option>6</option>
-                                    <option>7</option>
-                                    <option>8</option>
-                                    <option>9</option>
-                                    <option>10</option>
-                                    <option>11</option>
-                                    <option>12</option>
-                                    <option>13</option>
-                                    <option>14</option>
-                                    <option>15</option>
-                                    <option>16</option>
-                                    <option>17</option>
-                                    <option>18</option>
-                                    <option>19</option>
-                                    <option>20</option>
-                                    <option>21</option>
-                                    <option>22</option>
-                                    <option>23</option>
-                                    <option>24</option>
-                                    <option>25</option>
-                                    <option>26</option>
-                                    <option>27</option>
-                                    <option>28</option>
-                                    <option>29</option>
-                                    <option>30</option>
-                                </select>
-                                <br>
-
-                                <div id="nonRangelandInputLabelContainer"></div>
-                                <div id="nonRangelandInputContainer" class="input-container"></div>
-                            </fieldset>
-                        </div>
-                        <div id="rangelandWeightDiv">
-                            <fieldset>
-                                <legend>Sample Quantity and Weight</legend>
-                                <p><i>Note: </i>click the name of a land type to toggle expand or collapse</p>
-                                <div id="accordion">
-                                    <div class="card">
-                                        <div class="card-header d-grid">
-                                            <a class="btn" data-bs-toggle="collapse" href="#uplandLoamySample">
-                                                Upland Loamy
-                                            </a>
-                                        </div>
-                                        <div id="uplandLoamySample" class="collapse show" data-bs-parent="#accordion">
-                                            <div class="card-body">
-                                                <select class="form-select" id="uplandLoamySampleQuantity">
-                                                    <option value="">Select Your Sample Quantity</option>
-                                                    <option>1</option>
-                                                    <option>2</option>
-                                                    <option>3</option>
-                                                    <option>4</option>
-                                                    <option>5</option>
-                                                    <option>6</option>
-                                                    <option>7</option>
-                                                    <option>8</option>
-                                                    <option>9</option>
-                                                    <option>10</option>
-                                                    <option>11</option>
-                                                    <option>12</option>
-                                                    <option>13</option>
-                                                    <option>14</option>
-                                                    <option>15</option>
-                                                    <option>16</option>
-                                                    <option>17</option>
-                                                    <option>18</option>
-                                                    <option>19</option>
-                                                    <option>20</option>
-                                                    <option>21</option>
-                                                    <option>22</option>
-                                                    <option>23</option>
-                                                    <option>24</option>
-                                                    <option>25</option>
-                                                    <option>26</option>
-                                                    <option>27</option>
-                                                    <option>28</option>
-                                                    <option>29</option>
-                                                    <option>30</option>
-                                                </select>
-                                                <br>
-                                                <div id="uplandLoamyInputLabelContainer"></div>
-                                                <div id="uplandLoamyInputContainer" class="input-container"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="card">
-                                        <div class="card-header d-grid">
-                                            <a class="btn" data-bs-toggle="collapse" href="#uplandSandySample">
-                                                Upland Sandy
-                                            </a>
-                                        </div>
-                                        <div id="uplandSandySample" class="collapse" data-bs-parent="#accordion">
-                                            <div class="card-body">
-                                                <select class="form-select" id="uplandSandySampleQuantity">
-                                                    <option value="">Select Your Sample Quantity</option>
-                                                    <option>1</option>
-                                                    <option>2</option>
-                                                    <option>3</option>
-                                                    <option>4</option>
-                                                    <option>5</option>
-                                                    <option>6</option>
-                                                    <option>7</option>
-                                                    <option>8</option>
-                                                    <option>9</option>
-                                                    <option>10</option>
-                                                    <option>11</option>
-                                                    <option>12</option>
-                                                    <option>13</option>
-                                                    <option>14</option>
-                                                    <option>15</option>
-                                                    <option>16</option>
-                                                    <option>17</option>
-                                                    <option>18</option>
-                                                    <option>19</option>
-                                                    <option>20</option>
-                                                    <option>21</option>
-                                                    <option>22</option>
-                                                    <option>23</option>
-                                                    <option>24</option>
-                                                    <option>25</option>
-                                                    <option>26</option>
-                                                    <option>27</option>
-                                                    <option>28</option>
-                                                    <option>29</option>
-                                                    <option>30</option>
-                                                </select>
-                                                <br>
-                                                <div id="uplandSandyInputLabelContainer"></div>
-                                                <div id="uplandSandyInputContainer" class="input-container"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="card">
-                                        <div class="card-header d-grid">
-                                            <a class="btn" data-bs-toggle="collapse" href="#uplandClayeySample">
-                                                Upland Clayey
-                                            </a>
-                                        </div>
-                                        <div id="uplandClayeySample" class="collapse" data-bs-parent="#accordion">
-                                            <div class="card-body">
-                                                <select class="form-select" id="uplandClayeySampleQuantity">
-                                                    <option value="">Select Your Sample Quantity</option>
-                                                    <option>1</option>
-                                                    <option>2</option>
-                                                    <option>3</option>
-                                                    <option>4</option>
-                                                    <option>5</option>
-                                                    <option>6</option>
-                                                    <option>7</option>
-                                                    <option>8</option>
-                                                    <option>9</option>
-                                                    <option>10</option>
-                                                    <option>11</option>
-                                                    <option>12</option>
-                                                    <option>13</option>
-                                                    <option>14</option>
-                                                    <option>15</option>
-                                                    <option>16</option>
-                                                    <option>17</option>
-                                                    <option>18</option>
-                                                    <option>19</option>
-                                                    <option>20</option>
-                                                    <option>21</option>
-                                                    <option>22</option>
-                                                    <option>23</option>
-                                                    <option>24</option>
-                                                    <option>25</option>
-                                                    <option>26</option>
-                                                    <option>27</option>
-                                                    <option>28</option>
-                                                    <option>29</option>
-                                                    <option>30</option>
-                                                </select>
-                                                <br>
-                                                <div id="uplandClayeyInputLabelContainer"></div>
-                                                <div id="uplandClayeyInputContainer" class="input-container"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="card">
-                                        <div class="card-header d-grid">
-                                            <a class="btn" data-bs-toggle="collapse" href="#uplandShallowSample">
-                                                Upland Shallow
-                                            </a>
-                                        </div>
-                                        <div id="uplandShallowSample" class="collapse" data-bs-parent="#accordion">
-                                            <div class="card-body">
-                                                <select class="form-select" id="uplandShallowSampleQuantity">
-                                                    <option value="">Select Your Sample Quantity</option>
-                                                    <option>1</option>
-                                                    <option>2</option>
-                                                    <option>3</option>
-                                                    <option>4</option>
-                                                    <option>5</option>
-                                                    <option>6</option>
-                                                    <option>7</option>
-                                                    <option>8</option>
-                                                    <option>9</option>
-                                                    <option>10</option>
-                                                    <option>11</option>
-                                                    <option>12</option>
-                                                    <option>13</option>
-                                                    <option>14</option>
-                                                    <option>15</option>
-                                                    <option>16</option>
-                                                    <option>17</option>
-                                                    <option>18</option>
-                                                    <option>19</option>
-                                                    <option>20</option>
-                                                    <option>21</option>
-                                                    <option>22</option>
-                                                    <option>23</option>
-                                                    <option>24</option>
-                                                    <option>25</option>
-                                                    <option>26</option>
-                                                    <option>27</option>
-                                                    <option>28</option>
-                                                    <option>29</option>
-                                                    <option>30</option>
-                                                </select>
-                                                <br>
-                                                <div id="uplandShallowInputLabelContainer"></div>
-                                                <div id="uplandShallowInputContainer" class="input-container"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="card">
-                                        <div class="card-header d-grid">
-                                            <a class="btn" data-bs-toggle="collapse" href="#uplandVeryShallowSample">
-                                                Upland Very Shallow / Thin ClayPan
-                                            </a>
-                                        </div>
-                                        <div id="uplandVeryShallowSample" class="collapse" data-bs-parent="#accordion">
-                                            <div class="card-body">
-                                                <select class="form-select" id="uplandVeryShallowSampleQuantity">
-                                                    <option value="">Select Your Sample Quantity</option>
-                                                    <option>1</option>
-                                                    <option>2</option>
-                                                    <option>3</option>
-                                                    <option>4</option>
-                                                    <option>5</option>
-                                                    <option>6</option>
-                                                    <option>7</option>
-                                                    <option>8</option>
-                                                    <option>9</option>
-                                                    <option>10</option>
-                                                    <option>11</option>
-                                                    <option>12</option>
-                                                    <option>13</option>
-                                                    <option>14</option>
-                                                    <option>15</option>
-                                                    <option>16</option>
-                                                    <option>17</option>
-                                                    <option>18</option>
-                                                    <option>19</option>
-                                                    <option>20</option>
-                                                    <option>21</option>
-                                                    <option>22</option>
-                                                    <option>23</option>
-                                                    <option>24</option>
-                                                    <option>25</option>
-                                                    <option>26</option>
-                                                    <option>27</option>
-                                                    <option>28</option>
-                                                    <option>29</option>
-                                                    <option>30</option>
-                                                </select>
-                                                <br>
-                                                <div id="uplandVeryShallowInputLabelContainer"></div>
-                                                <div id="uplandVeryShallowInputContainer" class="input-container"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="card">
-                                        <div class="card-header d-grid">
-                                            <a class="btn" data-bs-toggle="collapse" href="#lowlandOverflowSample">
-                                                Lowland Overflow
-                                            </a>
-                                        </div>
-                                        <div id="lowlandOverflowSample" class="collapse" data-bs-parent="#accordion">
-                                            <div class="card-body">
-                                                <select class="form-select" id="lowlandOverflowSampleQuantity">
-                                                    <option value="">Select Your Sample Quantity</option>
-                                                    <option>1</option>
-                                                    <option>2</option>
-                                                    <option>3</option>
-                                                    <option>4</option>
-                                                    <option>5</option>
-                                                    <option>6</option>
-                                                    <option>7</option>
-                                                    <option>8</option>
-                                                    <option>9</option>
-                                                    <option>10</option>
-                                                    <option>11</option>
-                                                    <option>12</option>
-                                                    <option>13</option>
-                                                    <option>14</option>
-                                                    <option>15</option>
-                                                    <option>16</option>
-                                                    <option>17</option>
-                                                    <option>18</option>
-                                                    <option>19</option>
-                                                    <option>20</option>
-                                                    <option>21</option>
-                                                    <option>22</option>
-                                                    <option>23</option>
-                                                    <option>24</option>
-                                                    <option>25</option>
-                                                    <option>26</option>
-                                                    <option>27</option>
-                                                    <option>28</option>
-                                                    <option>29</option>
-                                                    <option>30</option>
-                                                </select>
-                                                <br>
-                                                <div id="lowlandOverflowInputLabelContainer"></div>
-                                                <div id="lowlandOverflowInputContainer" class="input-container"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="card">
-                                        <div class="card-header d-grid">
-                                            <a class="btn" data-bs-toggle="collapse" href="#lowlandWetMeadowSample">
-                                                Lowland Wet Meadow
-                                            </a>
-                                        </div>
-                                        <div id="lowlandWetMeadowSample" class="collapse" data-bs-parent="#accordion">
-                                            <div class="card-body">
-                                                <select class="form-select" id="lowlandWetMeadowSampleQuantity">
-                                                    <option value="">Select Your Sample Quantity</option>
-                                                    <option>1</option>
-                                                    <option>2</option>
-                                                    <option>3</option>
-                                                    <option>4</option>
-                                                    <option>5</option>
-                                                    <option>6</option>
-                                                    <option>7</option>
-                                                    <option>8</option>
-                                                    <option>9</option>
-                                                    <option>10</option>
-                                                    <option>11</option>
-                                                    <option>12</option>
-                                                    <option>13</option>
-                                                    <option>14</option>
-                                                    <option>15</option>
-                                                    <option>16</option>
-                                                    <option>17</option>
-                                                    <option>18</option>
-                                                    <option>19</option>
-                                                    <option>20</option>
-                                                    <option>21</option>
-                                                    <option>22</option>
-                                                    <option>23</option>
-                                                    <option>24</option>
-                                                    <option>25</option>
-                                                    <option>26</option>
-                                                    <option>27</option>
-                                                    <option>28</option>
-                                                    <option>29</option>
-                                                    <option>30</option>
-                                                </select>
-                                                <br>
-                                                <div id="lowlandWetMeadowInputLabelContainer"></div>
-                                                <div id="lowlandWetMeadowInputContainer" class="input-container"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </fieldset>
-                        </div>
-                        <br>
-                        <div class="mb-3" id="forageProductionCalculateBtnDiv">
-                            <div class="d-grid">
-                                <button id="forageProductionCalculateBtn" type="submit"
-                                    class="btn btn-primary btn-block">
-                                    <h4>CALCULATE</h4>
-                                </button>
-                            </div>
-                        </div>
-
-                        <br>
-
-                        <div id="rangelandResultDiv" class="nodisplay">
-                            <div class="generalResultTitle">
-                                <h5>Calculated Results</h5>
-                            </div>
-                            <br>
-                            <div id="rangelandResultDisplayTable">
-                                <table class="table table-striped">
-                                    <tr>
-                                        <th>Land Type</th>
-                                        <th>Forage Production (pounds/acre)</th>
-                                    </tr>
-                                    <tr>
-                                        <td>Upland Loamy</td>
-                                        <td>
-                                            <div id="uplandLoamyResultDisplayFP"></div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Upland Sandy</td>
-                                        <td>
-                                            <div id="uplandSandyResultDisplayFP"></div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Upland Clayey</td>
-                                        <td>
-                                            <div id="uplandClayeyResultDisplayFP"></div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Upland Shallow</td>
-                                        <td>
-                                            <div id="uplandShallowResultDisplayFP"></div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Upland Very Shallow / Thin ClayPan</td>
-                                        <td>
-                                            <div id="uplandVeryShallowResultDisplayFP"></div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Lowland Overflow</td>
-                                        <td>
-                                            <div id="lowlandOverflowResultDisplayFP"></div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Lowland Wet Meadow</td>
-                                        <td>
-                                            <div id="lowlandWetMeadowResultDisplayFP"></div>
-                                        </td>
-                                    </tr>
-                                </table>
-                            </div>
-                            <br>
-                        </div>
-                        <div id="nonRangelandResultDiv" class="nodisplay">
-                            <div class="generalResultTitle">
-                                <h5>Calculated Results</h5>
-                            </div>
-                            <div class="center-div">
-                                <input type="text" id="nonRangelandResultDisplay" class="resultDisplay" readonly>
-                            </div>
-                        </div>
-                        <br>
-                    </form>
+                    </fieldset>
                 </div>
-                <div class="col-md-2">
+
+                <div id="rangelandWeightDiv">
+                    <fieldset>
+                        <legend>Enter your sample net weights (unit: gram) separated by commas</legend>
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Land Type</th>
+                                    <th scope="col">Sample Net Weights (unit: gram)
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Upland Loamy</td>
+                                    <td>
+                                        <div class="clearable">
+                                            <input type="text" id="uplandLoamySampleWeightInput" value="">
+                                            <button type="button" class="clear-button"
+                                                id="clearUplandLoamySampleWeightButton">x</button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Upland Sandy</td>
+                                    <td>
+                                        <div class="clearable">
+                                            <input type="text" id="uplandSandySampleWeightInput" value="">
+                                            <button type="button" class="clear-button"
+                                                id="clearUplandSandySampleWeightButton">x</button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Upland Clayey</td>
+                                    <td>
+                                        <div class="clearable">
+                                            <input type="text" id="uplandClayeySampleWeightInput" value="">
+                                            <button type="button" class="clear-button"
+                                                id="clearUplandClayeySampleWeightButton">x</button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Upland Shallow</td>
+                                    <td>
+                                        <div class="clearable">
+                                            <input type="text" id="uplandShallowSampleWeightInput" value="">
+                                            <button type="button" class="clear-button"
+                                                id="clearUplandShallowSampleWeightButton">x</button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Upland Very Shallow / Thin ClayPan</td>
+                                    <td>
+                                        <div class="clearable">
+                                            <input type="text" id="uplandVeryShallowSampleWeightInput" value="">
+                                            <button type="button" class="clear-button"
+                                                id="clearUplandVeryShallowSampleWeightButton">x</button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Lowland Overflow</td>
+                                    <td>
+                                        <div class="clearable">
+                                            <input type="text" id="lowlandOverflowSampleWeightInput" value="">
+                                            <button type="button" class="clear-button"
+                                                id="clearLowlandOverflowSampleWeightButton">x</button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Lowland Wet Meadow</td>
+                                    <td>
+                                        <div class="clearable">
+                                            <input type="text" id="lowlandWetMeadowSampleWeightInput" value="">
+                                            <button type="button" class="clear-button"
+                                                id="clearLowlandWetMeadowSampleWeightButton">x</button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </fieldset>
+                    <br>
                 </div>
+
+                <br>
+                <div class="mb-3" id="forageProductionCalculateBtnDiv">
+                    <div class="d-grid">
+                        <button id="forageProductionCalculateBtn" type="button" class="btn btn-primary btn-block">
+                            <h4>CALCULATE</h4>
+                        </button>
+                    </div>
+                </div>
+                <br>
+
+                <div id="rangelandResultDiv" class="nodisplay">
+                    <div class="generalResultTitle">
+                        <h5>Calculated Results</h5>
+                    </div>
+                    <br>
+                    <div id="rangelandResultDisplayTable">
+                        <table class="table table-striped">
+                            <tr>
+                                <th>Land Type</th>
+                                <th>Forage Production (pounds/acre)</th>
+                            </tr>
+                            <tr>
+                                <td>Upland Loamy</td>
+                                <td>
+                                    <div id="uplandLoamyResultDisplayFP"></div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Upland Sandy</td>
+                                <td>
+                                    <div id="uplandSandyResultDisplayFP"></div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Upland Clayey</td>
+                                <td>
+                                    <div id="uplandClayeyResultDisplayFP"></div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Upland Shallow</td>
+                                <td>
+                                    <div id="uplandShallowResultDisplayFP"></div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Upland Very Shallow / Thin ClayPan</td>
+                                <td>
+                                    <div id="uplandVeryShallowResultDisplayFP"></div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Lowland Overflow</td>
+                                <td>
+                                    <div id="lowlandOverflowResultDisplayFP"></div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Lowland Wet Meadow</td>
+                                <td>
+                                    <div id="lowlandWetMeadowResultDisplayFP"></div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <br>
+                </div>
+                <div id="nonRangelandResultDiv" class="nodisplay">
+                    <div class="generalResultTitle">
+                        <h5>Total Forage Production (pounds/acre)</h5>
+                    </div>
+                    <div class="center-div">
+                        <input type="text" id="nonRangelandResultDisplay" class="resultDisplay" readonly>
+                    </div>
+                </div>
+                <br>
             </div>
-
         </div>
         <div id="stockingRateDiv" class="nodisplay">
             <br>
@@ -778,15 +489,29 @@
                                 <option value="25">Prairie dog</option>
                             </select>
                             <br><br>
-                            <label>Number of Head</label>
-                            <input required type="number" name="headNumber1" id="headNumber1" value="1" min="1"
-                                placeholder="enter a positive integer value" />
-                            <br><br>
-                            <label>Number of Month</label>
-                            <input required type="number" name="monthNumber1" id="monthNumber1" value="1" min="1"
-                                placeholder="enter a positive integer value" />
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>Number of Head</label>
+                                    <div class="center-div clearable">
+                                        <input required type="number" name="headNumber1" id="headNumber1" value="1"
+                                            min="1" placeholder="enter a positive number" />
+                                        <button type="button" class="clear-button"
+                                            id="clearHeadNumber1Button">x</button>
+                                    </div>
+                                    <div id="headNumber1InputError" class="validation-message"></div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label>Number of Month</label>
+                                    <div class="center-div clearable">
+                                        <input required type="number" name="monthNumber1" id="monthNumber1" value="1"
+                                            min="1" placeholder="enter a positive number" />
+                                        <button type="button" class="clear-button"
+                                            id="clearMonthNumber1Button">x</button>
+                                    </div>
+                                    <div id="monthNumber1InputError" class="validation-message"></div>
+                                </div>
+                            </div>
                         </fieldset>
-
                     </div>
                     <br>
                     <div class="mb-3" id="stockingRateCalculateBtnDiv">
@@ -795,21 +520,36 @@
                                 <h4>CALCULATE</h4>
                             </button>
                         </div>
+                        <div id="globalValidationMessageSR" class="validation-message"></div>
                     </div>
-
                     <br>
-
                     <div id="stockingRateResultDiv" class="nodisplay">
                         <div class="generalResultTitle">
                             <h5>Calculated Results</h5>
                         </div>
                         <fieldset>
-                            <legend>Total AUMs</legend>
+                            <legend>Total Animal Unit Months (Total AUMs)
+                                <!--                                 <span class="definition-container">
+                                    <span class="definition-icon">?</span>
+                                    <div class="definition-popup">
+                                        This is the definition or explanation of the field.
+                                    </div>
+                                </span>
+ -->
+                            </legend>
                             <input type="text" id="totalAumInput" class="resultDisplay" readonly>
                         </fieldset>
                         <br>
                         <fieldset>
-                            <legend>Average AUE</legend>
+                            <legend>Average Animal Unit Equivalents (Average AUE)
+                                <!--                                 <span class="definition-container">
+                                    <span class="definition-icon">?</span>
+                                    <div class="definition-popup">
+                                        This is the definition or explanation of the field.
+                                    </div>
+                                </span>
+ -->
+                            </legend>
                             <input type="text" id="averageAueInput" class="resultDisplay" readonly>
                         </fieldset>
                     </div>
@@ -885,12 +625,138 @@
                             <div class="form-check">
                                 <input type="radio" class="form-check-input" name="relativeProductionValueTypeRadio"
                                     id="actualValueRadio" value="actualValueRadio">
-                                <label class="form-check-label" for="actualValueRadio">Actual or Custom Values</label>
+                                <label class="form-check-label" for="actualValueRadio">Actual or Custom
+                                    Values</label>
                             </div>
                         </fieldset>
                         <br>
                     </div>
 
+                    <div id="singleForageProductionDiv" class="nodisplay">
+                        <fieldset>
+                            <legend>Forage Production (pounds/acre)
+                                <span class="definition-container">
+                                    <span class="definition-icon">?</span>
+                                    <div class="definition-popup">
+                                        This is the definition or explanation of the field.
+                                    </div>
+                                </span>
+                            </legend>
+                            <div class="center-div clearable">
+                                <input type="number" id="singleForageProductionInput" value="1">
+                                <button type="button" class="clear-button"
+                                    id="clearSingleForageProductionButton">x</button>
+                            </div>
+                            <div id="singleForageProductionInputError" class="validation-message"></div>
+                        </fieldset>
+                        <br>
+                    </div>
+                    <div id="multiAcresDiv">
+                        <fieldset>
+                            <legend>Gross Acres <br>(Note: at least one acre value below must be greater than
+                                0)</legend>
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Land Type</th>
+                                        <th scope="col">Gross Acres
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Upland Loamy</td>
+                                        <td>
+                                            <div class="clearable">
+                                                <input type="number" id="uplandLoamyGrossAcresInput" value="0"
+                                                    step="0.01">
+                                                <button type="button" class="clear-button"
+                                                    id="clearUplandLoamyGrossAcresButton">x</button>
+                                            </div>
+                                            <div id="uplandLoamyGrossAcresInputError" class="validation-message"></div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Upland Sandy</td>
+                                        <td>
+                                            <div class="clearable">
+                                                <input type="number" id="uplandSandyGrossAcresInput" value="0"
+                                                    step="0.01">
+                                                <button type="button" class="clear-button"
+                                                    id="clearUplandSandyGrossAcresButton">x</button>
+                                            </div>
+                                            <div id="uplandSandyGrossAcresInputError" class="validation-message"></div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Upland Clayey</td>
+                                        <td>
+                                            <div class="clearable">
+                                                <input type="number" id="uplandClayeyGrossAcresInput" value="0"
+                                                    step="0.01">
+                                                <button type="button" class="clear-button"
+                                                    id="clearUplandClayeyGrossAcresButton">x</button>
+                                            </div>
+                                            <div id="uplandClayeyGrossAcresInputError" class="validation-message"></div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Upland Shallow</td>
+                                        <td>
+                                            <div class="clearable">
+                                                <input type="number" id="uplandShallowGrossAcresInput" value="0"
+                                                    step="0.01">
+                                                <button type="button" class="clear-button"
+                                                    id="clearUplandShallowGrossAcresButton">x</button>
+                                            </div>
+                                            <div id="uplandShallowGrossAcresInputError" class="validation-message">
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Upland Very Shallow / Thin ClayPan</td>
+                                        <td>
+                                            <div class="clearable">
+                                                <input type="number" id="uplandVeryShallowGrossAcresInput" value="0"
+                                                    step="0.01">
+                                                <button type="button" class="clear-button"
+                                                    id="clearUplandVeryShallowGrossAcresButton">x</button>
+                                            </div>
+                                            <div id="uplandVeryShallowGrossAcresInputError" class="validation-message">
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Lowland Overflow</td>
+                                        <td>
+                                            <div class="clearable">
+                                                <input type="number" id="lowlandOverflowGrossAcresInput" value="0"
+                                                    step="0.01">
+                                                <button type="button" class="clear-button"
+                                                    id="clearLowlandOverflowGrossAcresButton">x</button>
+                                            </div>
+                                            <div id="lowlandOverflowGrossAcresInputError" class="validation-message">
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Lowland Wet Meadow</td>
+                                        <td>
+                                            <div class="clearable">
+                                                <input type="number" id="lowlandWetMeadowGrossAcresInput" value="0"
+                                                    step="0.01">
+                                                <button type="button" class="clear-button"
+                                                    id="clearLowlandWetMeadowGrossAcresButton">x</button>
+                                            </div>
+                                            <div id="lowlandWetMeadowGrossAcresInputError" class="validation-message">
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </fieldset>
+                        <br>
+                    </div>
                     <div id="actualRelativeProductionValuesDiv" class="nodisplay">
                         <fieldset>
                             <legend>Actual or Custom Relative Forage Production</legend>
@@ -905,50 +771,88 @@
                                     <tr>
                                         <td>Upland Loamy</td>
                                         <td>
-                                            <input type="number" id="uplandLoamyForageProductionInputCC" min="0"
-                                                required>
+                                            <div class="clearable">
+                                                <input type="number" id="uplandLoamyForageProductionInput" value="0">
+                                                <button type="button" class="clear-button"
+                                                    id="clearUplandLoamyForageProductionButton">x</button>
+                                            </div>
+                                            <div id="uplandLoamyForageProductionInputError" class="validation-message">
+                                            </div>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>Upland Sandy</td>
                                         <td>
-                                            <input type="number" id="uplandSandyForageProductionInputCC" min="0"
-                                                required>
+                                            <div class="clearable">
+                                                <input type="number" id="uplandSandyForageProductionInput" value="0">
+                                                <button type="button" class="clear-button"
+                                                    id="clearUplandSandyForageProductionButton">x</button>
+                                            </div>
+                                            <div id="uplandSandyForageProductionInputError" class="validation-message">
+                                            </div>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>Upland Clayey</td>
                                         <td>
-                                            <input type="number" id="uplandClayeyForageProductionInputCC" min="0"
-                                                required>
+                                            <div class="clearable">
+                                                <input type="number" id="uplandClayeyForageProductionInput" value="0">
+                                                <button type="button" class="clear-button"
+                                                    id="clearUplandClayeyForageProductionButton">x</button>
+                                            </div>
+                                            <div id="uplandClayeyForageProductionInputError" class="validation-message">
+                                            </div>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>Upland Shallow</td>
                                         <td>
-                                            <input type="number" id="uplandShallowForageProductionInputCC" min="0"
-                                                required>
+                                            <div class="clearable">
+                                                <input type="number" id="uplandShallowForageProductionInput" value="0">
+                                                <button type="button" class="clear-button"
+                                                    id="clearUplandShallowForageProductionButton">x</button>
+                                            </div>
+                                            <div id="uplandShallowForageProductionInputError"
+                                                class="validation-message"></div>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>Upland Very Shallow / Thin ClayPan</td>
                                         <td>
-                                            <input type="number" id="uplandVeryShallowForageProductionInputCC" min="0"
-                                                required>
+                                            <div class="clearable">
+                                                <input type="number" id="uplandVeryShallowForageProductionInput"
+                                                    value="0">
+                                                <button type="button" class="clear-button"
+                                                    id="clearUplandVeryShallowForageProductionButton">x</button>
+                                            </div>
+                                            <div id="uplandVeryShallowForageProductionInputError"
+                                                class="validation-message"></div>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>Lowland Overflow</td>
                                         <td>
-                                            <input type="number" id="lowlandOverflowForageProductionInputCC" min="0"
-                                                required>
+                                            <div class="clearable">
+                                                <input type="number" id="lowlandOverflowForageProductionInput"
+                                                    value="0">
+                                                <button type="button" class="clear-button"
+                                                    id="clearLowlandOverflowForageProductionButton">x</button>
+                                            </div>
+                                            <div id="lowlandOverflowForageProductionInputError"
+                                                class="validation-message"></div>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>Lowland Wet Meadow</td>
                                         <td>
-                                            <input type="number" id="lowlandWetMeadowForageProductionInputCC" min="0"
-                                                required>
+                                            <div class="clearable">
+                                                <input type="number" id="lowlandWetMeadowForageProductionInput"
+                                                    value="0">
+                                                <button type="button" class="clear-button"
+                                                    id="clearLowlandWetMeadowForageProductionButton">x</button>
+                                            </div>
+                                            <div id="lowlandWetMeadowForageProductionInputError"
+                                                class="validation-message"></div>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -956,16 +860,6 @@
                         </fieldset>
                         <br>
                     </div>
-                    <div id="singleForageProductionDiv" class="nodisplay">
-                        <fieldset>
-                            <legend>Forage Production (pounds/acre)</legend>
-                            <div class="center-div">
-                                <input type="number" id="singleForageProductionInput" min="0" value="0" required>
-                            </div>
-                        </fieldset>
-                        <br>
-                    </div>
-
                     <div id="multiHarvestEfficiencyDiv">
                         <fieldset>
                             <legend>Harvest Efficiency (%)</legend>
@@ -980,50 +874,95 @@
                                     <tr>
                                         <td>Upland Loamy</td>
                                         <td>
-                                            <input type="number" id="uplandLoamyHarvestEfficiencyInput" min="10"
-                                                max="75" value="25" required>
+                                            <div class="clearable">
+                                                <input type="number" id="uplandLoamyHarvestEfficiencyInput" value="25"
+                                                    step="0.1">
+                                                <button type="button" class="clear-button"
+                                                    id="clearUplandLoamyHarvestEfficiencyButton">x</button>
+                                            </div>
+                                            <div id="uplandLoamyHarvestEfficiencyInputError" class="validation-message">
+                                            </div>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>Upland Sandy</td>
                                         <td>
-                                            <input type="number" id="uplandSandyHarvestEfficiencyInput" min="10"
-                                                max="75" value="25" required>
+                                            <div class="clearable"> <input type="number"
+                                                    id="uplandSandyHarvestEfficiencyInput" value="25" step="0.1">
+                                                <button type="button" class="clear-button"
+                                                    id="clearUplandSandyHarvestEfficiencyButton">x</button>
+                                            </div>
+                                            <div id="uplandSandyHarvestEfficiencyInputError" class="validation-message">
+                                            </div>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>Upland Clayey</td>
                                         <td>
-                                            <input type="number" id="uplandClayeyHarvestEfficiencyInput" min="10"
-                                                max="75" value="25" required>
+                                            <div class="clearable">
+                                                <input type="number" id="uplandClayeyHarvestEfficiencyInput" value="25"
+                                                    step="0.1">
+                                                <button type="button" class="clear-button"
+                                                    id="clearUplandClayeyHarvestEfficiencyButton">x</button>
+                                            </div>
+                                            <div id="uplandClayeyHarvestEfficiencyInputError"
+                                                class="validation-message">
+                                            </div>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>Upland Shallow</td>
                                         <td>
-                                            <input type="number" id="uplandShallowHarvestEfficiencyInput" min="10"
-                                                max="75" value="25" required>
+                                            <div class="clearable">
+                                                <input type="number" id="uplandShallowHarvestEfficiencyInput" value="25"
+                                                    step="0.1">
+                                                <button type="button" class="clear-button"
+                                                    id="clearUplandShallowHarvestEfficiencyButton">x</button>
+                                            </div>
+                                            <div id="uplandShallowHarvestEfficiencyInputError"
+                                                class="validation-message">
+                                            </div>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>Upland Very Shallow / Thin ClayPan</td>
                                         <td>
-                                            <input type="number" id="uplandVeryShallowHarvestEfficiencyInput" min="10"
-                                                max="75" value="25" required>
+                                            <div class="clearable">
+                                                <input type="number" id="uplandVeryShallowHarvestEfficiencyInput"
+                                                    value="25" step="0.1">
+                                                <button type="button" class="clear-button"
+                                                    id="clearUplandVeryShallowHarvestEfficiencyButton">x</button>
+                                            </div>
+                                            <div id="uplandVeryShallowHarvestEfficiencyInputError"
+                                                class="validation-message">
+                                            </div>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>Lowland Overflow</td>
                                         <td>
-                                            <input type="number" id="lowlandOverflowHarvestEfficiencyInput" min="10"
-                                                max="75" value="25" required>
+                                            <div class="clearable">
+                                                <input type="number" id="lowlandOverflowHarvestEfficiencyInput"
+                                                    value="25" step="0.1">
+                                                <button type="button" class="clear-button"
+                                                    id="clearLowlandOverflowHarvestEfficiencyButton">x</button>
+                                            </div>
+                                            <div id="lowlandOverflowHarvestEfficiencyInputError"
+                                                class="validation-message">
+                                            </div>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>Lowland Wet Meadow</td>
-                                        <td>
-                                            <input type="number" id="lowlandWetMeadowHarvestEfficiencyInput" min="10"
-                                                max="75" value="25" required>
+                                        <td class="clearable">
+                                            <div>
+                                                <input type="number" id="lowlandWetMeadowHarvestEfficiencyInput"
+                                                    value="12.5" step="0.1">
+                                                <button type="button" class="clear-button"
+                                                    id="clearLowlandWetMeadowHarvestEfficiencyButton">x</button>
+                                            </div>
+                                            <div id="lowlandWetMeadowHarvestEfficiencyInputError"
+                                                class="validation-message"> </div>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -1034,77 +973,19 @@
 
                     <div id="singleHarvestEfficiencyDiv" class="nodisplay">
                         <fieldset>
-                            <legend>Harvest Efficiency (%)</legend>
-                            <div class="center-div">
-                                <input type="number" id="singleHarvestEfficiencyInput" min="10" max="75" value="25"
-                                    required>
+                            <legend>Harvest Efficiency (%)
+                                <span class="definition-container">
+                                    <span class="definition-icon">?</span>
+                                    <div class="definition-popup">
+                                        This is the definition or explanation of the field.
+                                    </div>
+                                </span>
+                            </legend>
+                            <div class="center-div clearable">
+                                <input type="number" id="singleHarvestEfficiencyInput" value="25"> <button type="button"
+                                    class="clear-button" id="clearSingleHarvestEfficiencyButton">x</button>
                             </div>
-                        </fieldset>
-                        <br>
-                    </div>
-
-                    <div id="multiAcresDiv">
-                        <fieldset>
-                            <legend>Gross Acres</legend>
-                            <table class="table table-striped">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">Land Type</th>
-                                        <th scope="col">Gross Acres</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>Upland Loamy</td>
-                                        <td>
-                                            <input type="number" id="uplandLoamyGrossAcresInput" min="0" value="0"
-                                                required>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Upland Sandy</td>
-                                        <td>
-                                            <input type="number" id="uplandSandyGrossAcresInput" min="0" value="0"
-                                                required>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Upland Clayey</td>
-                                        <td>
-                                            <input type="number" id="uplandClayeyGrossAcresInput" min="0" value="0"
-                                                required>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Upland Shallow</td>
-                                        <td>
-                                            <input type="number" id="uplandShallowGrossAcresInput" min="0" value="0"
-                                                required>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Upland Very Shallow / Thin ClayPan</td>
-                                        <td>
-                                            <input type="number" id="uplandVeryShallowGrossAcresInput" min="0" value="0"
-                                                required>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Lowland Overflow</td>
-                                        <td>
-                                            <input type="number" id="lowlandOverflowGrossAcresInput" min="0" value="0"
-                                                required>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Lowland Wet Meadow</td>
-                                        <td>
-                                            <input type="number" id="lowlandWetMeadowGrossAcresInput" min="0" value="0"
-                                                required>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                            <div id="singleHarvestEfficiencyInputError" class="validation-message"></div>
                         </fieldset>
                         <br>
                     </div>
@@ -1112,19 +993,55 @@
                     <div id="grossAcresDiv" class="nodisplay">
                         <fieldset>
                             <legend>Gross Acres</legend>
-                            <div class="center-div">
-                                <input type="number" id="singleGrossAcresInput" min="0" value="0" required>
+                            <div class="center-div clearable">
+                                <input type="number" id="singleGrossAcresInput" value="1" class="otherFieldTypes">
+                                <button type="button" class="clear-button" id="clearSingleGrossAcresButton">x</button>
                             </div>
+                            <div id="singleGrossAcresInputError" class="validation-message"></div>
                         </fieldset>
                         <br>
                     </div>
 
                     <div id="averageAUEDiv">
-                        <fieldset>
-                            <legend>Average AUE (optional)</legend>
-                            <div class="center-div">
-                                <input type="number" id="averateAUEInput" min="0" max="1" value="0.5">
+                        <!--                         <fieldset>
+                            <legend>Average AUE (default: 1)</legend>
+                            <div class="center-div clearable">
+                                <input type="number" id="averageAueInputCC" value="1"> <button type="button"
+                                    class="clear-button" id="clearAverageAueCCButton">x</button>
                             </div>
+                            <div id="averageAueInputCCError" class="validation-message"></div>
+                        </fieldset>
+                        <br>
+ -->
+                        <fieldset>
+                            <legend>Animal Class</legend>
+                            <select name="animalClassSelectCC" id="animalClassSelectCC">
+                                <option>1,000-lb. cow, dry</option>
+                                <option selected>1,000-lb. cow, with calf</option>
+                                <option>1,100-lb. cow, with calf</option>
+                                <option>1,200-lb. cow, with calf</option>
+                                <option>1,300-lb. cow, with calf</option>
+                                <option>1,400-lb. cow, with calf</option>
+                                <option>1,500-lb. cow, with calf</option>
+                                <option>Cattle bull, mature</option>
+                                <option>Weaned calves to yearling</option>
+                                <option>Yearling cattle (600-800 lb.)</option>
+                                <option>Two-year-old cattle (800-1,000 lb.)</option>
+                                <option>Bison cow, mature</option>
+                                <option>Bison bull, mature</option>
+                                <option>Horse, mature</option>
+                                <option>Sheep, dry ewe</option>
+                                <option>Sheep, mature with lamb</option>
+                                <option>Sheep ram</option>
+                                <option>Goat, mature</option>
+                                <option>Deer, white-tailed, mature</option>
+                                <option>Deer, mule, mature</option>
+                                <option>Elk, mature</option>
+                                <option>Antelope, mature</option>
+                                <option>Sheep, bighorn, mature</option>
+                                <option>Jackrabbit, white-tailed</option>
+                                <option>Prairie dog</option>
+                            </select>
                         </fieldset>
                         <br>
                     </div>
@@ -1160,11 +1077,12 @@
 
                     <div class="mb-3" id="carryingCapacityCalculateBtnDiv">
                         <div class="d-grid">
-                            <button id="carryingCapacityCalculateBtn" type="button" class="btn btn-primary btn-block">
+                            <button id="carryingCapacityCalculateBtn" type="submit" class="btn btn-primary btn-block">
                                 <h4>CALCULATE</h4>
                             </button>
                         </div>
                     </div>
+                    <div id="globalValidationMessageCC" class="validation-message"></div>
                     <br>
                     <div id="carryingCapacityResultDiv" class="nodisplay">
                         <div class="generalResultTitle">
@@ -1179,62 +1097,105 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>Total Production (pounds)</td>
+                                    <!--                                     <tr>
+                                        <td>Total Production (pounds)
+                                            <span class="definition-container">
+                                                <span class="definition-icon">?</span>
+                                                <div class="definition-popup">
+                                                    This is the definition or explanation of the field.
+                                                </div>
+                                            </span>
+                                        </td>
                                         <td>
                                             <input type="text" id="totalProductionDisplay" class="resultDisplay"
                                                 readonly>
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <td>Total Available Forage (pounds)</td>
+ -->
+                                    <!--                                     <tr>
+                                        <td>Total Available Forage (pounds)
+                                            <span class="definition-container">
+                                                <span class="definition-icon">?</span>
+                                                <div class="definition-popup">
+                                                    This is the definition or explanation of the field.
+                                                </div>
+                                            </span>
+                                        </td>
                                         <td>
                                             <input type="text" id="totalAvailableForageDisplay" class="resultDisplay"
                                                 readonly>
                                         </td>
                                     </tr>
+ -->
                                     <tr>
-                                        <td>Total AUMs</td>
+                                        <td>Total Animal Unit Months (Total AUMs)
+                                            <!--                                             <span class="definition-container">
+                                                <span class="definition-icon">?</span>
+                                                <div class="definition-popup">
+                                                    This is the definition or explanation of the field.
+                                                </div>
+                                            </span>
+ -->
+                                        </td>
                                         <td>
                                             <input type="text" id="totalAumsDisplay" class="resultDisplay" readonly>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>Total Available AUMs</td>
+                                        <td>AUMs per acre (AUM/ac)
+                                            <!--                                             <span class="definition-container">
+                                                <span class="definition-icon">?</span>
+                                                <div class="definition-popup">
+                                                    This is the definition or explanation of the field.
+                                                </div>
+                                            </span>
+ -->
+                                        </td>
                                         <td>
-                                            <input type="text" id="totalAvailableAumsDisplay" class="resultDisplay"
-                                                readonly>
+                                            <input type="text" id="aumAcDisplay" class="resultDisplay" readonly>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>AUM/ac</td>
+                                        <td>Acres per AUM (ac/AUM)
+                                            <!--                                             <span class="definition-container">
+                                                <span class="definition-icon">?</span>
+                                                <div class="definition-popup">
+                                                    This is the definition or explanation of the field.
+                                                </div>
+                                            </span>
+ -->
+                                        </td>
                                         <td>
-                                            <input type="text" id="aumacDisplay" class="resultDisplay" readonly>
+                                            <input type="text" id="acAumDisplay" class="resultDisplay" readonly>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>ac/AUM</td>
+                                        <td>Expressed Carrying Capacity (Animal Unit Equivalents Months per acre or
+                                            AUEM/acre)
+                                            <!--                                             <span class="definition-container">
+                                                <span class="definition-icon">?</span>
+                                                <div class="definition-popup">
+                                                    This is the definition or explanation of the field.
+                                                </div>
+                                            </span>
+ -->
+                                        </td>
                                         <td>
-                                            <input type="text" id="acaumDisplay" class="resultDisplay" readonly>
+                                            <input type="text" id="auemAcDisplay" class="resultDisplay" readonly>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>AUEM/ac</td>
-                                        <td>
-                                            <input type="text" id="auemacDisplay" class="resultDisplay" readonly>
+                                        <td>Acres per AUEM (ac/AUEM)
+                                            <!--                                             <span class="definition-container">
+                                                <span class="definition-icon">?</span>
+                                                <div class="definition-popup">
+                                                    This is the definition or explanation of the field.
+                                                </div>
+                                            </span>
+ -->
                                         </td>
-                                    </tr>
-                                    <tr>
-                                        <td>ac/AUEM</td>
                                         <td>
-                                            <input type="text" id="acauemDisplay" class="resultDisplay" readonly>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Total AUMs (from Stocking Rate Calculator)</td>
-                                        <td>
-                                            <input type="text" id="totalAumsFromStockingRateDisplay"
-                                                class="resultDisplay" readonly>
+                                            <input type="text" id="acAuemDisplay" class="resultDisplay" readonly>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -1257,8 +1218,15 @@
         <br>
         Copyright &copy;
         <script>document.write(new Date().getFullYear())</script>
-    </footer>
+        <br>
+        <hr>
+        Please contact Dr. &nbsp;<a href="https://www.ndsu.edu/agriculture/ag-home/directory/miranda-meehan"
+            target="_blank" id="footerContact">
+            Miranda Meehan
+        </a> &nbsp; for any questions.
 
+    </footer>
+    <br>
 </body>
 
 </html>
