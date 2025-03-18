@@ -272,3 +272,8 @@ input[type="number"]::-webkit-inner-spin-button {
     background-color: rgb(246, 245, 250);
     font-weight: bold;
 }
+
+#footer2 {
+    color: rgb(2, 14, 23);
+    background-color: rgb(187, 249, 89);
+}
