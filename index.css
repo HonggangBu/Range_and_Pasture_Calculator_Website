@@ -273,13 +273,13 @@ input[type="number"]::-webkit-inner-spin-button {
 
 .imageLeft {
     float: left;
-    width: 40%;
+    width: 300px;
     margin-right: 10px;
 }
 
 .imageRight {
     float: right;
-    width: 40%;
+    width: 300px;
     margin-left: 10px;
 }
 

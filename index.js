@@ -1035,8 +1035,6 @@ function OnAnyCarryingCapacityInputChangeCC() {
     let topValue = 40;
     let tf = true;
     for (let i = 0; i < n; i++) {
-        //tf = i === 0 ? false : true;
-
         const harvestEfficiencyInput = document.getElementById(landTypesArrayOne[i] + "HarvestEfficiencyInput");
         const harvestEfficiencyInputError = document.getElementById(landTypesArrayOne[i] + "HarvestEfficiencyInputError");
         const clearHarvestEfficiencyButton = document.getElementById('clear' + landTypesArrayTwo[i] + 'HarvestEfficiencyButton');
@@ -1099,7 +1097,6 @@ function CheckForageProductionInputCollectionError() {
     }
     return false;
 }
-
 
 
 function CheckGrossAcresInputCollectionError() {
