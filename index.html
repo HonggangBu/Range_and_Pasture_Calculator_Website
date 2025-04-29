@@ -48,11 +48,12 @@
             </ul>
         </div>
     </nav>
-    <div style="text-align: center; font-size: x-large; font-weight: bold; color: blueviolet; opacity: 0.9;">NDSU
-        Grazing Calculator</div>
-    <div id="root" class="container center-div">
+    <div class="background-image"></div>
+    <div id="root" class="container center-div main-content">
         <div id="aboutDiv">
-            <div class="bg-lightgreen">
+            <div id="title2"> NDSU &nbsp;&nbsp;&nbsp;&nbsp; Grazing &nbsp;&nbsp;&nbsp;&nbsp; Calculator</div>
+
+            <div class="bgc-azure">
                 <ul class="nav nav-tabs center-div" id="myTab" role="tablist">
                     <li class="nav-item" role="presentation">
                         <button class="nav-link active" id="intro-tab" data-bs-toggle="tab" data-bs-target="#intro"
@@ -69,9 +70,10 @@
                 </ul>
             </div>
             <div class="tab-content" id="myTabContent">
-                <div class="tab-pane fade show active" id="intro" role="tabpanel" aria-labelledby="intro-tab">
-                    <p>Welcome to the NDSU Grazing Calculator!
+                <div class="tab-pane fade show active bgc-azure" id="intro" role="tabpanel" aria-labelledby="intro-tab">
+                    <p><b>Welcome to the NDSU Grazing Calculator!</b>
                         <br><br>
+                        <img src="images/grazing0.jpg" alt="grazing" class="imageLeft">
                         Establishing the correct stocking rate is critical in optimizing forage production and
                         maintaining animal performance while ensuring the sustained health of the grazing resources.
                         Accurately calculating range and forage production of grazing resources is important when
@@ -80,12 +82,14 @@
                         manager/owner
                         estimate carrying capacity and set initial stocking rate for their grazing resources.
                         <br><br>
+                        <img src="images/grazing2.jpg" alt="grazing" class="imageRight">
                         Carrying capacity is a measurement of how much forage a unit or piece of ground is able to
                         produce on an average year. The carrying capacity is the maximum stocking rate possible that
                         is
                         consistent with maintaining or improving the forage and plant community, and other related
                         resources. Stocking rate is the number of animals grazing a unit of land for a specific time
-                        period. Stocking rate is one of the most important grazing management decisions a rancher or
+                        period.
+                        Stocking rate is one of the most important grazing management decisions a rancher or
                         land manager makes.
                         <br><br>
                         For any questions or detailed information, please check the documents or reach out to Dr.<a
@@ -94,7 +98,7 @@
                         </a>.
                     </p>
                 </div>
-                <div class="tab-pane fade" id="docs" role="tabpanel" aria-labelledby="docs-tab">
+                <div class="tab-pane fade bgc-azure" id="docs" role="tabpanel" aria-labelledby="docs-tab">
                     <dl>
                         <br>
                         <dt><b>- Range and Forage Production Sample Kits</b></dt>
@@ -131,42 +135,45 @@
                         <a href="https://www.ndsu.edu/agriculture/ag-home/directory/miranda-meehan" target="_blank">
                             <h5>Dr. Miranda Meehan</h5>
                         </a>
-                        <h6><b>Assoc Prof/Livestock Environmental Stewardship Spec & Ext Disaster Edu Coord</b></h6>
-                        <h7><b>Department of Animal Sciences, School of Natural Resource Sciences, NDSU</b></h7>
-                        <br>
-                        <div class="center-div">
-                            <table>
-                                <tr>
-                                    <td><u>Office:</u></td>
-                                    <td>Hultz Hall 191, NDSU
-                                        Fargo, ND 58102</td>
-                                </tr>
-                                <tr>
-                                    <td><u>Mailing Address:</u></td>
-                                    <td>
-                                        NDSU Dept 7630, PO Box 6050
-                                        Fargo, ND 58108-6050
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><u>Phone:</u></td>
-                                    <td>701-231-7683</td>
-                                </tr>
-                                <tr>
-                                    <td><u>Email:</u></td>
-                                    <td>miranda.meehan@ndsu.edu</td>
-                                </tr>
-                            </table>
+                        <div class="bgc-azure">
+                            <h6><b>Assoc Prof/Livestock Environmental Stewardship Spec & Ext Disaster Edu Coord</b></h6>
+                            <h7><b>Department of Animal Sciences, School of Natural Resource Sciences, NDSU</b></h7>
+                            <br>
+                            <div class="center-div">
+                                <table>
+                                    <tr>
+                                        <td><u>Office:</u></td>
+                                        <td>Hultz Hall 191, NDSU
+                                            Fargo, ND 58102</td>
+                                    </tr>
+                                    <tr>
+                                        <td><u>Mailing Address:</u></td>
+                                        <td>
+                                            NDSU Dept 7630, PO Box 6050
+                                            Fargo, ND 58108-6050
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><u>Phone:</u></td>
+                                        <td>701-231-7683</td>
+                                    </tr>
+                                    <tr>
+                                        <td><u>Email:</u></td>
+                                        <td>miranda.meehan@ndsu.edu</td>
+                                    </tr>
+                                </table>
+                            </div>
                         </div>
                     </div>
 
                 </div>
             </div>
+            <br>
         </div>
-        <div id="forageProductionDiv" class="nodisplay">
+        <div id="forageProductionDiv" class="nodisplay calculators-bgc">
             <br>
             <div>
-                <h2 class="text-center">Forage Production Calculator</h2>
+                <h2 class="text-center white-font">Forage Production Calculator</h2>
             </div>
             <br>
             <div id="forageProductionForm">
@@ -174,37 +181,37 @@
                     <legend>Pasture or Field Type</legend>
                     <div class="form-check">
                         <input type="radio" class="form-check-input" id="rangelandRadio" name="pastureTypeRadio"
-                            value="rangelandRadio" checked>Rangeland and Tame Grass Pastures
+                            value="rangelandRadio" checked>Rangeland
                         <label class="form-check-label" for="rangelandRadio"></label>
                     </div>
                     <div class="form-check">
-                        <input type="radio" class="form-check-input" id="smallgrainsRadio" name="pastureTypeRadio"
-                            value="smallgrainsRadio">Small Grains, Solid-seeded
-                        (Broadcast) Crops and Cover Crop
-                        Mixtures
-                        <label class="form-check-label" for="smallgrainsRadio"></label>
+                        <input type="radio" class="form-check-input" id="tamegrassRadio" name="pastureTypeRadio"
+                            value="tamegrassRadio">Tame Grass Pastures
+                        <label class="form-check-label" for="tamegrassRadio"></label>
                     </div>
                     <div class="form-check">
-                        <input type="radio" class="form-check-input" id="rowcropsRadio" name="pastureTypeRadio"
-                            value="rowcropsRadio">Row Crops
-                        <label class="form-check-label" for="rowcropsRadio"></label>
+                        <input type="radio" class="form-check-input" id="annualForagesRadio" name="pastureTypeRadio"
+                            value="annualForagesRadio">Annual Forages
+                        <label class="form-check-label" for="annualForagesRadio"></label>
                     </div>
                 </fieldset>
                 <br>
-                <fieldset>
-                    <legend>Sample Weight Type</legend>
-                    <div class="form-check">
-                        <input type="radio" class="form-check-input" id="dryRadio" name="drywetRadio" value="dryRadio"
-                            checked>Air-Dried
-                        <label class="form-check-label" for="dryRadio"></label>
-                    </div>
-                    <div class="form-check">
-                        <input type="radio" class="form-check-input" id="wetRadio" name="drywetRadio"
-                            value="wetRadio">Wet
-                        <label class="form-check-label" for="wetRadio"></label>
-                    </div>
-                </fieldset>
-                <br>
+                <div id="drywetFieldset">
+                    <fieldset>
+                        <legend>Sample Weight Type</legend>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="dryRadio" name="drywetRadio"
+                                value="dryRadio" checked>Air-Dried
+                            <label class="form-check-label" for="dryRadio"></label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="wetRadio" name="drywetRadio"
+                                value="wetRadio">Wet
+                            <label class="form-check-label" for="wetRadio"></label>
+                        </div>
+                    </fieldset>
+                    <br>
+                </div>
                 <div id="PlantAndStageSelectDiv" class="nodisplay">
                     <fieldset>
                         <legend>Plant Type</legend>
@@ -236,8 +243,9 @@
                             <option>Dormancy</option>
                         </select>
                     </fieldset>
+                    <br>
                 </div>
-                <br>
+
                 <div id="nonRangelandWeightDiv" class="nodisplay">
                     <fieldset>
                         <legend>Enter your sample net weights (unit: gram) separated by commas</legend>
@@ -400,6 +408,12 @@
                                     <div id="lowlandWetMeadowResultDisplayFP"></div>
                                 </td>
                             </tr>
+                            <tr>
+                                <td><b>Total Forage Production</b></td>
+                                <td>
+                                    <div id="totalResultDisplayFP"></div>
+                                </td>
+                            </tr>
                         </table>
                     </div>
                     <br>
@@ -415,874 +429,645 @@
                 <br>
             </div>
         </div>
-        <div id="stockingRateDiv" class="nodisplay">
+        <div id="stockingRateDiv" class="nodisplay calculators-bgc">
             <br>
             <div>
-                <h2 class="text-center">Stocking Rate Calculator</h2>
+                <h2 class="text-center white-font">Stocking Rate Calculator</h2>
             </div>
-            <div class="row">
-                <div class="col-md-2">
-                </div>
-                <div class="col-md-8">
-                    <div>
-                        <br>
-                        <fieldset>
-                            <legend>Select Your Quantity of Animal Classes</legend>
-                            <select name="animalClassNumberSelect" id="animalClassNumberSelect">
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                                <option value="6">6</option>
-                                <option value="7">7</option>
-                                <option value="8">8</option>
-                                <option value="9">9</option>
-                                <option value="10">10</option>
-                                <option value="11">11</option>
-                                <option value="12">12</option>
-                                <option value="13">13</option>
-                                <option value="14">14</option>
-                                <option value="15">15</option>
-                                <option value="16">16</option>
-                                <option value="17">17</option>
-                                <option value="18">18</option>
-                                <option value="19">19</option>
-                                <option value="20">20</option>
-                                <option value="21">21</option>
-                                <option value="22">22</option>
-                                <option value="23">23</option>
-                                <option value="24">24</option>
-                                <option value="25">25</option>
-                            </select>
-                        </fieldset>
-                    </div>
-                    <hr>
-                    <hr>
-                    <div id="dynamicAnimalClassesContainer">
-                        <fieldset>
-                            <legend>Select or Enter Animal (Class #1) Info</legend>
-                            <label>Animal Class #1</label>
-                            <select name="animalClassSelect_1" id="animalClassSelect_1">
-                                <option value="1">1,000-lb. cow, dry</option>
-                                <option value="2">1,000-lb. cow, with calf</option>
-                                <option value="3">1,100-lb. cow, with calf</option>
-                                <option value="4">1,200-lb. cow, with calf</option>
-                                <option value="5">1,300-lb. cow, with calf</option>
-                                <option value="6">1,400-lb. cow, with calf</option>
-                                <option value="7">1,500-lb. cow, with calf</option>
-                                <option value="8">Cattle bull, mature</option>
-                                <option value="9">Weaned calves to yearling</option>
-                                <option value="10">Yearling cattle (600-800 lb.)</option>
-                                <option value="11">Two-year-old cattle (800-1,000 lb.)</option>
-                                <option value="12">Bison cow, mature</option>
-                                <option value="13">Bison bull, mature</option>
-                                <option value="14">Horse, mature</option>
-                                <option value="15">Sheep, dry ewe</option>
-                                <option value="16">Sheep, mature with lamb</option>
-                                <option value="17">Sheep ram</option>
-                                <option value="18">Goat, mature</option>
-                                <option value="19">Deer, white-tailed, mature</option>
-                                <option value="20">Deer, mule, mature</option>
-                                <option value="21">Elk, mature</option>
-                                <option value="22">Antelope, mature</option>
-                                <option value="23">Sheep, bighorn, mature</option>
-                                <option value="24">Jackrabbit, white-tailed</option>
-                                <option value="25">Prairie dog</option>
-                            </select>
-                            <br><br>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <label>Number of Head</label>
-                                    <div class="center-div clearable">
-                                        <input required type="number" name="headNumber1" id="headNumber1" value="1"
-                                            min="1" placeholder="enter a positive number" />
-                                        <button type="button" class="clear-button"
-                                            id="clearHeadNumber1Button">x</button>
-                                    </div>
-                                    <div id="headNumber1InputError" class="validation-message"></div>
-                                </div>
-                                <div class="col-md-6">
-                                    <label>Number of Month</label>
-                                    <div class="center-div clearable">
-                                        <input required type="number" name="monthNumber1" id="monthNumber1" value="1"
-                                            min="1" placeholder="enter a positive number" />
-                                        <button type="button" class="clear-button"
-                                            id="clearMonthNumber1Button">x</button>
-                                    </div>
-                                    <div id="monthNumber1InputError" class="validation-message"></div>
-                                </div>
-                            </div>
-                        </fieldset>
-                    </div>
-                    <br>
-                    <div class="mb-3" id="stockingRateCalculateBtnDiv">
-                        <div class="d-grid">
-                            <button id="stockingRateCalculateBtn" type="button" class="btn btn-primary btn-block">
-                                <h4>CALCULATE</h4>
-                            </button>
-                        </div>
-                        <div id="globalValidationMessageSR" class="validation-message"></div>
-                    </div>
-                    <br>
-                    <div id="stockingRateResultDiv" class="nodisplay">
-                        <div class="generalResultTitle">
-                            <h5>Calculated Results</h5>
-                        </div>
-                        <fieldset>
-                            <legend>Total Animal Unit Months (Total AUMs)
-                                <!--                                 <span class="definition-container">
-                                    <span class="definition-icon">?</span>
-                                    <div class="definition-popup">
-                                        This is the definition or explanation of the field.
-                                    </div>
-                                </span>
- -->
-                            </legend>
-                            <input type="text" id="totalAumInput" class="resultDisplay" readonly>
-                        </fieldset>
-                        <br>
-                        <fieldset>
-                            <legend>Average Animal Unit Equivalents (Average AUE)
-                                <!--                                 <span class="definition-container">
-                                    <span class="definition-icon">?</span>
-                                    <div class="definition-popup">
-                                        This is the definition or explanation of the field.
-                                    </div>
-                                </span>
- -->
-                            </legend>
-                            <input type="text" id="averageAueInput" class="resultDisplay" readonly>
-                        </fieldset>
-                    </div>
-                    <br>
-                </div>
-
-                <div class="col-md-2">
-                </div>
-
-            </div>
-        </div>
-        <div id="carryingCapacityDiv" class="nodisplay">
-            <br>
             <div>
-                <h2 class="text-center">Carrying Capacity Calculator</h2>
-            </div>
-            <div class="row">
-                <div class="col-md-2">
-                </div>
-                <div class="col-md-8">
+                <div>
                     <br>
                     <fieldset>
-                        <legend>Pasture or Field Type</legend>
+                        <legend>Select Your Quantity of Animal Classes</legend>
+                        <select name="animalClassNumberSelect" id="animalClassNumberSelect">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                            <option value="12">12</option>
+                            <option value="13">13</option>
+                            <option value="14">14</option>
+                            <option value="15">15</option>
+                            <option value="16">16</option>
+                            <option value="17">17</option>
+                            <option value="18">18</option>
+                            <option value="19">19</option>
+                            <option value="20">20</option>
+                            <option value="21">21</option>
+                            <option value="22">22</option>
+                            <option value="23">23</option>
+                            <option value="24">24</option>
+                            <option value="25">25</option>
+                        </select>
+                    </fieldset>
+                </div>
+                <hr style="background-color: yellow; height: 3px;">
+                <div id="dynamicAnimalClassesContainer">
+                    <fieldset>
+                        <legend>Select or Enter Animal (Class #1) Info</legend>
+                        <label>Animal Class #1</label>
+                        <select name="animalClassSelect_1" id="animalClassSelect_1">
+                            <option value="1">1,000-lb. cow, dry</option>
+                            <option value="2">1,000-lb. cow, with calf</option>
+                            <option value="3">1,100-lb. cow, with calf</option>
+                            <option value="4">1,200-lb. cow, with calf</option>
+                            <option value="5">1,300-lb. cow, with calf</option>
+                            <option value="6">1,400-lb. cow, with calf</option>
+                            <option value="7">1,500-lb. cow, with calf</option>
+                            <option value="8">Cattle bull, mature</option>
+                            <option value="9">Weaned calves to yearling</option>
+                            <option value="10">Yearling cattle (600-800 lb.)</option>
+                            <option value="11">Two-year-old cattle (800-1,000 lb.)</option>
+                            <option value="12">Bison cow, mature</option>
+                            <option value="13">Bison bull, mature</option>
+                            <option value="14">Horse, mature</option>
+                            <option value="15">Sheep, dry ewe</option>
+                            <option value="16">Sheep, mature with lamb</option>
+                            <option value="17">Sheep ram</option>
+                            <option value="18">Goat, mature</option>
+                            <option value="19">Deer, white-tailed, mature</option>
+                            <option value="20">Deer, mule, mature</option>
+                            <option value="21">Elk, mature</option>
+                            <option value="22">Antelope, mature</option>
+                            <option value="23">Sheep, bighorn, mature</option>
+                            <option value="24">Jackrabbit, white-tailed</option>
+                            <option value="25">Prairie dog</option>
+                        </select>
+                        <br><br>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Number of Head</label>
+                                <div class="center-div clearable">
+                                    <input required type="number" name="headNumber1" id="headNumber1" value="1" min="1"
+                                        placeholder="enter a positive number" />
+                                    <button type="button" class="clear-button" id="clearHeadNumber1Button">x</button>
+                                </div>
+                                <div id="headNumber1InputError" class="validation-message"></div>
+                            </div>
+                            <div class="col-md-6">
+                                <label>Number of Month</label>
+                                <div class="center-div clearable">
+                                    <input required type="number" name="monthNumber1" id="monthNumber1" value="1"
+                                        min="1" placeholder="enter a positive number" />
+                                    <button type="button" class="clear-button" id="clearMonthNumber1Button">x</button>
+                                </div>
+                                <div id="monthNumber1InputError" class="validation-message"></div>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+                <br>
+                <div class="mb-3" id="stockingRateCalculateBtnDiv">
+                    <div class="d-grid">
+                        <button id="stockingRateCalculateBtn" type="button" class="btn btn-primary btn-block">
+                            <h4>CALCULATE</h4>
+                        </button>
+                    </div>
+                    <div id="globalValidationMessageSR" class="validation-message"></div>
+                </div>
+                <br>
+                <div id="stockingRateResultDiv" class="nodisplay">
+                    <div class="generalResultTitle">
+                        <h5>Calculated Results</h5>
+                    </div>
+                    <fieldset>
+                        <legend>Total Animal Unit Months (Total AUMs)
+                            <!--                                 <span class="definition-container">
+                                    <span class="definition-icon">?</span>
+                                    <div class="definition-popup">
+                                        This is the definition or explanation of the field.
+                                    </div>
+                                </span>
+ -->
+                        </legend>
+                        <input type="text" id="totalAumInput" class="resultDisplay" readonly>
+                    </fieldset>
+                    <br>
+                    <fieldset>
+                        <legend>Average Animal Unit Equivalents (Average AUE)
+                            <!--                                 <span class="definition-container">
+                                    <span class="definition-icon">?</span>
+                                    <div class="definition-popup">
+                                        This is the definition or explanation of the field.
+                                    </div>
+                                </span>
+ -->
+                        </legend>
+                        <input type="text" id="averageAueInput" class="resultDisplay" readonly>
+                    </fieldset>
+                </div>
+                <br>
+            </div>
+
+
+        </div>
+        <div id="carryingCapacityDiv" class="nodisplay calculators-bgc">
+            <br>
+            <div>
+                <h2 class="text-center white-font">Carrying Capacity Calculator</h2>
+            </div>
+            <div>
+                <br>
+                <fieldset>
+                    <legend>Pasture or Field Type</legend>
+                    <div class="form-check">
+                        <input type="radio" class="form-check-input" name="pastureTypeRadioCC" id="rangeRadioCC"
+                            value="rangeRadioCC" checked="checked">
+                        <label class="form-check-label" for="rangeRadioCC">Rangeland</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="radio" class="form-check-input" name="pastureTypeRadioCC" id="tamegrassRadioCC"
+                            value="tamegrassRadioCC">
+                        <label class="form-check-label" for="tamegrassRadioCC">Tame Grass Pastures</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="radio" class="form-check-input" name="pastureTypeRadioCC" id="annualForagesRadioCC"
+                            value="annualForagesRadioCC">
+                        <label class="form-check-label" for="annualForagesRadioCC">Annual
+                            Forages</label>
+                    </div>
+                </fieldset>
+                <br>
+
+                <div id="carryingCapacityCalculateMethodDiv">
+                    <fieldset>
+                        <legend>Carrying Capacity Calculation Method</legend>
                         <div class="form-check">
-                            <input type="radio" class="form-check-input" name="pastureTypeRadioCC" id="rangeRadioCC"
-                                value="rangeRadioCC" checked="checked">
-                            <label class="form-check-label" for="rangeRadioCC">Rangeland</label>
+                            <input type="radio" class="form-check-input" name="carryingCapacityCalculateMethodRadio"
+                                id="estimatedStockingRatesRadio" value="estimatedStockingRatesRadio" checked="checked">
+                            <label class="form-check-label" for="estimatedStockingRatesRadio">Using Estimated
+                                AUMs/ac Stocking Rates</label>
                         </div>
                         <div class="form-check">
-                            <input type="radio" class="form-check-input" name="pastureTypeRadioCC" id="tamegrassRadioCC"
-                                value="tamegrassRadioCC">
-                            <label class="form-check-label" for="tamegrassRadioCC">Tame Grass</label>
+                            <input type="radio" class="form-check-input" name="carryingCapacityCalculateMethodRadio"
+                                id="estimatedRelativeProductionValuesRadio"
+                                value="estimatedRelativeProductionValuesRadio">
+                            <label class="form-check-label" for="estimatedRelativeProductionValuesRadio">Using
+                                Estimated
+                                Relative Forage Production Values</label>
                         </div>
                         <div class="form-check">
-                            <input type="radio" class="form-check-input" name="pastureTypeRadioCC" id="othersRadioCC"
-                                value="othersRadioCC">
-                            <label class="form-check-label" for="othersRadioCC">Others (Row Crops, Small Grains,
-                                Solid-seeded
-                                (Broadcast) Crops and
-                                Cover
-                                Crop Mixtures)</label>
+                            <input type="radio" class="form-check-input" name="carryingCapacityCalculateMethodRadio"
+                                id="actualProductionValuesRadio" value="actualProductionValuesRadio">
+                            <label class="form-check-label" for="actualProductionValueRadio">Uisng Actual or
+                                Custom
+                                Forage Production Values</label>
                         </div>
                     </fieldset>
                     <br>
-                    <div id="carryingCapacityCalculateMethodDiv">
-                        <fieldset>
-                            <legend>Carrying Capacity Calculate Method</legend>
-                            <div class="form-check">
-                                <input type="radio" class="form-check-input" name="carryingCapacityCalculateMethodRadio"
-                                    id="estimatedStockingRatesRadio" value="estimatedStockingRatesRadio"
-                                    checked="checked">
-                                <label class="form-check-label" for="estimatedStockingRatesRadio">Using Estimated
-                                    AUMs/ac Stocking Rates</label>
-                            </div>
-                            <div class="form-check">
-                                <input type="radio" class="form-check-input" name="carryingCapacityCalculateMethodRadio"
-                                    id="relativeProductionValuesRadio" value="relativeProductionValuesRadio">
-                                <label class="form-check-label" for="relativeProductionValuesRadio">Using Relative
-                                    Production Values</label>
-                            </div>
-                        </fieldset>
-                        <br>
-                    </div>
-                    <div id="relativeProductionValueTypeDiv" class="nodisplay">
-                        <fieldset>
-                            <legend>Relative Forage Production Value Type</legend>
-                            <div class="form-check">
-                                <input type="radio" class="form-check-input" name="relativeProductionValueTypeRadio"
-                                    id="defaultValueRadio" value="defaultValueRadio" checked="checked">
-                                <label class="form-check-label" for="defaultValueRadio">Estimated or Default
-                                    Values</label>
-                            </div>
-                            <div class="form-check">
-                                <input type="radio" class="form-check-input" name="relativeProductionValueTypeRadio"
-                                    id="actualValueRadio" value="actualValueRadio">
-                                <label class="form-check-label" for="actualValueRadio">Actual or Custom
-                                    Values</label>
-                            </div>
-                        </fieldset>
-                        <br>
-                    </div>
+                </div>
 
-                    <div id="singleForageProductionDiv" class="nodisplay">
-                        <fieldset>
-                            <legend>Forage Production (pounds/acre)
-                                <!--                                 <span class="definition-container">
-                                    <span class="definition-icon">?</span>
-                                    <div class="definition-popup">
-                                        This is the definition or explanation of the field.
-                                    </div>
-                                </span>
- -->
-                            </legend>
-                            <div class="center-div clearable">
-                                <input type="number" id="singleForageProductionInput" value="1">
-                                <button type="button" class="clear-button"
-                                    id="clearSingleForageProductionButton">x</button>
-                            </div>
-                            <div id="singleForageProductionInputError" class="validation-message"></div>
-                        </fieldset>
-                        <br>
-                    </div>
-                    <div id="multiAcresDiv">
-                        <fieldset>
-                            <legend>Gross Acres <br>(Note: at least one acre value below must be greater than
-                                0)</legend>
-                            <table class="table table-striped">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">Land Type</th>
-                                        <th scope="col">Gross Acres</th>
-                                        <th scope="col">Harvest Efficiency (%)</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>Upland Loamy</td>
-                                        <td>
-                                            <div class="clearable">
-                                                <input type="number" id="uplandLoamyGrossAcresInput" value="0"
-                                                    step="0.01">
-                                                <button type="button" class="clear-button"
-                                                    id="clearUplandLoamyGrossAcresButton">x</button>
-                                            </div>
-                                            <div id="uplandLoamyGrossAcresInputError" class="validation-message"></div>
-                                        </td>
-                                        <td>
-                                            <div class="clearable">
-                                                <input type="number" id="uplandLoamyHarvestEfficiencyInput" value="25"
-                                                    step="0.1">
-                                                <button type="button" class="clear-button"
-                                                    id="clearUplandLoamyHarvestEfficiencyButton">x</button>
-                                            </div>
-                                            <div id="uplandLoamyHarvestEfficiencyInputError" class="validation-message">
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Upland Sandy</td>
-                                        <td>
-                                            <div class="clearable">
-                                                <input type="number" id="uplandSandyGrossAcresInput" value="0"
-                                                    step="0.01">
-                                                <button type="button" class="clear-button"
-                                                    id="clearUplandSandyGrossAcresButton">x</button>
-                                            </div>
-                                            <div id="uplandSandyGrossAcresInputError" class="validation-message"></div>
-                                        </td>
-                                        <td>
-                                            <div class="clearable"> <input type="number"
-                                                    id="uplandSandyHarvestEfficiencyInput" value="25" step="0.1">
-                                                <button type="button" class="clear-button"
-                                                    id="clearUplandSandyHarvestEfficiencyButton">x</button>
-                                            </div>
-                                            <div id="uplandSandyHarvestEfficiencyInputError" class="validation-message">
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Upland Clayey</td>
-                                        <td>
-                                            <div class="clearable">
-                                                <input type="number" id="uplandClayeyGrossAcresInput" value="0"
-                                                    step="0.01">
-                                                <button type="button" class="clear-button"
-                                                    id="clearUplandClayeyGrossAcresButton">x</button>
-                                            </div>
-                                            <div id="uplandClayeyGrossAcresInputError" class="validation-message"></div>
-                                        </td>
-                                        <td>
-                                            <div class="clearable">
-                                                <input type="number" id="uplandClayeyHarvestEfficiencyInput" value="25"
-                                                    step="0.1">
-                                                <button type="button" class="clear-button"
-                                                    id="clearUplandClayeyHarvestEfficiencyButton">x</button>
-                                            </div>
-                                            <div id="uplandClayeyHarvestEfficiencyInputError"
-                                                class="validation-message">
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Upland Shallow</td>
-                                        <td>
-                                            <div class="clearable">
-                                                <input type="number" id="uplandShallowGrossAcresInput" value="0"
-                                                    step="0.01">
-                                                <button type="button" class="clear-button"
-                                                    id="clearUplandShallowGrossAcresButton">x</button>
-                                            </div>
-                                            <div id="uplandShallowGrossAcresInputError" class="validation-message">
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="clearable">
-                                                <input type="number" id="uplandShallowHarvestEfficiencyInput" value="25"
-                                                    step="0.1">
-                                                <button type="button" class="clear-button"
-                                                    id="clearUplandShallowHarvestEfficiencyButton">x</button>
-                                            </div>
-                                            <div id="uplandShallowHarvestEfficiencyInputError"
-                                                class="validation-message">
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Upland Very Shallow / Thin ClayPan</td>
-                                        <td>
-                                            <div class="clearable">
-                                                <input type="number" id="uplandVeryShallowGrossAcresInput" value="0"
-                                                    step="0.01">
-                                                <button type="button" class="clear-button"
-                                                    id="clearUplandVeryShallowGrossAcresButton">x</button>
-                                            </div>
-                                            <div id="uplandVeryShallowGrossAcresInputError" class="validation-message">
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="clearable">
-                                                <input type="number" id="uplandVeryShallowHarvestEfficiencyInput"
-                                                    value="25" step="0.1">
-                                                <button type="button" class="clear-button"
-                                                    id="clearUplandVeryShallowHarvestEfficiencyButton">x</button>
-                                            </div>
-                                            <div id="uplandVeryShallowHarvestEfficiencyInputError"
-                                                class="validation-message">
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Lowland Overflow</td>
-                                        <td>
-                                            <div class="clearable">
-                                                <input type="number" id="lowlandOverflowGrossAcresInput" value="0"
-                                                    step="0.01">
-                                                <button type="button" class="clear-button"
-                                                    id="clearLowlandOverflowGrossAcresButton">x</button>
-                                            </div>
-                                            <div id="lowlandOverflowGrossAcresInputError" class="validation-message">
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="clearable">
-                                                <input type="number" id="lowlandOverflowHarvestEfficiencyInput"
-                                                    value="25" step="0.1">
-                                                <button type="button" class="clear-button"
-                                                    id="clearLowlandOverflowHarvestEfficiencyButton">x</button>
-                                            </div>
-                                            <div id="lowlandOverflowHarvestEfficiencyInputError"
-                                                class="validation-message">
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Lowland Wet Meadow</td>
-                                        <td>
-                                            <div class="clearable">
-                                                <input type="number" id="lowlandWetMeadowGrossAcresInput" value="0"
-                                                    step="0.01">
-                                                <button type="button" class="clear-button"
-                                                    id="clearLowlandWetMeadowGrossAcresButton">x</button>
-                                            </div>
-                                            <div id="lowlandWetMeadowGrossAcresInputError" class="validation-message">
-                                            </div>
-                                        </td>
-                                        <td class="clearable">
-                                            <div>
-                                                <input type="number" id="lowlandWetMeadowHarvestEfficiencyInput"
-                                                    value="12.5" step="0.1">
-                                                <button type="button" class="clear-button"
-                                                    id="clearLowlandWetMeadowHarvestEfficiencyButton">x</button>
-                                            </div>
-                                            <div id="lowlandWetMeadowHarvestEfficiencyInputError"
-                                                class="validation-message"> </div>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </fieldset>
-                        <br>
-                    </div>
-                    <div id="actualRelativeProductionValuesDiv" class="nodisplay">
-                        <fieldset>
-                            <legend>Actual or Custom Relative Forage Production</legend>
-                            <table class="table table-striped">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">Land Type</th>
-                                        <th scope="col">Forage Production(pounds/acre)</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>Upland Loamy</td>
-                                        <td>
-                                            <div class="clearable">
-                                                <input type="number" id="uplandLoamyForageProductionInput" value="0">
-                                                <button type="button" class="clear-button"
-                                                    id="clearUplandLoamyForageProductionButton">x</button>
-                                            </div>
-                                            <div id="uplandLoamyForageProductionInputError" class="validation-message">
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Upland Sandy</td>
-                                        <td>
-                                            <div class="clearable">
-                                                <input type="number" id="uplandSandyForageProductionInput" value="0">
-                                                <button type="button" class="clear-button"
-                                                    id="clearUplandSandyForageProductionButton">x</button>
-                                            </div>
-                                            <div id="uplandSandyForageProductionInputError" class="validation-message">
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Upland Clayey</td>
-                                        <td>
-                                            <div class="clearable">
-                                                <input type="number" id="uplandClayeyForageProductionInput" value="0">
-                                                <button type="button" class="clear-button"
-                                                    id="clearUplandClayeyForageProductionButton">x</button>
-                                            </div>
-                                            <div id="uplandClayeyForageProductionInputError" class="validation-message">
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Upland Shallow</td>
-                                        <td>
-                                            <div class="clearable">
-                                                <input type="number" id="uplandShallowForageProductionInput" value="0">
-                                                <button type="button" class="clear-button"
-                                                    id="clearUplandShallowForageProductionButton">x</button>
-                                            </div>
-                                            <div id="uplandShallowForageProductionInputError"
-                                                class="validation-message"></div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Upland Very Shallow / Thin ClayPan</td>
-                                        <td>
-                                            <div class="clearable">
-                                                <input type="number" id="uplandVeryShallowForageProductionInput"
-                                                    value="0">
-                                                <button type="button" class="clear-button"
-                                                    id="clearUplandVeryShallowForageProductionButton">x</button>
-                                            </div>
-                                            <div id="uplandVeryShallowForageProductionInputError"
-                                                class="validation-message"></div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Lowland Overflow</td>
-                                        <td>
-                                            <div class="clearable">
-                                                <input type="number" id="lowlandOverflowForageProductionInput"
-                                                    value="0">
-                                                <button type="button" class="clear-button"
-                                                    id="clearLowlandOverflowForageProductionButton">x</button>
-                                            </div>
-                                            <div id="lowlandOverflowForageProductionInputError"
-                                                class="validation-message"></div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Lowland Wet Meadow</td>
-                                        <td>
-                                            <div class="clearable">
-                                                <input type="number" id="lowlandWetMeadowForageProductionInput"
-                                                    value="0">
-                                                <button type="button" class="clear-button"
-                                                    id="clearLowlandWetMeadowForageProductionButton">x</button>
-                                            </div>
-                                            <div id="lowlandWetMeadowForageProductionInputError"
-                                                class="validation-message"></div>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </fieldset>
-                        <br>
-                    </div>
-                    <!--                     <div id="multiHarvestEfficiencyDiv">
-                        <fieldset>
-                            <legend>Harvest Efficiency (%)</legend>
-                            <table class="table table-striped">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">Land Type</th>
-                                        <th scope="col">Harvest Efficiency (%)</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>Upland Loamy</td>
-                                        <td>
-                                            <div class="clearable">
-                                                <input type="number" id="uplandLoamyHarvestEfficiencyInput" value="25"
-                                                    step="0.1">
-                                                <button type="button" class="clear-button"
-                                                    id="clearUplandLoamyHarvestEfficiencyButton">x</button>
-                                            </div>
-                                            <div id="uplandLoamyHarvestEfficiencyInputError" class="validation-message">
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Upland Sandy</td>
-                                        <td>
-                                            <div class="clearable"> <input type="number"
-                                                    id="uplandSandyHarvestEfficiencyInput" value="25" step="0.1">
-                                                <button type="button" class="clear-button"
-                                                    id="clearUplandSandyHarvestEfficiencyButton">x</button>
-                                            </div>
-                                            <div id="uplandSandyHarvestEfficiencyInputError" class="validation-message">
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Upland Clayey</td>
-                                        <td>
-                                            <div class="clearable">
-                                                <input type="number" id="uplandClayeyHarvestEfficiencyInput" value="25"
-                                                    step="0.1">
-                                                <button type="button" class="clear-button"
-                                                    id="clearUplandClayeyHarvestEfficiencyButton">x</button>
-                                            </div>
-                                            <div id="uplandClayeyHarvestEfficiencyInputError"
-                                                class="validation-message">
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Upland Shallow</td>
-                                        <td>
-                                            <div class="clearable">
-                                                <input type="number" id="uplandShallowHarvestEfficiencyInput" value="25"
-                                                    step="0.1">
-                                                <button type="button" class="clear-button"
-                                                    id="clearUplandShallowHarvestEfficiencyButton">x</button>
-                                            </div>
-                                            <div id="uplandShallowHarvestEfficiencyInputError"
-                                                class="validation-message">
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Upland Very Shallow / Thin ClayPan</td>
-                                        <td>
-                                            <div class="clearable">
-                                                <input type="number" id="uplandVeryShallowHarvestEfficiencyInput"
-                                                    value="25" step="0.1">
-                                                <button type="button" class="clear-button"
-                                                    id="clearUplandVeryShallowHarvestEfficiencyButton">x</button>
-                                            </div>
-                                            <div id="uplandVeryShallowHarvestEfficiencyInputError"
-                                                class="validation-message">
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Lowland Overflow</td>
-                                        <td>
-                                            <div class="clearable">
-                                                <input type="number" id="lowlandOverflowHarvestEfficiencyInput"
-                                                    value="25" step="0.1">
-                                                <button type="button" class="clear-button"
-                                                    id="clearLowlandOverflowHarvestEfficiencyButton">x</button>
-                                            </div>
-                                            <div id="lowlandOverflowHarvestEfficiencyInputError"
-                                                class="validation-message">
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Lowland Wet Meadow</td>
-                                        <td class="clearable">
-                                            <div>
-                                                <input type="number" id="lowlandWetMeadowHarvestEfficiencyInput"
-                                                    value="12.5" step="0.1">
-                                                <button type="button" class="clear-button"
-                                                    id="clearLowlandWetMeadowHarvestEfficiencyButton">x</button>
-                                            </div>
-                                            <div id="lowlandWetMeadowHarvestEfficiencyInputError"
-                                                class="validation-message"> </div>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </fieldset>
-                        <br>
-                    </div>
- -->
-                    <div id="singleHarvestEfficiencyDiv" class="nodisplay">
-                        <fieldset>
-                            <legend>Harvest Efficiency (%)
-                                <!--                                 <span class="definition-container">
-                                    <span class="definition-icon">?</span>
-                                    <div class="definition-popup">
-                                        This is the definition or explanation of the field.
-                                    </div>
-                                </span>
- -->
-                            </legend>
-                            <div class="center-div clearable">
-                                <input type="number" id="singleHarvestEfficiencyInput" value="25"> <button type="button"
-                                    class="clear-button" id="clearSingleHarvestEfficiencyButton">x</button>
-                            </div>
-                            <div id="singleHarvestEfficiencyInputError" class="validation-message"></div>
-                        </fieldset>
-                        <br>
-                    </div>
-
-                    <div id="grossAcresDiv" class="nodisplay">
-                        <fieldset>
-                            <legend>Gross Acres</legend>
-                            <div class="center-div clearable">
-                                <input type="number" id="singleGrossAcresInput" value="1" class="otherFieldTypes">
-                                <button type="button" class="clear-button" id="clearSingleGrossAcresButton">x</button>
-                            </div>
-                            <div id="singleGrossAcresInputError" class="validation-message"></div>
-                        </fieldset>
-                        <br>
-                    </div>
-
-                    <div id="averageAUEDiv">
-                        <!--                         <fieldset>
-                            <legend>Average AUE (default: 1)</legend>
-                            <div class="center-div clearable">
-                                <input type="number" id="averageAueInputCC" value="1"> <button type="button"
-                                    class="clear-button" id="clearAverageAueCCButton">x</button>
-                            </div>
-                            <div id="averageAueInputCCError" class="validation-message"></div>
-                        </fieldset>
-                        <br>
- -->
-                        <fieldset>
-                            <legend>Animal Class</legend>
-                            <select name="animalClassSelectCC" id="animalClassSelectCC">
-                                <option>1,000-lb. cow, dry</option>
-                                <option selected>1,000-lb. cow, with calf</option>
-                                <option>1,100-lb. cow, with calf</option>
-                                <option>1,200-lb. cow, with calf</option>
-                                <option>1,300-lb. cow, with calf</option>
-                                <option>1,400-lb. cow, with calf</option>
-                                <option>1,500-lb. cow, with calf</option>
-                                <option>Cattle bull, mature</option>
-                                <option>Weaned calves to yearling</option>
-                                <option>Yearling cattle (600-800 lb.)</option>
-                                <option>Two-year-old cattle (800-1,000 lb.)</option>
-                                <option>Bison cow, mature</option>
-                                <option>Bison bull, mature</option>
-                                <option>Horse, mature</option>
-                                <option>Sheep, dry ewe</option>
-                                <option>Sheep, mature with lamb</option>
-                                <option>Sheep ram</option>
-                                <option>Goat, mature</option>
-                                <option>Deer, white-tailed, mature</option>
-                                <option>Deer, mule, mature</option>
-                                <option>Elk, mature</option>
-                                <option>Antelope, mature</option>
-                                <option>Sheep, bighorn, mature</option>
-                                <option>Jackrabbit, white-tailed</option>
-                                <option>Prairie dog</option>
+                <div id="landResourceAreaSelectDiv">
+                    <fieldset>
+                        <legend>Major Land Resource Areas of North Dakota</legend>
+                        <div class="center-div">
+                            <select id="landResourceAreaSelect">
+                                <option value="53AB" selected>53A & 53B</option>
+                                <option value="54">54</option>
+                                <option value="55AB">55A & 55B</option>
+                                <option value="56">56</option>
+                                <option value="58CD">58C & 58D</option>
                             </select>
-                        </fieldset>
-                        <br>
-                    </div>
-
-                    <div id="landResourceAreaSelectDiv">
-                        <fieldset>
-                            <legend>Major Land Resource Areas of North Dakota</legend>
-                            <div class="center-div">
-                                <select id="landResourceAreaSelect">
-                                    <option value="53AB" selected>53A & 53B</option>
-                                    <option value="54">54</option>
-                                    <option value="55AB">55A & 55B</option>
-                                    <option value="56">56</option>
-                                    <option value="58CD">58C & 58D</option>
-                                </select>
-                            </div>
-                            <br>
-                            <p><b>Note</b>: Select your major land resource area based on the following map. You can
-                                click the
-                                map below to go to the full-screen, zoomable, and pannable map mode.</p>
-                            <div>
-                                <img id="landResourceAreasImg" src="images/map.jpeg" alt=" Land Resource Areas Map"
-                                    width="100%">
-                            </div>
-                            <!-- Full-screen overlay for the map -->
-                            <div id="fullScreenMap">
-                                <button id="closeMapButton">✖</button>
-                                <img id="fullScreenMapImg" src="images/map.jpeg" alt="Full-Screen Map">
-                            </div>
-                        </fieldset>
-                        <br>
-                    </div>
-
-                    <div class="mb-3" id="carryingCapacityCalculateBtnDiv">
-                        <div class="d-grid">
-                            <button id="carryingCapacityCalculateBtn" type="submit" class="btn btn-primary btn-block">
-                                <h4>CALCULATE</h4>
-                            </button>
                         </div>
-                    </div>
-                    <div id="globalValidationMessageCC" class="validation-message"></div>
-                    <br>
-                    <div id="carryingCapacityResultDiv" class="nodisplay">
-                        <div class="generalResultTitle">
-                            <h5>Calculated Results</h5>
-                        </div>
+                        <br>
+                        <p><b>Note</b>: Select your major land resource area based on the following map. You can
+                            click the
+                            map below to go to the full-screen, zoomable, and pannable map mode.</p>
                         <div>
-                            <table class="table table-striped">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">ITEM</th>
-                                        <th scope="col">RESULT</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <!--                                     <tr>
-                                        <td>Total Production (pounds)
-                                            <span class="definition-container">
-                                                <span class="definition-icon">?</span>
-                                                <div class="definition-popup">
-                                                    This is the definition or explanation of the field.
-                                                </div>
-                                            </span>
-                                        </td>
-                                        <td>
-                                            <input type="text" id="totalProductionDisplay" class="resultDisplay"
-                                                readonly>
-                                        </td>
-                                    </tr>
- -->
-                                    <!--                                     <tr>
-                                        <td>Total Available Forage (pounds)
-                                            <span class="definition-container">
-                                                <span class="definition-icon">?</span>
-                                                <div class="definition-popup">
-                                                    This is the definition or explanation of the field.
-                                                </div>
-                                            </span>
-                                        </td>
-                                        <td>
-                                            <input type="text" id="totalAvailableForageDisplay" class="resultDisplay"
-                                                readonly>
-                                        </td>
-                                    </tr>
- -->
-                                    <tr>
-                                        <td>Total Animal Unit Months (Total AUMs)
-                                            <!--                                             <span class="definition-container">
-                                                <span class="definition-icon">?</span>
-                                                <div class="definition-popup">
-                                                    This is the definition or explanation of the field.
-                                                </div>
-                                            </span>
- -->
-                                        </td>
-                                        <td>
-                                            <input type="text" id="totalAumsDisplay" class="resultDisplay" readonly>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>AUMs per acre (AUM/ac)
-                                            <!--                                             <span class="definition-container">
-                                                <span class="definition-icon">?</span>
-                                                <div class="definition-popup">
-                                                    This is the definition or explanation of the field.
-                                                </div>
-                                            </span>
- -->
-                                        </td>
-                                        <td>
-                                            <input type="text" id="aumAcDisplay" class="resultDisplay" readonly>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Acres per AUM (ac/AUM)
-                                            <!--                                             <span class="definition-container">
-                                                <span class="definition-icon">?</span>
-                                                <div class="definition-popup">
-                                                    This is the definition or explanation of the field.
-                                                </div>
-                                            </span>
- -->
-                                        </td>
-                                        <td>
-                                            <input type="text" id="acAumDisplay" class="resultDisplay" readonly>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Expressed Carrying Capacity (Animal Unit Equivalents Months per acre or
-                                            AUEM/acre)
-                                            <!--                                             <span class="definition-container">
-                                                <span class="definition-icon">?</span>
-                                                <div class="definition-popup">
-                                                    This is the definition or explanation of the field.
-                                                </div>
-                                            </span>
- -->
-                                        </td>
-                                        <td>
-                                            <input type="text" id="auemAcDisplay" class="resultDisplay" readonly>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Acres per AUEM (ac/AUEM)
-                                            <!--                                             <span class="definition-container">
-                                                <span class="definition-icon">?</span>
-                                                <div class="definition-popup">
-                                                    This is the definition or explanation of the field.
-                                                </div>
-                                            </span>
- -->
-                                        </td>
-                                        <td>
-                                            <input type="text" id="acAuemDisplay" class="resultDisplay" readonly>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                            <img id="landResourceAreasImg" src="images/map.jpeg" alt=" Land Resource Areas Map"
+                                width="100%">
                         </div>
-                    </div>
-                </div>
-                <div class="col-md-2">
+                        <!-- Full-screen overlay for the map -->
+                        <div id="fullScreenMap">
+                            <button id="closeMapButton">✖</button>
+                            <img id="fullScreenMapImg" src="images/map.jpeg" alt="Full-Screen Map">
+                        </div>
+                    </fieldset>
+                    <br>
                 </div>
 
+                <div id="tamegrassSingleForageProductionDiv" class="nodisplay">
+                    <fieldset>
+                        <legend>Total Forage Production (pounds/acre)
+                        </legend>
+                        <div class="center-div clearable">
+                            <input type="number" id="tamegrassSingleForageProductionInput" value="1">
+                            <button type="button" class="clear-button"
+                                id="clearTamegrassSingleForageProductionButton">x</button>
+                        </div>
+                        <div id="tamegrassSingleForageProductionInputError" class="validation-message"></div>
+                    </fieldset>
+                    <br>
+                </div>
+                <div id="annualForagesSingleForageProductionDiv" class="nodisplay">
+                    <fieldset>
+                        <legend>Total Forage Production (pounds/acre)
+                        </legend>
+                        <div class="center-div clearable">
+                            <input type="number" id="annualForagesSingleForageProductionInput" value="1">
+                            <button type="button" class="clear-button"
+                                id="clearAnnualForagesSingleForageProductionButton">x</button>
+                        </div>
+                        <div id="annualForagesSingleForageProductionInputError" class="validation-message">
+                        </div>
+                    </fieldset>
+                    <br>
+                </div>
+                <div id="multiAcresDiv">
+                    <fieldset>
+                        <legend>Total Acres and Harvest Efficiencies</legend>
+                        <div id="multiAcresNote">
+                            <b>Note</b>: At least
+                            one acre value below
+                            must
+                            be greater than 0; when you use Estimated AUMs/ac Stocking Rates as the Carrying
+                            Capacity Calculation Method, the Harvest Efficiencies will be the estimated or
+                            default
+                            values that cannot be changed.
+                        </div>
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Land Type</th>
+                                    <th scope="col">Total Acres</th>
+                                    <th scope="col">Harvest Efficiency (%)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Upland Loamy</td>
+                                    <td>
+                                        <div class="clearable">
+                                            <input type="number" id="uplandLoamyGrossAcresInput" value="0" step="0.01">
+                                            <button type="button" class="clear-button"
+                                                id="clearUplandLoamyGrossAcresButton">x</button>
+                                        </div>
+                                        <div id="uplandLoamyGrossAcresInputError" class="validation-message">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="clearable">
+                                            <input type="number" id="uplandLoamyHarvestEfficiencyInput" value="25"
+                                                step="0.1" readonly>
+                                            <button type="button" class="clear-button nodisplay"
+                                                id="clearUplandLoamyHarvestEfficiencyButton">x</button>
+                                        </div>
+                                        <div id="uplandLoamyHarvestEfficiencyInputError"
+                                            class="validation-message nodisplay">
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Upland Sandy</td>
+                                    <td>
+                                        <div class="clearable">
+                                            <input type="number" id="uplandSandyGrossAcresInput" value="0" step="0.01">
+                                            <button type="button" class="clear-button"
+                                                id="clearUplandSandyGrossAcresButton">x</button>
+                                        </div>
+                                        <div id="uplandSandyGrossAcresInputError" class="validation-message">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="clearable">
+                                            <input type="number" id="uplandSandyHarvestEfficiencyInput" value="25"
+                                                step="0.1" readonly>
+                                            <button type="button" class="clear-button nodisplay"
+                                                id="clearUplandSandyHarvestEfficiencyButton">x</button>
+                                        </div>
+                                        <div id="uplandSandyHarvestEfficiencyInputError"
+                                            class="validation-message nodisplay">
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Upland Clayey</td>
+                                    <td>
+                                        <div class="clearable">
+                                            <input type="number" id="uplandClayeyGrossAcresInput" value="0" step="0.01">
+                                            <button type="button" class="clear-button"
+                                                id="clearUplandClayeyGrossAcresButton">x</button>
+                                        </div>
+                                        <div id="uplandClayeyGrossAcresInputError" class="validation-message">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="clearable">
+                                            <input type="number" id="uplandClayeyHarvestEfficiencyInput" value="25"
+                                                step="0.1" readonly>
+                                            <button type="button" class="clear-button nodisplay"
+                                                id="clearUplandClayeyHarvestEfficiencyButton">x</button>
+                                        </div>
+                                        <div id="uplandClayeyHarvestEfficiencyInputError"
+                                            class="validation-message nodisplay">
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Upland Shallow</td>
+                                    <td>
+                                        <div class="clearable">
+                                            <input type="number" id="uplandShallowGrossAcresInput" value="0"
+                                                step="0.01">
+                                            <button type="button" class="clear-button"
+                                                id="clearUplandShallowGrossAcresButton">x</button>
+                                        </div>
+                                        <div id="uplandShallowGrossAcresInputError" class="validation-message">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="clearable">
+                                            <input type="number" id="uplandShallowHarvestEfficiencyInput" value="25"
+                                                step="0.1" readonly>
+                                            <button type="button" class="clear-button nodisplay"
+                                                id="clearUplandShallowHarvestEfficiencyButton">x</button>
+                                        </div>
+                                        <div id="uplandShallowHarvestEfficiencyInputError"
+                                            class="validation-message nodisplay">
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Upland Very Shallow / Thin ClayPan</td>
+                                    <td>
+                                        <div class="clearable">
+                                            <input type="number" id="uplandVeryShallowGrossAcresInput" value="0"
+                                                step="0.01">
+                                            <button type="button" class="clear-button"
+                                                id="clearUplandVeryShallowGrossAcresButton">x</button>
+                                        </div>
+                                        <div id="uplandVeryShallowGrossAcresInputError" class="validation-message">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="clearable">
+                                            <input type="number" id="uplandVeryShallowHarvestEfficiencyInput" value="25"
+                                                step="0.1" readonly>
+                                            <button type="button" class="clear-button nodisplay"
+                                                id="clearUplandVeryShallowHarvestEfficiencyButton">x</button>
+                                        </div>
+                                        <div id="uplandVeryShallowHarvestEfficiencyInputError"
+                                            class="validation-message nodisplay">
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Lowland Overflow</td>
+                                    <td>
+                                        <div class="clearable">
+                                            <input type="number" id="lowlandOverflowGrossAcresInput" value="0"
+                                                step="0.01">
+                                            <button type="button" class="clear-button"
+                                                id="clearLowlandOverflowGrossAcresButton">x</button>
+                                        </div>
+                                        <div id="lowlandOverflowGrossAcresInputError" class="validation-message">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="clearable">
+                                            <input type="number" id="lowlandOverflowHarvestEfficiencyInput" value="25"
+                                                step="0.1" readonly>
+                                            <button type="button" class="clear-button nodisplay"
+                                                id="clearLowlandOverflowHarvestEfficiencyButton">x</button>
+                                        </div>
+                                        <div id="lowlandOverflowHarvestEfficiencyInputError"
+                                            class="validation-message nodisplay">
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Lowland Wet Meadow</td>
+                                    <td>
+                                        <div class="clearable">
+                                            <input type="number" id="lowlandWetMeadowGrossAcresInput" value="0"
+                                                step="0.01">
+                                            <button type="button" class="clear-button"
+                                                id="clearLowlandWetMeadowGrossAcresButton">x</button>
+                                        </div>
+                                        <div id="lowlandWetMeadowGrossAcresInputError" class="validation-message">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="clearable">
+                                            <input type="number" id="lowlandWetMeadowHarvestEfficiencyInput"
+                                                value="12.5" step="0.1" readonly>
+                                            <button type="button" class="clear-button nodisplay"
+                                                id="clearLowlandWetMeadowHarvestEfficiencyButton">x</button>
+                                        </div>
+                                        <div id="lowlandWetMeadowHarvestEfficiencyInputError"
+                                            class="validation-message nodisplay"> </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </fieldset>
+                    <br>
+                </div>
+                <div id="actualRelativeProductionValuesDiv" class="nodisplay">
+                    <fieldset>
+                        <legend>Actual or Custom Relative Forage Production</legend>
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Land Type</th>
+                                    <th scope="col">Forage Production(pounds/acre)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Upland Loamy</td>
+                                    <td>
+                                        <div class="clearable">
+                                            <input type="number" id="uplandLoamyForageProductionInput" value="0">
+                                            <button type="button" class="clear-button"
+                                                id="clearUplandLoamyForageProductionButton">x</button>
+                                        </div>
+                                        <div id="uplandLoamyForageProductionInputError" class="validation-message">
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Upland Sandy</td>
+                                    <td>
+                                        <div class="clearable">
+                                            <input type="number" id="uplandSandyForageProductionInput" value="0">
+                                            <button type="button" class="clear-button"
+                                                id="clearUplandSandyForageProductionButton">x</button>
+                                        </div>
+                                        <div id="uplandSandyForageProductionInputError" class="validation-message">
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Upland Clayey</td>
+                                    <td>
+                                        <div class="clearable">
+                                            <input type="number" id="uplandClayeyForageProductionInput" value="0">
+                                            <button type="button" class="clear-button"
+                                                id="clearUplandClayeyForageProductionButton">x</button>
+                                        </div>
+                                        <div id="uplandClayeyForageProductionInputError" class="validation-message">
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Upland Shallow</td>
+                                    <td>
+                                        <div class="clearable">
+                                            <input type="number" id="uplandShallowForageProductionInput" value="0">
+                                            <button type="button" class="clear-button"
+                                                id="clearUplandShallowForageProductionButton">x</button>
+                                        </div>
+                                        <div id="uplandShallowForageProductionInputError" class="validation-message">
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Upland Very Shallow / Thin ClayPan</td>
+                                    <td>
+                                        <div class="clearable">
+                                            <input type="number" id="uplandVeryShallowForageProductionInput" value="0">
+                                            <button type="button" class="clear-button"
+                                                id="clearUplandVeryShallowForageProductionButton">x</button>
+                                        </div>
+                                        <div id="uplandVeryShallowForageProductionInputError"
+                                            class="validation-message"></div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Lowland Overflow</td>
+                                    <td>
+                                        <div class="clearable">
+                                            <input type="number" id="lowlandOverflowForageProductionInput" value="0">
+                                            <button type="button" class="clear-button"
+                                                id="clearLowlandOverflowForageProductionButton">x</button>
+                                        </div>
+                                        <div id="lowlandOverflowForageProductionInputError" class="validation-message">
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Lowland Wet Meadow</td>
+                                    <td>
+                                        <div class="clearable">
+                                            <input type="number" id="lowlandWetMeadowForageProductionInput" value="0">
+                                            <button type="button" class="clear-button"
+                                                id="clearLowlandWetMeadowForageProductionButton">x</button>
+                                        </div>
+                                        <div id="lowlandWetMeadowForageProductionInputError" class="validation-message">
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </fieldset>
+                    <br>
+                </div>
+                <div id="singleHarvestEfficiencyDiv" class="nodisplay">
+                    <fieldset>
+                        <legend>Harvest Efficiency (%)
+                        </legend>
+                        <div class="center-div clearable">
+                            <input type="number" id="singleHarvestEfficiencyInput" value="30"> <button type="button"
+                                class="clear-button" id="clearSingleHarvestEfficiencyButton">x</button>
+                        </div>
+                        <div id="singleHarvestEfficiencyInputError" class="validation-message"></div>
+                    </fieldset>
+                    <br>
+                </div>
+
+                <div id="grossAcresDiv" class="nodisplay">
+                    <fieldset>
+                        <legend>Total Acres</legend>
+                        <div class="center-div clearable">
+                            <input type="number" id="singleGrossAcresInput" value="1" class="otherFieldTypes">
+                            <button type="button" class="clear-button" id="clearSingleGrossAcresButton">x</button>
+                        </div>
+                        <div id="singleGrossAcresInputError" class="validation-message"></div>
+                    </fieldset>
+                    <br>
+                </div>
+
+                <div class="mb-3" id="carryingCapacityCalculateBtnDiv">
+                    <div class="d-grid">
+                        <button id="carryingCapacityCalculateBtn" type="submit" class="btn btn-primary btn-block">
+                            <h4>CALCULATE</h4>
+                        </button>
+                    </div>
+                </div>
+                <div id="globalValidationMessageCC" class="validation-message"></div>
+                <br>
+                <div id="carryingCapacityResultDiv" class="nodisplay">
+                    <div class="generalResultTitle">
+                        <h5>Calculated Results</h5>
+                    </div>
+                    <div>
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th scope="col">ITEM</th>
+                                    <th scope="col">RESULT</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Carrying Capacity Total AUMs
+                                    </td>
+                                    <td>
+                                        <input type="text" id="carryingCapacityTotalAumsDisplay" class="resultDisplay"
+                                            readonly>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>AUMs per acre (AUM/ac)
+                                    </td>
+                                    <td>
+                                        <input type="text" id="aumAcDisplay" class="resultDisplay" readonly>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Acres per AUM (ac/AUM)
+                                    </td>
+                                    <td>
+                                        <input type="text" id="acAumDisplay" class="resultDisplay" readonly>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Stocking Rate Total AUMs
+                                    </td>
+                                    <td>
+                                        <input type="text" id="stockingRateTotalAumsDisplay" class="resultDisplay"
+                                            readonly>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div id="CCNoteDiv"
+                        class="bg-blue-50 border-l-4 border-blue-400 text-blue-900 p-4 rounded-lg shadow-sm text-sm max-w-xl mx-auto mt-4">
+                        <h6>NOTE:</h6>
+                        <p class="mt-2">
+                            The value of <strong>Stocking Rate Total AUMs</strong> comes from the Stocking Rate
+                            Calculator.
+                        </p>
+                        <p class="mt-2">The stocking rate should not be greater than the carrying capacity to
+                            ensure
+                            proper resource management.
+                        </p>
+                        <p class="mt-2">
+                            Frequently, the stocking rate may be lower than the carrying capacity due to
+                            different
+                            ecological and management objectives.
+                        </p>
+                    </div> <br>
+                </div>
             </div>
         </div>
     </div>
@@ -1296,7 +1081,7 @@
         Copyright &copy;
         <script>document.write(new Date().getFullYear())</script>
         <br>
-        <div id="footer2">
+        <!--         <div id="footer2">
             Please contact Dr. &nbsp;<a href="https://www.ndsu.edu/agriculture/ag-home/directory/miranda-meehan"
                 target="_blank" id="footerContact">
                 Miranda Meehan
@@ -1304,6 +1089,7 @@
             Bu
             (honggang.bu@ndsu.edu).
         </div>
+ -->
     </footer>
 </body>
 

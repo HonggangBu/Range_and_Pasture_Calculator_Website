@@ -73,18 +73,17 @@ document.addEventListener("DOMContentLoaded", function () {
     const carryingCapacityDiv = document.getElementById('carryingCapacityDiv');
     const globalValidationMessageCC = document.getElementById('globalValidationMessageCC');
 
-    const singleForageProductionInput = document.getElementById('singleForageProductionInput');
+    const tamegrassSingleForageProductionInput = document.getElementById('tamegrassSingleForageProductionInput');
+    const annualForagesSingleForageProductionInput = document.getElementById('annualForagesSingleForageProductionInput');
     const singleGrossAcresInput = document.getElementById('singleGrossAcresInput');
     const singleHarvestEfficiencyInput = document.getElementById('singleHarvestEfficiencyInput');
-    //const averageAueInputCC = document.getElementById('averageAueInputCC');
 
     const totalProductionDisplay = document.getElementById('totalProductionDisplay');
     //const totalAvailableForageDisplay = document.getElementById('totalAvailableForageDisplay');
-    const totalAumsDisplay = document.getElementById('totalAumsDisplay');
+    const stockingRateTotalAumsDisplay = document.getElementById('stockingRateTotalAumsDisplay');
+    const carryingCapacityTotalAumsDisplay = document.getElementById('carryingCapacityTotalAumsDisplay');
     const aumAcDisplay = document.getElementById('aumAcDisplay');
     const acAumDisplay = document.getElementById('acAumDisplay');
-    const auemAcDisplay = document.getElementById('auemAcDisplay');
-    const acAuemDisplay = document.getElementById('acAuemDisplay');
 
     const landResourceAreaSelect = document.getElementById('landResourceAreaSelect');
     const animalClassSelectCC = document.getElementById('animalClassSelectCC');
@@ -106,18 +105,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // show or hide calculate button and result division
     OnAnyInputOrSelectionChange(carryingCapacityDiv, carryingCapacityCalculateBtnDiv, carryingCapacityResultDiv);
 
-    //OnAverageAueInputCCChange();
-
     OnAnyCarryingCapacityInputChangeCC();
-
-    //OnAnyAcresInputChangeCC();
-
-
-    //OnAnyForageProductionInputChangeCC();
-
-
-    //OnAnyHarvestEfficiencyInputChangeCC();
-
 
     // #endregion
 });
@@ -237,14 +225,34 @@ function GetValuesAsList(inputElement) {
 function OnPastureTypeChange() {
     const nonRangelandWeightDiv = document.getElementById('nonRangelandWeightDiv');
     const rangelandWeightDiv = document.getElementById('rangelandWeightDiv');
+    const PlantAndStageSelectDiv = document.getElementById('PlantAndStageSelectDiv');
     document.querySelectorAll("input[name='pastureTypeRadio']").forEach(function (radio) {
         radio.addEventListener("change", function () {
             if (document.querySelector("input[name='pastureTypeRadio']:checked").value === 'rangelandRadio') {
                 nonRangelandWeightDiv.style.display = 'none';
                 rangelandWeightDiv.style.display = 'block';
-            } else {
+                drywetFieldset.style.display = 'block';
+                if (document.querySelector("input[name='drywetRadio']:checked").value === 'wetRadio') {
+                    PlantAndStageSelectDiv.style.display = 'block';
+                } else {
+                    PlantAndStageSelectDiv.style.display = 'none';
+                }
+            }
+            else if (document.querySelector("input[name='pastureTypeRadio']:checked").value === 'tamegrassRadio') {
                 nonRangelandWeightDiv.style.display = 'block';
                 rangelandWeightDiv.style.display = 'none';
+                drywetFieldset.style.display = 'block';
+                if (document.querySelector("input[name='drywetRadio']:checked").value === 'wetRadio') {
+                    PlantAndStageSelectDiv.style.display = 'block';
+                } else {
+                    PlantAndStageSelectDiv.style.display = 'none';
+                }
+            }
+            else {
+                nonRangelandWeightDiv.style.display = 'block';
+                rangelandWeightDiv.style.display = 'none';
+                drywetFieldset.style.display = 'none';
+                PlantAndStageSelectDiv.style.display = 'none';
             }
         });
     });
@@ -252,12 +260,13 @@ function OnPastureTypeChange() {
 
 // event listener for dry/wet type selection change
 function OnDryWetTypeChange() {
+    const PlantAndStageSelectDiv = document.getElementById('PlantAndStageSelectDiv');
     document.querySelectorAll("input[name='drywetRadio']").forEach(function (radio) {
         radio.addEventListener("change", function () {
             if (document.querySelector("input[name='drywetRadio']:checked").value === 'wetRadio') {
-                document.getElementById('PlantAndStageSelectDiv').style.display = 'block';
+                PlantAndStageSelectDiv.style.display = 'block';
             } else {
-                document.getElementById('PlantAndStageSelectDiv').style.display = 'none';
+                PlantAndStageSelectDiv.style.display = 'none';
             }
         });
     });
@@ -297,14 +306,13 @@ function OnNRSampleWeightsInputClear() {
 
 function OnRangelandSampleWeightsInputClear() {
     const types1 = GetLandTypes();
-    const types2 = ["UplandLoamy", "UplandSandy", "UplandClayey", "UplandShallow", "UplandVeryShallow", "LowlandOverflow", "LowlandWetMeadow"];
+    const types2 = GetLandTypes2();
     for (let i = 0; i < types1.length; i++) {
         const inputID = document.getElementById(types1[i] + 'SampleWeightInput');
         const clearButtonId = document.getElementById('clear' + types2[i] + 'SampleWeightButton');
         OnClearButtonClickForageProduction(inputID, clearButtonId);
     }
 }
-
 
 
 // get percent air dry matter
@@ -350,7 +358,8 @@ function GetDrySampleFinalForageProduction(arr, cr) {
 
 // calculate forage production when the form is submitted
 function ForageProductionCalculation() {
-    const conversionRates = [50, 8.92];
+    //const conversionRates = [50, 8.92];
+    const conversionRate = 50;
 
     const nonRangelandSampleWeightInput = document.getElementById('nonRangelandSampleWeightInput');
     const nonRangelandResultDisplay = document.getElementById('nonRangelandResultDisplay');
@@ -362,14 +371,14 @@ function ForageProductionCalculation() {
     forageProductionCalculateBtn.addEventListener('click', function (event) {
         event.preventDefault();
 
-        var result = 0; //non rangeland result
-        var conversionRate = 0;
+        var result = 0; //non-rangeland result
+
         rangelandResultList = [];
 
         forageProductionCalculateBtnDiv.style.display = 'none';
 
-        if (document.querySelector("input[name='pastureTypeRadio']:checked").value === 'rangelandRadio') {
-            conversionRate = conversionRates[0];
+        if (document.querySelector("input[name='pastureTypeRadio']:checked").value === 'rangelandRadio') {// rangeland
+            //conversionRate = conversionRates[0];
             if (document.querySelector("input[name='drywetRadio']:checked").value === 'wetRadio') {
                 let r = 0;
                 for (let i = 0; i < landTypes.length; i++) {
@@ -390,28 +399,36 @@ function ForageProductionCalculation() {
             rangelandResultDiv.style.display = 'block';
             nonRangelandResultDiv.style.display = 'none';
 
+            let total = 0;
             for (let i = 0; i < landTypes.length; i++) {
-                document.getElementById(landTypes[i] + 'ResultDisplayFP').innerHTML = rangelandResultList[i].toFixed(0);
-            }
-        } else {
-            if (document.querySelector("input[name='pastureTypeRadio']:checked").value === 'smallgrainsRadio') {
-                conversionRate = conversionRates[0];
-            }
-            else {
-                conversionRate = conversionRates[1];
-            }
+                let r = rangelandResultList[i];
+                if (r === NaN) r = 0;
+                total += r;
 
-            if (document.querySelector("input[name='drywetRadio']:checked").value === 'wetRadio') {
+                document.getElementById(landTypes[i] + 'ResultDisplayFP').innerHTML = r.toFixed(0);
+
+                document.getElementById(landTypes[i] + "ForageProductionInput").value = r.toFixed(0);
+            }
+            document.getElementById('totalResultDisplayFP').innerHTML = total.toFixed(0);
+        }
+        else if (document.querySelector("input[name='pastureTypeRadio']:checked").value === 'tamegrassRadio') {// tame grass
+            if (document.querySelector("input[name='drywetRadio']:checked").value === 'wetRadio') {// tame grass with wet sample weight
                 result = GetWetSampleFinalForageProduction(GetValuesAsList(nonRangelandSampleWeightInput), conversionRate, GetPercentAirDryMatter());
-            } else {
+            }
+            else {// tame grass with dry sample weight
                 result = GetDrySampleFinalForageProduction(GetValuesAsList(nonRangelandSampleWeightInput), conversionRate);
             }
-
             rangelandResultDiv.style.display = 'none';
             nonRangelandResultDiv.style.display = 'block';
-
             nonRangelandResultDisplay.value = result.toFixed(0);
-
+            document.getElementById('tamegrassSingleForageProductionInput').value = result.toFixed(0);
+        }
+        else {// annual forages
+            result = GetDrySampleFinalForageProduction(GetValuesAsList(nonRangelandSampleWeightInput), conversionRate);
+            nonRangelandResultDisplay.value = result.toFixed(0);
+            document.getElementById('annualForagesSingleForageProductionInput').value = result.toFixed(0);
+            rangelandResultDiv.style.display = 'none';
+            nonRangelandResultDiv.style.display = 'block';
         }
     });
 }
@@ -617,8 +634,13 @@ function StockingRateCalculation() {
             }
             averageAue = aueaum / totalAum;
 
-            document.getElementById('totalAumInput').value = totalAum.toFixed(2);
+            const totalAumInput = document.getElementById('totalAumInput');// total AUMs from stocking rate calculation
+            totalAumInput.value = totalAum.toFixed(2);
             document.getElementById('averageAueInput').value = averageAue.toFixed(2);
+
+            //send total AUMs from stocking rate calculator to carrying capacity calculator results display
+            stockingRateTotalAumsDisplay.value = totalAum.toFixed(2);
+
         }
         else { globalValidationMessageSR.innerHTML = msg; }
     })
@@ -730,108 +752,96 @@ function MapZooming() {
 
 // event listener for any selection change
 function OnAnySelectionChange() {
-    const singleForageProductionDiv = document.getElementById('singleForageProductionDiv');
+    const tamegrassSingleForageProductionDiv = document.getElementById('tamegrassSingleForageProductionDiv');
+    const annualForagesSingleForageProductionDiv = document.getElementById('annualForagesSingleForageProductionDiv');
+
     const grossAcresDiv = document.getElementById('grossAcresDiv');
     const singleHarvestEfficiencyDiv = document.getElementById('singleHarvestEfficiencyDiv');
     const carryingCapacityCalculateMethodDiv = document.getElementById('carryingCapacityCalculateMethodDiv');
-    const relativeProductionValueTypeDiv = document.getElementById('relativeProductionValueTypeDiv');
     const actualRelativeProductionValuesDiv = document.getElementById('actualRelativeProductionValuesDiv');
-    //const multiHarvestEfficiencyDiv = document.getElementById('multiHarvestEfficiencyDiv');
     const multiAcresDiv = document.getElementById('multiAcresDiv');
     const landResourceAreaSelectDiv = document.getElementById('landResourceAreaSelectDiv');
 
     document.querySelectorAll("input[name='carryingCapacityCalculateMethodRadio']").forEach(function (radio) {
         radio.addEventListener("change", function () {
-            if (document.querySelector("input[name='carryingCapacityCalculateMethodRadio']:checked").value === 'estimatedStockingRatesRadio') {
-                relativeProductionValueTypeDiv.style.display = 'none';
+
+            const landTypes = GetLandTypes();
+            const n = landTypes.length;
+            for (let i = 0; i < n; i++) {
+                const harvestEfficiencyInput = document.getElementById(landTypes[i] + "HarvestEfficiencyInput");
+                const harvestEfficiencyInputError = document.getElementById(landTypes[i] + "HarvestEfficiencyInputError");
+
+                CheckAndResetSingleHarvestEfficiencyInputError(harvestEfficiencyInput, harvestEfficiencyInputError, true, 40);
+            }
+
+            let cccm = document.querySelector("input[name='carryingCapacityCalculateMethodRadio']:checked").value;
+            // using estimated stocking rates
+            if (cccm === 'estimatedStockingRatesRadio') {
                 actualRelativeProductionValuesDiv.style.display = 'none';
                 landResourceAreaSelectDiv.style.display = 'block';
+
+                FreezeHarvestEfficiencyInputs();
             }
-            else {
-                relativeProductionValueTypeDiv.style.display = 'block';
-
-                if (document.querySelector("input[name='relativeProductionValueTypeRadio']:checked").value === 'defaultValueRadio') {
-                    landResourceAreaSelectDiv.style.display = 'block';
-                    actualRelativeProductionValuesDiv.style.display = 'none';
-                }
-                else {
-                    landResourceAreaSelectDiv.style.display = 'none';
-                    actualRelativeProductionValuesDiv.style.display = 'block';
-                }
-
-            }
-        });
-    });
-
-
-    document.querySelectorAll("input[name='relativeProductionValueTypeRadio']").forEach(function (radio) {
-        radio.addEventListener("change", function () {
-            if (document.querySelector("input[name='relativeProductionValueTypeRadio']:checked").value === 'defaultValueRadio') {
+            // uisng estimated relative production values
+            else if (cccm === 'estimatedRelativeProductionValuesRadio') {
                 landResourceAreaSelectDiv.style.display = 'block';
                 actualRelativeProductionValuesDiv.style.display = 'none';
+
+                UnfreezeHarvestEfficiencyInputs();
             }
-            else {
+            else {// using actual or custom forage production values
                 landResourceAreaSelectDiv.style.display = 'none';
                 actualRelativeProductionValuesDiv.style.display = 'block';
+
+                UnfreezeHarvestEfficiencyInputs();
             }
         });
     });
-
 
     document.querySelectorAll("input[name='pastureTypeRadioCC']").forEach(function (radio) {
         radio.addEventListener("change", function () {
-            if (document.querySelector("input[name='pastureTypeRadioCC']:checked").value === 'rangeRadioCC') {
+            let pt = document.querySelector("input[name='pastureTypeRadioCC']:checked").value;
+            if (pt === 'rangeRadioCC') {
                 carryingCapacityCalculateMethodDiv.style.display = 'block';
                 multiAcresDiv.style.display = 'block';
-                singleForageProductionDiv.style.display = 'none';
+                tamegrassSingleForageProductionDiv.style.display = 'none';
+                annualForagesSingleForageProductionDiv.style.display = 'none';
                 landResourceAreaSelectDiv.style.display = 'block';
                 singleHarvestEfficiencyDiv.style.display = 'none';
-                //multiHarvestEfficiencyDiv.style.display = 'block';
-
-                if (document.querySelector("input[name='carryingCapacityCalculateMethodRadio']:checked").value === 'estimatedStockingRatesRadio') {
-                    relativeProductionValueTypeDiv.style.display = 'none';
-                    actualRelativeProductionValuesDiv.style.display = 'none';
-                }
-                else {
-                    relativeProductionValueTypeDiv.style.display = 'block';
-
-                    if (document.querySelector("input[name='relativeProductionValueTypeRadio']:checked").value === 'defaultValueRadio') {
-                        landResourceAreaSelectDiv.style.display = 'block';
-                        actualRelativeProductionValuesDiv.style.display = 'none';
-                    }
-                    else {
-                        landResourceAreaSelectDiv.style.display = 'none';
-                        actualRelativeProductionValuesDiv.style.display = 'block';
-                    }
-                }
-
-            }
-            else if (document.querySelector("input[name='pastureTypeRadioCC']:checked").value === 'tamegrassRadioCC') {
-                carryingCapacityCalculateMethodDiv.style.display = 'none';
-                relativeProductionValueTypeDiv.style.display = 'block';
-                //multiHarvestEfficiencyDiv.style.display = 'block';
-                multiAcresDiv.style.display = 'block';
-                singleForageProductionDiv.style.display = 'none';
-                singleHarvestEfficiencyDiv.style.display = 'none';
                 grossAcresDiv.style.display = 'none';
+                actualRelativeProductionValuesDiv.style.display = 'none';
 
-                if (document.querySelector("input[name='relativeProductionValueTypeRadio']:checked").value === 'defaultValueRadio') {
-                    landResourceAreaSelectDiv.style.display = 'block';
-                    actualRelativeProductionValuesDiv.style.display = 'none';
-                }
-                else {
+                let cccm = document.querySelector("input[name='carryingCapacityCalculateMethodRadio']:checked").value;
+                if (cccm === 'actualProductionValuesRadio') {
                     landResourceAreaSelectDiv.style.display = 'none';
                     actualRelativeProductionValuesDiv.style.display = 'block';
+
+                    UnfreezeHarvestEfficiencyInputs();
+                }
+                else {
+                    landResourceAreaSelectDiv.style.display = 'block';
+                    actualRelativeProductionValuesDiv.style.display = 'none';
+                    if (cccm === 'estimatedStockingRatesRadio') {
+                        FreezeHarvestEfficiencyInputs();
+                    }
+                    else {
+                        UnfreezeHarvestEfficiencyInputs();
+                    }
                 }
             }
             else {
-                singleForageProductionDiv.style.display = 'block';
+                if (pt === 'tamegrassRadioCC') {
+                    tamegrassSingleForageProductionDiv.style.display = 'block';
+                    annualForagesSingleForageProductionDiv.style.display = 'none';
+                }
+                else {
+                    tamegrassSingleForageProductionDiv.style.display = 'none';
+                    annualForagesSingleForageProductionDiv.style.display = 'block';
+                }
                 grossAcresDiv.style.display = 'block';
                 singleHarvestEfficiencyDiv.style.display = 'block';
                 carryingCapacityCalculateMethodDiv.style.display = 'None';
-                relativeProductionValueTypeDiv.style.display = 'None';
                 actualRelativeProductionValuesDiv.style.display = 'None';
-                //multiHarvestEfficiencyDiv.style.display = 'None';
                 multiAcresDiv.style.display = 'None';
                 landResourceAreaSelectDiv.style.display = 'None';
             }
@@ -839,11 +849,13 @@ function OnAnySelectionChange() {
     });
 }
 
-// read Non Range Pasture Forage Production value from text box
-function GetNonRangePastureForageProduction() {
-    return singleForageProductionInput.valueAsNumber;
+function GetTamegrassTotalForageProduction() {
+    return parseFloat(tamegrassSingleForageProductionInput.value);
 }
 
+function GetAnnualForagesTotalForageProduction() {
+    return parseFloat(annualForagesSingleForageProductionInput.value);
+}
 
 
 function CheckSingleInputErrorZero(inputElement, includingZero) {
@@ -869,21 +881,22 @@ function GetSingleHarvestEfficiency() {
 }
 
 
-function CheckSingleHarvestEfficiencyInputError(inputElement, includingZero) {
+function CheckSingleHarvestEfficiencyInputError(inputElement, includingZero, topValue) {
     let hasError = false;
     let v = parseFloat(inputElement.value);
     if (includingZero) {
-        if (isNaN(v) || (v < 0) || (v > 100)) {
+        if (isNaN(v) || (v < 0) || (v > topValue)) {
             hasError = true;
         }
     }
     else {
-        if (isNaN(v) || (v <= 0) || (v > 100)) {
+        if (isNaN(v) || (v <= 0) || (v > topValue)) {
             hasError = true;
         }
     }
     return hasError;
 }
+
 
 // read single gross acres value from text box
 function GetSingleGrossAcres() {
@@ -891,25 +904,6 @@ function GetSingleGrossAcres() {
 }
 
 
-function GetAueCC() {
-    return GetAueArray()[animalClassSelectCC.selectedIndex];
-}
-
-/* // read average aue value from user input in carrying capacity section
-function GetAueInputCCValue() {
-    return parseFloat(averageAueInputCC.value);
-}
- */
-/* // check if there is error in user input in average aue section
-function CheckAueInputCCError() {
-    let hasError = false;
-    let value = parseFloat(averageAueInputCC.value);
-    if (isNaN(value) || value <= 0) {
-        hasError = true;
-    }
-    return hasError;
-}
- */
 // display definition popups
 function DefinitionPopup() {
     const icons = document.querySelectorAll('.definition-icon');
@@ -933,38 +927,30 @@ function DefinitionPopup() {
 }
 
 
-/* function OnAverageAueInputCCChange() {
-    const averageAueInputCCError = document.getElementById('averageAueInputCCError');
-    const clearAverageAueCCButton = document.getElementById('clearAverageAueCCButton'); // Get the clear button element
+function CheckAndResetSingleHarvestEfficiencyInputError(inputID, errorMessageId, includingZero, topValue) {
+    const includingZeroErrorMsgCC = "Please enter a nonnegative number less than " + topValue + ".";
+    const excludingZeroErrorMsgCC = "Please enter a positive number no more than " + topValue + ".";
 
-    averageAueInputCC.addEventListener('input', () => {
-        let value = parseFloat(averageAueInputCC.value); // Convert the input value to a number
+    // Reset the validation message
+    errorMessageId.textContent = '';
+    globalValidationMessageCC.textContent = '';
 
-        // Reset the validation message
-        averageAueInputCCError.textContent = '';
-        globalValidationMessageCC.textContent = ''; // Reset the global validation message
-
-        // Validate the input value        
-        if (isNaN(value) || value <= 0) {
-            averageAueInputCCError.textContent = "Please enter a number greater than 0 but no more than 1."; // Set the validation message        
-            globalValidationMessageCC.textContent = "Please fix the errors in the highlighted fields before proceeding.";   // Set the global validation message    
+    // Validate the input value
+    hasError = CheckSingleHarvestEfficiencyInputError(inputID, includingZero, topValue);
+    if (hasError) {
+        if (includingZero) {
+            errorMessageId.textContent = includingZeroErrorMsgCC;
         }
-    });
-
-    clearAverageAueCCButton.addEventListener('click', () => {
-        averageAueInputCC.value = '';
-        averageAueInputCC.focus();
-        carryingCapacityResultDiv.style.display = 'none';
-        carryingCapacityCalculateBtnDiv.style.display = 'block';
-        averageAueInputCCError.textContent = "Please enter a number greater than 0 but no more than 1."; // Set the validation message        
-        globalValidationMessageCC.textContent = ''; // Reset the global validation message
-    });
+        else {
+            errorMessageId.textContent = excludingZeroErrorMsgCC;
+        }
+    }
 }
- */
 
-function OnSingleHarvestEfficiencyInputChangeCC(inputID, errorMessageId, clearButtonId, includingZero) {
-    const includingZeroErrorMsgCC = "Please enter a nonnegative number less than 100.";
-    const excludingZeroErrorMsgCC = "Please enter a positive number less than 100.";
+
+function OnSingleHarvestEfficiencyInputChangeCC(inputID, errorMessageId, clearButtonId, includingZero, topValue) {
+    const includingZeroErrorMsgCC = "Please enter a nonnegative number less than " + topValue + ".";
+    const excludingZeroErrorMsgCC = "Please enter a positive number no more than " + topValue + ".";
 
     inputID.addEventListener('input', () => {
         // Reset the validation message
@@ -972,7 +958,7 @@ function OnSingleHarvestEfficiencyInputChangeCC(inputID, errorMessageId, clearBu
         globalValidationMessageCC.textContent = '';
 
         // Validate the input value
-        hasError = CheckSingleHarvestEfficiencyInputError(inputID, includingZero);
+        hasError = CheckSingleHarvestEfficiencyInputError(inputID, includingZero, topValue);
         if (hasError) {
             if (includingZero) {
                 errorMessageId.textContent = includingZeroErrorMsgCC;
@@ -1041,45 +1027,61 @@ function OnSingleInputChangeCC(inputID, errorMessageId, clearButtonId, including
 }
 
 
-function GetLandTypeArrays() {
-    const arrayOne = ["single", "uplandLoamy", "uplandSandy", "uplandClayey", "uplandShallow", "uplandVeryShallow", "lowlandOverflow", "lowlandWetMeadow"];
-    const arrayTwo = ["Single", "UplandLoamy", "UplandSandy", "UplandClayey", "UplandShallow", "UplandVeryShallow", "LowlandOverflow", "LowlandWetMeadow"];
-
-    return [arrayOne, arrayTwo];
-}
-
-
-
-
-
 function OnAnyCarryingCapacityInputChangeCC() {
-    const [landTypesArrayOne, landTypesArrayTwo] = GetLandTypeArrays();
+    //const [landTypesArrayOne, landTypesArrayTwo] = GetLandTypeArrays();
+    landTypesArrayOne = GetLandTypes();
+    landTypesArrayTwo = GetLandTypes2();
     const n = landTypesArrayOne.length;
+    let topValue = 40;
+    let tf = true;
     for (let i = 0; i < n; i++) {
+        //tf = i === 0 ? false : true;
+
         const harvestEfficiencyInput = document.getElementById(landTypesArrayOne[i] + "HarvestEfficiencyInput");
         const harvestEfficiencyInputError = document.getElementById(landTypesArrayOne[i] + "HarvestEfficiencyInputError");
         const clearHarvestEfficiencyButton = document.getElementById('clear' + landTypesArrayTwo[i] + 'HarvestEfficiencyButton');
-        OnSingleHarvestEfficiencyInputChangeCC(harvestEfficiencyInput, harvestEfficiencyInputError, clearHarvestEfficiencyButton, false);
+        OnSingleHarvestEfficiencyInputChangeCC(harvestEfficiencyInput, harvestEfficiencyInputError, clearHarvestEfficiencyButton, tf, topValue);
 
         const forageProductionInput = document.getElementById(landTypesArrayOne[i] + "ForageProductionInput");
         const forageProductionInputError = document.getElementById(landTypesArrayOne[i] + "ForageProductionInputError");
         const clearForageProductionButton = document.getElementById('clear' + landTypesArrayTwo[i] + 'ForageProductionButton');
-        OnSingleInputChangeCC(forageProductionInput, forageProductionInputError, clearForageProductionButton, false, 'CC');
+        OnSingleInputChangeCC(forageProductionInput, forageProductionInputError, clearForageProductionButton, tf, 'CC');
 
         const grossAcresInput = document.getElementById(landTypesArrayOne[i] + "GrossAcresInput");
         const grossAcresInputError = document.getElementById(landTypesArrayOne[i] + "GrossAcresInputError");
         const clearGrossAcresButton = document.getElementById('clear' + landTypesArrayTwo[i] + 'GrossAcresButton');
-        OnSingleInputChangeCC(grossAcresInput, grossAcresInputError, clearGrossAcresButton, false, 'CC');
+        OnSingleInputChangeCC(grossAcresInput, grossAcresInputError, clearGrossAcresButton, tf, 'CC');
     }
-}
 
+    let topValue2 = 50;
+    let tf2 = false;
+    const singleHarvestEfficiencyInput = document.getElementById("singleHarvestEfficiencyInput");
+    const singleHarvestEfficiencyInputError = document.getElementById("singleHarvestEfficiencyInputError");
+    const clearSingleHarvestEfficiencyButton = document.getElementById('clearSingleHarvestEfficiencyButton');
+    OnSingleHarvestEfficiencyInputChangeCC(singleHarvestEfficiencyInput, singleHarvestEfficiencyInputError, clearSingleHarvestEfficiencyButton, tf2, topValue2);
+
+    const tamegrassSingleForageProductionInput = document.getElementById("tamegrassSingleForageProductionInput");
+    const tamegrassSingleForageProductionInputError = document.getElementById("tamegrassSingleForageProductionInputError");
+    const clearTamegrassSingleForageProductionButton = document.getElementById('clearTamegrassSingleForageProductionButton');
+    OnSingleInputChangeCC(tamegrassSingleForageProductionInput, tamegrassSingleForageProductionInputError, clearTamegrassSingleForageProductionButton, tf2, 'CC');
+
+    const annualForagesSingleForageProductionInput = document.getElementById("annualForagesSingleForageProductionInput");
+    const annualForagesSingleForageProductionInputError = document.getElementById("annualForagesSingleForageProductionInputError");
+    const clearAnnualForagesSingleForageProductionButton = document.getElementById('clearAnnualForagesSingleForageProductionButton');
+    OnSingleInputChangeCC(annualForagesSingleForageProductionInput, annualForagesSingleForageProductionInputError, clearAnnualForagesSingleForageProductionButton, tf2, 'CC');
+
+    const singleGrossAcresInput = document.getElementById("singleGrossAcresInput");
+    const singleGrossAcresInputError = document.getElementById("singleGrossAcresInputError");
+    const clearSingleGrossAcresButton = document.getElementById('clearSingleGrossAcresButton');
+    OnSingleInputChangeCC(singleGrossAcresInput, singleGrossAcresInputError, clearSingleGrossAcresButton, tf2, 'CC');
+}
 
 
 function CheckHarvestEfficiencyInputCollectionError() {
     const landTypes = GetLandTypes();
     for (let i = 0; i < landTypes.length; i++) {
         const inputID = document.getElementById(landTypes[i] + "HarvestEfficiencyInput");
-        if (CheckSingleHarvestEfficiencyInputError(inputID)) {
+        if (CheckSingleHarvestEfficiencyInputError(inputID, true, 40)) {
             return true;
         }
     }
@@ -1142,10 +1144,6 @@ function GetEstimatedAumAcArray(n) {
 }
 
 
-/* function GetGrossAcresInputArray() {
-    return [uplandLoamyGrossAcresInput, uplandSandyGrossAcresInput, uplandClayeyGrossAcresInput, uplandShallowGrossAcresInput, uplandVeryShallowGrossAcresInput, lowlandOverflowGrossAcresInput, lowlandWetMeadowGrossAcresInput];
-}
- */
 function GetGrossAcresInputArrayValues() {
     const landTypes = GetLandTypes();
     let grossAcres = [];
@@ -1172,11 +1170,39 @@ function GetLandTypes() {
 }
 
 
-
-/* function GetForageProductionInputArray() {
-    return [uplandLoamyForageProductionInput, uplandSandyForageProductionInput, uplandClayeyForageProductionInput, uplandShallowForageProductionInput, uplandVeryShallowForageProductionInput, lowlandOverflowForageProductionInput, lowlandWetMeadowForageProductionInput];
+function GetLandTypes2() {
+    return ["UplandLoamy", "UplandSandy", "UplandClayey", "UplandShallow", "UplandVeryShallow", "LowlandOverflow", "LowlandWetMeadow"];
 }
- */
+
+function FreezeHarvestEfficiencyInputs() {
+    const landTypes = GetLandTypes();
+    const landTypes2 = GetLandTypes2();
+    const n = landTypes.length;
+    for (let i = 0; i < n; i++) {
+        let harvestEfficiencyInput = document.getElementById(landTypes[i] + "HarvestEfficiencyInput");
+        harvestEfficiencyInput.value = i === n - 1 ? 12.5 : 25;
+        harvestEfficiencyInput.readOnly = true;
+        let clearHarvestEfficiencyButton = document.getElementById('clear' + landTypes2[i] + 'HarvestEfficiencyButton');
+        clearHarvestEfficiencyButton.style.display = 'none';
+        let harvestEfficiencyInputError = document.getElementById(landTypes[i] + "HarvestEfficiencyInputError");
+        harvestEfficiencyInputError.style.display = 'none';
+    }
+}
+
+
+function UnfreezeHarvestEfficiencyInputs() {
+    const landTypes = GetLandTypes();
+    const landTypes2 = GetLandTypes2();
+    for (let i = 0; i < landTypes.length; i++) {
+        let harvestEfficiencyInput = document.getElementById(landTypes[i] + "HarvestEfficiencyInput");
+        harvestEfficiencyInput.readOnly = false;
+        let clearHarvestEfficiencyButton = document.getElementById('clear' + landTypes2[i] + 'HarvestEfficiencyButton');
+        clearHarvestEfficiencyButton.style.display = 'inline-block';
+        let harvestEfficiencyInputError = document.getElementById(landTypes[i] + "HarvestEfficiencyInputError");
+        harvestEfficiencyInputError.style.display = 'inline-block';
+    }
+}
+
 
 function GetForageProductionInputArrayValues() {
     let forageProduction = [];
@@ -1188,10 +1214,6 @@ function GetForageProductionInputArrayValues() {
     return forageProduction;
 }
 
-/* function GetHarvestEfficiencyInputArray() {
-    return [uplandLoamyHarvestEfficiencyInput, uplandSandyHarvestEfficiencyInput, uplandClayeyHarvestEfficiencyInput, uplandShallowHarvestEfficiencyInput, uplandVeryShallowHarvestEfficiencyInput, lowlandOverflowHarvestEfficiencyInput, lowlandWetMeadowHarvestEfficiencyInput];
-}
- */
 
 // get the values of harvest efficiency for each land type
 function GetHarvestEfficiencyInputArrayValues() {
@@ -1215,7 +1237,6 @@ function GetTotalAUMsUsingRPV(rpv) {
     }
 
     return totalAvailableForage / 913.0;
-    //return [totalAvailableForage, totalAUMs]; // return both total available forage and totalAUMs;
 }
 
 
@@ -1232,22 +1253,6 @@ function GetTotalAUMsUsingEstimatedAumAc() {
 }
 
 
-/* // get total AUMs using estimated rpv and gross acres and harvest efficiency
-function GetTotalAUMsUsingEstimatedRPV() {
-    let grossAcresValues = GetGrossAcresInputArrayValues();
-    let harvestEfficiencyValues = GetHarvestEfficiencyInputArrayValues();
-    let estimatedRPVArray = GetEstimatedRPVArray(landResourceAreaSelect.selectedIndex);
-
-    let totalAvailableForage = 0;
-    for (let i = 0; i < grossAcresValues.length; i++) {
-        totalAvailableForage += grossAcresValues[i] * estimatedRPVArray[i] * harvestEfficiencyValues[i];
-    }
-
-    let totalAUMs = totalAvailableForage / 913;
-    return [totalAvailableForage, totalAUMs]; // return both total available forage and totalAUMs;
-}
- */
-
 // hide or don't display carrying capacity calculator results and remind the user to fix any errors when any errors occur
 function HideResultsDivs() {
     globalValidationMessageCC.textContent = 'Please fix the errors in the highlighted fields before proceeding.';
@@ -1261,149 +1266,46 @@ function ShowResultsDivs() {
     carryingCapacityCalculateBtnDiv.style.display = 'none';
 }
 
-/* // calculate carrying capacity
-function CarryingCapacityCalculation2() {
-    const carryingCapacityCalculateBtn = document.getElementById('carryingCapacityCalculateBtn');
-    carryingCapacityCalculateBtn.addEventListener('click', function () {
-
-        //var totalForageProductionCC = 0;
-        let totalAvailableForageProductionCC = 0;
-        let totalAumsCC = 0;
-        let aumAcCC = 0;
-        let acAumCC = 0;
-        let auemAcCC = 0;
-        let acAuemCC = 0;
-        let totalAcresCC = 1;
-
-        //var aueError = CheckAueInputCCError();
-        let singleForageProductionError = CheckSingleInputErrorZero(singleForageProductionInput, false);
-        let singleGrossAcresError = CheckSingleInputErrorZero(singleGrossAcresInput, false);
-        let singleHarvestEfficiencyError = CheckSingleHarvestEfficiencyInputError(singleHarvestEfficiencyInput, false);
-        let harvestEfficiencyCollectionError = CheckHarvestEfficiencyInputCollectionError();
-        let forageProductionCollectionError = CheckForageProductionInputCollectionError();
-        let grossAcresCollectionError = CheckGrossAcresInputCollectionError();
-
-        if (document.querySelector("input[name='pastureTypeRadioCC']:checked").value === 'rangeRadioCC') {// calculate carrying capacity for rangeland pasture
-
-        }
-        // calculate carrying capacity for tamegrass pasture
-        else if (document.querySelector("input[name='pastureTypeRadioCC']:checked").value === 'tamegrassRadioCC') {
-            if (document.querySelector("input[name='relativeProductionValueTypeRadio']:checked").value === 'defaultValueRadio') {
-                // calculate carrying capacity for tamegrass pasture using estimated/default relative production value
-                let err = harvestEfficiencyCollectionError || grossAcresCollectionError;
-                if (!err) {// if no errors, calculate
-                    ShowResults();
-
-                    // calculate carrying capacity for tamegrass pasture using default relative production value
-                    [totalAvailableForageProductionCC, totalAumsCC] = GetTotalAUMsUsingEstimatedRPV();
-                    aumAcCC = totalAumsCC / GetTotalAcres();
-                    acAumCC = 1 / aumAcCC;
-                    auemAcCC = aumAcCC / GetAueCC();
-                    acAuemCC = 1 / auemAcCC;
-                    totalAvailableForageDisplay.value = totalAvailableForageProductionCC.toFixed(2);
-                    totalAumsDisplay.value = totalAumsCC.toFixed(2);
-                    aumAcDisplay.value = aumAcCC.toFixed(2);
-                    acAumDisplay.value = acAumCC.toFixed(2);
-                    auemAcDisplay.value = auemAcCC.toFixed(2);
-                    acAuemDisplay.value = acAuemCC.toFixed(2);
-                }
-                else {// if errors, display error message and hide result
-                    HideResults();
-                }
-            }
-
-            else {// calculate carrying capacity for tamegrass pasture using custom relative production value
-                let err = harvestEfficiencyCollectionError || grossAcresCollectionError || forageProductionCollectionError;
-                if (!err) {//if no errors, calculate
-                    ShowResults();
-
-                    // TODO:calculate carrying capacity for tamegrass pasture using custom relative production value
-
-
-                }
-                else {//if errors, display error message and hide result
-                    HideResults();
-                }
-            }
-        }
-        else {// calculate carrying capacity for Row Crops, Small Grains, Solid-seeded (Broadcast) Crops and Cover Crop Mixtures
-
-            let err = singleForageProductionError || singleGrossAcresError || singleHarvestEfficiencyError;
-            //if no errors, calculate
-            if (!err) {
-                ShowResults();
-
-                // calculate carrying capacity for non range pasture
-                totalAcresCC = GetSingleGrossAcres();
-                totalForageProductionCC = totalAcresCC * GetNonRangePastureForageProduction();
-                totalAvailableForageProductionCC = totalForageProductionCC * GetSingleHarvestEfficiency() / 100;
-                totalAumsCC = totalAvailableForageProductionCC / 913;
-                aumAcCC = totalAumsCC / totalAcresCC;
-                acAumCC = 1 / aumAcCC;
-                auemAcCC = aumAcCC / GetAueCC();
-                acAuemCC = 1 / auemAcCC;
-
-                // show results here using a function
-                //totalProductionDisplay.value = totalForageProductionCC.toFixed(2);
-                totalAvailableForageDisplay.value = totalAvailableForageProductionCC.toFixed(2);
-                totalAumsDisplay.value = totalAumsCC.toFixed(2);
-                aumAcDisplay.value = aumAcCC.toFixed(2);
-                acAumDisplay.value = acAumCC.toFixed(2);
-                auemAcDisplay.value = auemAcCC.toFixed(2);
-                acAuemDisplay.value = acAuemCC.toFixed(2);
-
-            }
-            //else there is at least one error, show global error message, and do not calculate, and do not show result
-            else {
-                HideResults();
-            }
-
-        }
-
-
-    });
-}
- */
 
 function CarryingCapacityCalculation() {
     const carryingCapacityCalculateBtn = document.getElementById('carryingCapacityCalculateBtn');
     carryingCapacityCalculateBtn.addEventListener('click', function () {
 
-        //var totalForageProductionCC = 0;
+        let totalForageProductionCC = 0;
         let err = false;
         let rpvArray = [];
         let totalAvailableForageProductionCC = 0;
         let totalAumsCC = 0;
         let aumAcCC = 0;
         let acAumCC = 0;
-        let auemAcCC = 0;
-        let acAuemCC = 0;
         let totalAcresCC = 1;
 
-        //var aueError = CheckAueInputCCError();
-        let singleForageProductionError = CheckSingleInputErrorZero(singleForageProductionInput, false);
+        let tamegrassSingleForageProductionError = CheckSingleInputErrorZero(tamegrassSingleForageProductionInput, false);
+        let annualForagesSingleForageProductionError = CheckSingleInputErrorZero(annualForagesSingleForageProductionInput, false);
         let singleGrossAcresError = CheckSingleInputErrorZero(singleGrossAcresInput, false);
-        let singleHarvestEfficiencyError = CheckSingleHarvestEfficiencyInputError(singleHarvestEfficiencyInput, false);
+        let singleHarvestEfficiencyError = CheckSingleHarvestEfficiencyInputError(singleHarvestEfficiencyInput, false, 50);
         let harvestEfficiencyCollectionError = CheckHarvestEfficiencyInputCollectionError();
         let forageProductionCollectionError = CheckForageProductionInputCollectionError();
         let grossAcresCollectionError = CheckGrossAcresInputCollectionError();
 
-        if (document.querySelector("input[name='pastureTypeRadioCC']:checked").value === 'rangeRadioCC') {// calculate carrying capacity for rangeland pasture
-            if (document.querySelector("input[name='carryingCapacityCalculateMethodRadio']:checked").value === 'estimatedStockingRatesRadio') {// using estimated stocking rates AUMs per acres
-
+        let pt = document.querySelector("input[name='pastureTypeRadioCC']:checked").value;
+        if (pt === 'rangeRadioCC') {// calculate carrying capacity for rangeland pasture
+            let cccm = document.querySelector("input[name='carryingCapacityCalculateMethodRadio']:checked").value;
+            if (cccm === 'estimatedStockingRatesRadio') {// using estimated stocking rates AUMs per acres
                 err = harvestEfficiencyCollectionError || grossAcresCollectionError;
                 if (!err) {// if no errors, calculate
                     totalAumsCC = GetTotalAUMsUsingEstimatedAumAc();
                     totalAcresCC = GetTotalAcres();
                 }
             }
-            else {// using relative production values
-                if (document.querySelector("input[name='relativeProductionValueTypeRadio']:checked").value === 'defaultValueRadio') {
-                    // calculate carrying capacity for tamegrass pasture or rangeland using estimated/default relative production value
+            else {// using production values
+                if (cccm === 'estimatedRelativeProductionValuesRadio') {
+                    // calculate carrying capacity for rangeland using estimated/default relative production value
                     err = harvestEfficiencyCollectionError || grossAcresCollectionError;
                     rpvArray = GetEstimatedRPVArray(landResourceAreaSelect.selectedIndex);
                 }
-                else {// calculate carrying capacity for tamegrass pasture or rangeland using custom relative production value
+                else {
+                    // calculate carrying capacity for rangeland using custom or actual production values
                     err = harvestEfficiencyCollectionError || grossAcresCollectionError || forageProductionCollectionError;
                     rpvArray = GetForageProductionInputArrayValues();
                 }
@@ -1413,28 +1315,22 @@ function CarryingCapacityCalculation() {
                 }
             }
         }
-        // calculate carrying capacity for tamegrass pasture
-        else if (document.querySelector("input[name='pastureTypeRadioCC']:checked").value === 'tamegrassRadioCC') {
-            if (document.querySelector("input[name='relativeProductionValueTypeRadio']:checked").value === 'defaultValueRadio') {
-                // calculate carrying capacity for tamegrass pasture or rangeland using estimated/default relative production value
-                err = harvestEfficiencyCollectionError || grossAcresCollectionError;
-                rpvArray = GetEstimatedRPVArray(landResourceAreaSelect.selectedIndex);
+        else if (pt === 'tamegrassRadioCC') {
+            err = tamegrassSingleForageProductionError || singleGrossAcresError || singleHarvestEfficiencyError;
+            if (!err) {
+                totalAcresCC = GetSingleGrossAcres();
+                totalForageProductionCC = totalAcresCC * GetTamegrassTotalForageProduction();
+                totalAvailableForageProductionCC = totalForageProductionCC * GetSingleHarvestEfficiency();
+                totalAumsCC = totalAvailableForageProductionCC / 913.0;
             }
-            else {// calculate carrying capacity for tamegrass pasture or rangeland using custom relative production value
-                err = harvestEfficiencyCollectionError || grossAcresCollectionError || forageProductionCollectionError;
-                rpvArray = GetForageProductionInputArrayValues();
-            }
-            if (!err) {// if no errors, calculate
-                totalAumsCC = GetTotalAUMsUsingRPV(rpvArray);
-                totalAcresCC = GetTotalAcres();
-            }
+
         }
-        else {// calculate carrying capacity for Row Crops, Small Grains, Solid-seeded (Broadcast) Crops and Cover Crop Mixtures
-            err = singleForageProductionError || singleGrossAcresError || singleHarvestEfficiencyError;
+        else {// calculate carrying capacity for Annual Forages
+            err = annualForagesSingleForageProductionError || singleGrossAcresError || singleHarvestEfficiencyError;
             //if no errors, calculate
             if (!err) {
                 totalAcresCC = GetSingleGrossAcres();
-                totalForageProductionCC = totalAcresCC * GetNonRangePastureForageProduction();
+                totalForageProductionCC = totalAcresCC * GetAnnualForagesTotalForageProduction();
                 totalAvailableForageProductionCC = totalForageProductionCC * GetSingleHarvestEfficiency();
                 totalAumsCC = totalAvailableForageProductionCC / 913.0;
             }
@@ -1442,18 +1338,17 @@ function CarryingCapacityCalculation() {
 
         if (!err) {
             ShowResultsDivs();
-
             aumAcCC = totalAumsCC / totalAcresCC;
             acAumCC = 1 / aumAcCC;
-            auemAcCC = aumAcCC / GetAueCC();
-            acAuemCC = 1 / auemAcCC;
 
-            //totalAvailableForageDisplay.value = totalAvailableForageProductionCC.toFixed(2);
-            totalAumsDisplay.value = totalAumsCC.toFixed(2);
+            carryingCapacityTotalAumsDisplay.value = totalAumsCC.toFixed(2);
             aumAcDisplay.value = aumAcCC.toFixed(2);
             acAumDisplay.value = acAumCC.toFixed(2);
-            auemAcDisplay.value = auemAcCC.toFixed(2);
-            acAuemDisplay.value = acAuemCC.toFixed(2);
+
+            const totalAumInput = document.getElementById('totalAumInput');
+            if (!totalAumInput.value) {
+                stockingRateTotalAumsDisplay.value = 'No value calculated';
+            }
         }
         else {
             HideResultsDivs();
