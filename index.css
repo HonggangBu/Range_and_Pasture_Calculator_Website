@@ -271,17 +271,42 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 
 
-.imageLeft {
+/* .imageLeft {
     float: left;
     width: 300px;
     margin-right: 10px;
-}
+} */
 
-.imageRight {
+/* .imageRight {
     float: right;
     width: 300px;
     margin-left: 10px;
+} */
+
+.imageLeft,
+.imageRight {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    margin: 10px 0;
+    display: block;
 }
+
+@media (min-width: 768px) {
+    .imageLeft {
+        float: left;
+        width: 30%;
+        margin-right: 15px;
+    }
+
+    .imageRight {
+        float: right;
+        width: 30%;
+        margin-left: 15px;
+    }
+}
+
+
 
 #title2 {
     text-align: center;
