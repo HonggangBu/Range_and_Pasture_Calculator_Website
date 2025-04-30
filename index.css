@@ -270,19 +270,6 @@ input[type="number"]::-webkit-inner-spin-button {
     color: #ffffff;
 }
 
-
-/* .imageLeft {
-    float: left;
-    width: 300px;
-    margin-right: 10px;
-} */
-
-/* .imageRight {
-    float: right;
-    width: 300px;
-    margin-left: 10px;
-} */
-
 .imageLeft,
 .imageRight {
     width: 100%;
@@ -304,18 +291,6 @@ input[type="number"]::-webkit-inner-spin-button {
         width: 30%;
         margin-left: 15px;
     }
-}
-
-
-
-#title2 {
-    text-align: center;
-    font-size: x-large;
-    font-weight: bold;
-    color: darkslateblue;
-    opacity: 0.9;
-    width: 100%;
-    /* background-color: aliceblue; */
 }
 
 /* Background layer */
@@ -347,6 +322,7 @@ input[type="number"]::-webkit-inner-spin-button {
     padding-right: 15px;
     padding-top: 5px;
     padding-bottom: 5px;
+    opacity: 0.8;
 }
 
 .calculators-bgc {
