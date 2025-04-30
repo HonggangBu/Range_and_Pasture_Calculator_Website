@@ -200,17 +200,17 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 
 .clearable input[type="text"] {
-    padding-right: 24px;
+    padding-right: 4px;
 }
 
 .clearable .clear-button {
     position: absolute;
-    right: 8px;
+    right: 2px;
     top: 50%;
     transform: translateY(-50%);
     background: transparent;
     border: none;
-    font-size: 16px;
+    font-size: 15px;
     cursor: pointer;
     color: #aaa;
 }
@@ -290,7 +290,7 @@ input[type="number"]::-webkit-inner-spin-button {
     color: darkslateblue;
     opacity: 0.9;
     width: 100%;
-    background-color: aliceblue;
+    /* background-color: aliceblue; */
 }
 
 /* Background layer */
@@ -326,8 +326,8 @@ input[type="number"]::-webkit-inner-spin-button {
 
 .calculators-bgc {
     background-color: rgb(26, 92, 4);
-    padding-left: 30px;
-    padding-right: 30px;
+    padding-left: 5px;
+    padding-right: 5px;
 }
 
 .white-font {
