@@ -72,30 +72,52 @@
                         <h2>NDSU Grazing Calculator</h2>
                     </div>
                     <br>
-                    <img src="images/grazing0.jpg" alt="grazing" class="imageLeft">
-                    <div id="aboutText">
-                        Establishing the correct stocking rate is critical in optimizing forage production and
-                        maintaining animal performance while ensuring the sustained health of the grazing resources.
-                        Accurately calculating range and forage production of grazing resources is important when
-                        estimating carrying capacity and stocking rate. The most accurate method to calculate forage
-                        production is the clip-and-weigh method. The NDSU Grazing Calculator helps land
-                        manager/owner
-                        estimate carrying capacity and set initial stocking rate for their grazing resources.
-                        <br><br>
-                        <img src="images/grazing2.jpg" alt="grazing" class="imageRight">
-                        Carrying capacity is a measurement of how much forage a unit or piece of ground is able to
-                        produce on an average year. The carrying capacity is the maximum stocking rate possible that
-                        is
-                        consistent with maintaining or improving the forage and plant community, and other related
-                        resources. Stocking rate is the number of animals grazing a unit of land for a specific time
-                        period.
-                        Stocking rate is one of the most important grazing management decisions a rancher or
-                        land manager makes.
-                        <br><br>
-                        For any questions or detailed information, please check the documents or reach out to Dr.<a
-                            href="https://www.ndsu.edu/agriculture/ag-home/directory/miranda-meehan" target="_blank">
-                            Miranda Meehan
-                        </a>.
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="aboutText">
+                                Establishing the correct stocking rate is critical in optimizing forage production and
+                                maintaining animal performance while ensuring the sustained health of the grazing
+                                resources.
+                                Accurately calculating range and forage production of grazing resources is important
+                                when
+                                estimating carrying capacity and stocking rate. The most accurate method to calculate
+                                forage
+                                production is the clip-and-weigh method. The NDSU Grazing Calculator helps land
+                                manager/owner
+                                estimate carrying capacity and set initial stocking rate for their grazing resources.
+                                <br><br>
+                                <img src="images/grazing_3.jpg" alt="grazing" class="img-fluid w-100 mb-2">
+
+                                Carrying capacity is a measurement of how much forage a unit or piece of ground is able
+                                to
+                                produce on an average year. The carrying capacity is the maximum stocking rate possible
+                                that
+                                is
+                                consistent with maintaining or improving the forage and plant community, and other
+                                related
+                                resources. Stocking rate is the number of animals grazing a unit of land for a specific
+                                time
+                                period.
+                                Stocking rate is one of the most important grazing management decisions a rancher or
+                                land manager makes.
+                                <br><br>
+                            </div>
+                            <img src="images/grazing_2.jpg" alt="grazing" class="img-fluid w-100 mb-2">
+                        </div>
+                        <div class="col-sm-6">
+                            <br><br><br><br>
+                            <img src="images/grazing_4.jpg" alt="grazing" class="img-fluid w-100 mb-2">
+                            <br><br><br><br>
+                            <img src="images/grazing_1.jpg" alt="grazing" class="img-fluid w-100">
+                            <br><br><br><br>
+                            <p class="aboutText">
+                                For any questions or detailed information, please check the documents or reach out to
+                                Dr.<a href="https://www.ndsu.edu/agriculture/ag-home/directory/miranda-meehan"
+                                    target="_blank">
+                                    Miranda Meehan
+                                </a>.
+                            </p>
+                        </div>
                     </div>
                 </div>
                 <div class="tab-pane fade bgc-azure" id="docs" role="tabpanel" aria-labelledby="docs-tab">
@@ -186,13 +208,18 @@
                     </div>
                     <div class="form-check">
                         <input type="radio" class="form-check-input" id="tamegrassRadio" name="pastureTypeRadio"
-                            value="tamegrassRadio">Tame Grass Pastures
+                            value="tamegrassRadio">Tame Grass
                         <label class="form-check-label" for="tamegrassRadio"></label>
                     </div>
                     <div class="form-check">
-                        <input type="radio" class="form-check-input" id="annualForagesRadio" name="pastureTypeRadio"
-                            value="annualForagesRadio">Annual Forages
-                        <label class="form-check-label" for="annualForagesRadio"></label>
+                        <input type="radio" class="form-check-input" id="solidseededRadio" name="pastureTypeRadio"
+                            value="solidseededRadio">Annual Forages, solid-seeded
+                        <label class="form-check-label" for="solidseededRadio"></label>
+                    </div>
+                    <div class="form-check">
+                        <input type="radio" class="form-check-input" id="rowcropsRadio" name="pastureTypeRadio"
+                            value="rowcropsRadio">Annual Forages, row crops
+                        <label class="form-check-label" for="rowcropsRadio"></label>
                     </div>
                 </fieldset>
                 <br>
@@ -263,8 +290,8 @@
                         <table class="table table-striped">
                             <thead>
                                 <tr>
-                                    <th scope="col">Land Type</th>
-                                    <th scope="col">Sample Net Weights (unit: gram)
+                                    <th scope="col" style="width: 35%;">Land Type</th>
+                                    <th scope="col" style="width: 65%;">Sample Net Weights (unit: gram)
                                     </th>
                                 </tr>
                             </thead>
@@ -585,14 +612,21 @@
                     <div class="form-check">
                         <input type="radio" class="form-check-input" name="pastureTypeRadioCC" id="tamegrassRadioCC"
                             value="tamegrassRadioCC">
-                        <label class="form-check-label" for="tamegrassRadioCC">Tame Grass Pastures</label>
+                        <label class="form-check-label" for="tamegrassRadioCC">Tame Grass</label>
                     </div>
                     <div class="form-check">
-                        <input type="radio" class="form-check-input" name="pastureTypeRadioCC" id="annualForagesRadioCC"
-                            value="annualForagesRadioCC">
-                        <label class="form-check-label" for="annualForagesRadioCC">Annual
-                            Forages</label>
+                        <input type="radio" class="form-check-input" name="pastureTypeRadioCC" id="solidseededRadioCC"
+                            value="solidseededRadioCC">
+                        <label class="form-check-label" for="solidseededRadioCC">Annual
+                            Forages, solid-seeded</label>
                     </div>
+                    <div class="form-check">
+                        <input type="radio" class="form-check-input" name="pastureTypeRadioCC" id="rowcropsRadioCC"
+                            value="rowcropsRadioCC">
+                        <label class="form-check-label" for="rowcropsRadioCC">Annual
+                            Forages, row crops</label>
+                    </div>
+
                 </fieldset>
                 <br>
 
@@ -666,20 +700,35 @@
                     </fieldset>
                     <br>
                 </div>
-                <div id="annualForagesSingleForageProductionDiv" class="nodisplay">
+                <div id="solidseededSingleForageProductionDiv" class="nodisplay">
                     <fieldset>
                         <legend>Total Forage Production (pounds/acre)
                         </legend>
                         <div class="center-div clearable">
-                            <input type="number" id="annualForagesSingleForageProductionInput" value="1">
+                            <input type="number" id="solidseededSingleForageProductionInput" value="1">
                             <button type="button" class="clear-button"
-                                id="clearAnnualForagesSingleForageProductionButton">x</button>
+                                id="clearSolidseededSingleForageProductionButton">x</button>
                         </div>
-                        <div id="annualForagesSingleForageProductionInputError" class="validation-message">
+                        <div id="solidseededSingleForageProductionInputError" class="validation-message">
                         </div>
                     </fieldset>
                     <br>
                 </div>
+                <div id="rowcropsSingleForageProductionDiv" class="nodisplay">
+                    <fieldset>
+                        <legend>Total Forage Production (pounds/acre)
+                        </legend>
+                        <div class="center-div clearable">
+                            <input type="number" id="rowcropsSingleForageProductionInput" value="1">
+                            <button type="button" class="clear-button"
+                                id="clearRowcropsSingleForageProductionButton">x</button>
+                        </div>
+                        <div id="rowcropsSingleForageProductionInputError" class="validation-message">
+                        </div>
+                    </fieldset>
+                    <br>
+                </div>
+
                 <div id="multiAcresDiv">
                     <fieldset>
                         <legend>Total Acres and Harvest Efficiencies</legend>
